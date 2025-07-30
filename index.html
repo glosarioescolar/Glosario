@@ -445,6 +445,22 @@
             font-size: 0.9rem;
         }
 
+        .breadcrumb {
+            padding: 15px 0;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 5px;
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .main-content {
@@ -480,6 +496,60 @@
                 padding: 20px;
             }
         }
+
+        /* Nuevos estilos para la página de inicio */
+        .intro-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .intro-section h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .intro-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 200px;
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .stat-card .number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-card .label {
+            font-size: 1rem;
+            color: #666;
+        }
     </style>
 </head>
 <body>
@@ -505,61 +575,56 @@
         </div>
     </div>
 
+    <!-- Breadcrumb -->
+    <div class="container breadcrumb">
+        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+    </div>
+
     <!-- Main Content -->
     <div class="container">
+        <div class="intro-section">
+            <h2><i class="fas fa-info-circle"></i> Bienvenido al Glosario Técnico</h2>
+            <p>Este recurso educativo contiene definiciones claras y precisas de términos técnicos de diversas áreas, organizados por categorías y orden alfabético para facilitar tu aprendizaje y consulta.</p>
+            <p>Explora nuestras categorías, utiliza el buscador o navega por nuestro índice alfabético para encontrar la información que necesitas.</p>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-book"></i>
+                    <div class="number">5</div>
+                    <div class="label">Categorías</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-font"></i>
+                    <div class="number">200+</div>
+                    <div class="label">Términos</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="number">7</div>
+                    <div class="label">Colaboradores</div>
+                </div>
+            </div>
+        </div>
+        
         <div class="main-content">
             <!-- Categories Section -->
             <div class="categories-section">
                 <h2><i class="fas fa-tags"></i> Categorías</h2>
                 <ul class="category-list">
-                    <li><a href="#"><i class="fas fa-tools"></i> Herramientas y Máquinas</a></li>
-                    <li><a href="#"><i class="fas fa-ruler-combined"></i> Unidades de Medida</a></li>
-                    <li><a href="#"><i class="fas fa-cubes"></i> Materiales y Propiedades</a></li>
-                    <li><a href="#"><i class="fas fa-cogs"></i> Procedimientos Técnicos</a></li>
-                    <li><a href="#"><i class="fas fa-lightbulb"></i> Conceptos Teóricos</a></li>
-                    <li><a href="#"><i class="fas fa-bolt"></i> Energía y Electricidad</a></li>
-                    <li><a href="#"><i class="fas fa-laptop-code"></i> Tecnología Digital</a></li>
-                    <li><a href="#"><i class="fas fa-drafting-compass"></i> Diseño Técnico</a></li>
+                    <li><a href="categorias/herramientas-y-maquinaria.html"><i class="fas fa-tools"></i> Herramientas y Máquinas</a></li>
+                    <li><a href="categorias/unidades-de-medida-abreviaturas-y-siglas.html"><i class="fas fa-ruler-combined"></i> Unidades de Medida</a></li>
+                    <li><a href="categorias/materiales-y-propiedades.html"><i class="fas fa-cubes"></i> Materiales y Propiedades</a></li>
+                    <li><a href="categorias/procedimientos-tecnicos.html"><i class="fas fa-cogs"></i> Procedimientos Técnicos</a></li>
+                    <li><a href="categorias/conceptos-teoricos.html"><i class="fas fa-lightbulb"></i> Conceptos Teóricos</a></li>
                 </ul>
             </div>
 
             <!-- Terms Section -->
             <div class="terms-section">
-                <h2><i class="fas fa-book"></i> Índice Alfabético de Términos</h2>
+                <h2><i class="fas fa-star"></i> Términos Destacados</h2>
                 
-                <div class="alphabet-nav">
-                    <a href="#" class="active">A</a>
-                    <a href="#">B</a>
-                    <a href="#">C</a>
-                    <a href="#">D</a>
-                    <a href="#">E</a>
-                    <a href="#">F</a>
-                    <a href="#">G</a>
-                    <a href="#">H</a>
-                    <a href="#">I</a>
-                    <a href="#">J</a>
-                    <a href="#">K</a>
-                    <a href="#">L</a>
-                    <a href="#">M</a>
-                    <a href="#">N</a>
-                    <a href="#">Ñ</a>
-                    <a href="#">O</a>
-                    <a href="#">P</a>
-                    <a href="#">Q</a>
-                    <a href="#">R</a>
-                    <a href="#">S</a>
-                    <a href="#">T</a>
-                    <a href="#">U</a>
-                    <a href="#">V</a>
-                    <a href="#">W</a>
-                    <a href="#">X</a>
-                    <a href="#">Y</a>
-                    <a href="#">Z</a>
-                </div>
-                
-                <!-- A Section -->
                 <div class="term-group">
-                    <h3>A</h3>
+                    <h3>Conceptos Populares</h3>
                     <div class="term-list">
                         <!-- Term Card 1 -->
                         <div class="term-card">
@@ -606,27 +671,11 @@
                                 <a href="#">Poliestireno Expandido</a>
                             </div>
                         </div>
-                        
-                        <!-- Term Card 4 -->
-                        <div class="term-card">
-                            <h4>Anodizado</h4>
-                            <p>Proceso electroquímico que aumenta el espesor de la capa de óxido natural en la superficie de metales como el aluminio.</p>
-                            <div class="term-meta">
-                                <span class="term-category">Procedimientos Técnicos</span>
-                                <a href="#" class="term-link">Ver definición completa <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                            <div class="related-terms">
-                                <span>Quizás te interese:</span>
-                                <a href="#">Electrólisis</a>
-                                <a href="#">Protección Catódica</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 
-                <!-- B Section -->
                 <div class="term-group">
-                    <h3>B</h3>
+                    <h3>Nuevos Términos</h3>
                     <div class="term-list">
                         <!-- Term Card 1 -->
                         <div class="term-card">
@@ -653,6 +702,21 @@
                                 <a href="#">Sistema Binario</a>
                             </div>
                         </div>
+                        
+                        <!-- Term Card 3 -->
+                        <div class="term-card">
+                            <h4>CAD</h4>
+                            <p>Diseño Asistido por Computadora (Computer-Aided Design), software utilizado para crear diseños técnicos en 2D y 3D.</p>
+                            <div class="term-meta">
+                                <span class="term-category">Diseño Técnico</span>
+                                <a href="#" class="term-link">Ver definición completa <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                            <div class="related-terms">
+                                <span>Quizás te interese:</span>
+                                <a href="#">CAM</a>
+                                <a href="#">Modelado 3D</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -671,7 +735,7 @@
                 <div class="footer-section">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
                         <li><a href="#"><i class="fas fa-list"></i> Todas las Categorías</a></li>
                         <li><a href="#"><i class="fas fa-book"></i> Términos Recientes</a></li>
                         <li><a href="#"><i class="fas fa-question-circle"></i> Ayuda</a></li>
@@ -789,30 +853,20 @@
         });
 
         document.addEventListener('click', function(e) {
-            if (!searchResults.contains(e.target) {
+            if (!searchResults.contains(e.target) && e.target !== searchInput) {
                 searchResults.style.display = 'none';
             }
         });
 
-        // Simular selección de letra
-        alphabetLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                alphabetLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                const letter = this.textContent;
-                alert(`Mostrando términos que comienzan con: ${letter}`);
-                // Aquí se filtrarían los términos por letra
-            });
-        });
-
-        // Simular clic en categoría
+        // Simular selección de categoría
         document.querySelectorAll('.category-list a').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const category = this.textContent;
-                alert(`Mostrando términos de la categoría: ${category}`);
-                // Aquí se filtrarían los términos por categoría
+                const categorySlug = this.getAttribute('href');
+                alert(`Redirigiendo a la categoría: ${category} (${categorySlug})`);
+                // Aquí se redirigiría a la página de la categoría
+                // window.location.href = categorySlug;
             });
         });
 
