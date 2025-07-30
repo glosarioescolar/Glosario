@@ -550,6 +550,17 @@
             font-size: 1rem;
             color: #666;
         }
+        
+        /* Mensaje de error */
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid #c62828;
+        }
     </style>
 </head>
 <body>
@@ -572,6 +583,14 @@
                 <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
                 <div id="search-results"></div>
             </div>
+        </div>
+    </div>
+
+    <!-- Mensaje de error -->
+    <div class="container">
+        <div class="error-message">
+            <i class="fas fa-exclamation-circle"></i> 
+            <strong>Nota:</strong> Las páginas de categorías están actualmente en desarrollo. Estamos trabajando para completar todo el contenido.
         </div>
     </div>
 
@@ -801,7 +820,6 @@
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
         const searchButton = document.getElementById('search-button');
-        const alphabetLinks = document.querySelectorAll('.alphabet-nav a');
 
         // Función para mostrar resultados de búsqueda
         function showSearchResults(query) {
@@ -858,24 +876,11 @@
             }
         });
 
-        // Simular selección de categoría
-        document.querySelectorAll('.category-list a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const category = this.textContent;
-                const categorySlug = this.getAttribute('href');
-                alert(`Redirigiendo a la categoría: ${category} (${categorySlug})`);
-                // Aquí se redirigiría a la página de la categoría
-                // window.location.href = categorySlug;
-            });
-        });
-
         // Simular clic en términos relacionados
         document.querySelectorAll('.related-terms a').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const term = this.textContent;
-                alert(`Buscando término relacionado: ${term}`);
                 searchInput.value = term;
                 showSearchResults(term);
             });
