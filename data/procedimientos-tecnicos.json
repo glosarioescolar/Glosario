@@ -1,1 +1,218 @@
-
+[
+  {
+    "term": "Acoplar",
+    "definition": "Unir dos piezas, usualmente cañerías.",
+    "letter": "A",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Aislación",
+    "definition": "Acción de agregar protección a un sistema para evitar pérdidas de energía calórica o eléctrica.",
+    "letter": "A",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Aleación",
+    "definition": "Mezcla de dos o más elementos (al menos uno metálico) para mejorar propiedades como dureza o resistencia.",
+    "letter": "A",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Análisis de fallos",
+    "definition": "Estudio de causas y efectos de fallos en sistemas o equipos para mejorar rendimiento y fiabilidad.",
+    "letter": "A",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Antiflama",
+    "definition": "Tratamiento aplicado a telas o materiales para hacerlos resistentes al fuego y reducir riesgo de incendio.",
+    "letter": "A",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Ajuste",
+    "definition": "Proceso de ajustar piezas para que encajen perfectamente.",
+    "letter": "A",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Ajuste interferencia",
+    "definition": "Tipo de acoplamiento donde una pieza tiene diámetro ligeramente mayor que otra.",
+    "letter": "A",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Calibración",
+    "definition": "Ajuste de instrumentos de medición según referencia estandarizada (patrón).",
+    "letter": "C",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Cebar (una bomba)",
+    "definition": "Proceso de llenar el cuerpo y tubería de aspiración de una bomba.",
+    "letter": "C",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Cementado",
+    "definition": "Tratamiento térmico con cementante para endurecimiento superficial de aceros.",
+    "letter": "C",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Conformado",
+    "definition": "Proceso de cambiar forma de un material sin alterar su volumen mediante doblado, extrusión o estampado.",
+    "letter": "C",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Desbastar",
+    "definition": "Eliminar excesos de metal en piezas con relieves.",
+    "letter": "D",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Empalme",
+    "definition": "Unión de dos cables desde sus extremos para hacer extensiones o reparaciones.",
+    "letter": "E",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Endurecimiento",
+    "definition": "Proceso para aumentar dureza y resistencia de materiales (generalmente metales) mediante tratamiento térmico o deformación mecánica.",
+    "letter": "E",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Ensamblaje",
+    "definition": "Proceso de unir piezas para formar un conjunto.",
+    "letter": "E",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Enfriamiento adiabático",
+    "definition": "Proceso donde un gas o sistema se enfría al expandirse sin intercambiar calor con su entorno.",
+    "letter": "E",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Estopadura",
+    "definition": "Sistema de sellado que evita ingreso de gas/líquido a un eje.",
+    "letter": "E",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Estratificación",
+    "definition": "Formación de capas de distinta temperatura en un sistema térmico.",
+    "letter": "E",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Flapear",
+    "definition": "Quitar capas de metal para pulir usando herramienta llamada flapper.",
+    "letter": "F",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Fresado",
+    "definition": "Uso de fresadora para crear formas o acabados en piezas de metal, madera o plástico.",
+    "letter": "F",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Gasificación",
+    "definition": "Conversión de material sólido/líquido en gas mediante aplicación de calor.",
+    "letter": "G",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Lijado",
+    "definition": "Proceso de lijar superficies para obtener acabado suave.",
+    "letter": "L",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Mantenimiento preventivo",
+    "definition": "Acciones programadas para evitar fallos en equipos o maquinaria.",
+    "letter": "M",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Montaje",
+    "definition": "Proceso de ensamblar y ajustar piezas para formar equipos o sistemas.",
+    "letter": "M",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Nitrurado",
+    "definition": "Tratamiento térmico en atmósfera de nitrógeno líquido para cambiar propiedades de dureza en metales.",
+    "letter": "N",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Prácticas pre-profesionales",
+    "definition": "Actividades formativas donde estudiantes aplican conocimientos en entorno laboral real antes de egresar.",
+    "letter": "P",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Prototipo",
+    "definition": "Modelo inicial de producto/sistema para probar funcionamiento antes de producción en serie.",
+    "letter": "P",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Recocido",
+    "definition": "Tratamiento térmico que implica calentar material y enfriarlo lentamente para mejorar propiedades como ductilidad.",
+    "letter": "R",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Renderizado",
+    "definition": "Proceso de acabado de imágenes digitales o modelos 3D mediante software.",
+    "letter": "R",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Soldadura",
+    "definition": "Procedimiento para unir piezas metálicas mediante calor y presión.",
+    "letter": "S",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Taladrado",
+    "definition": "Proceso de hacer agujeros en materiales.",
+    "letter": "T",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Templado",
+    "definition": "Proceso térmico aplicado a metales para aumentar dureza y resistencia al desgaste.",
+    "letter": "T",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Termofusión",
+    "definition": "Fusión de dos materiales mediante calor.",
+    "letter": "T",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Torneado",
+    "definition": "Proceso de dar forma a objetos mediante torno.",
+    "letter": "T",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Tubulación",
+    "definition": "Montaje de tubos en colector solar de tubo de vacío.",
+    "letter": "T",
+    "related": ["Procedimientos técnicos"]
+  },
+  {
+    "term": "Verificación",
+    "definition": "Comprobación de calidad y precisión de un trabajo.",
+    "letter": "V",
+    "related": ["Procedimientos técnicos"]
+  }
+]
