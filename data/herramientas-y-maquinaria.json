@@ -1,1 +1,530 @@
-
+[
+  {
+    "term": "Aerogenerador",
+    "definition": "Máquina que convierte la energía cinética del viento en energía eléctrica. Compuesto por generador, nacelle, rotor y torre. Puede ser de eje horizontal o vertical.",
+    "letter": "A",
+    "related": ["Generador", "Rotor", "Turbina"]
+  },
+  {
+    "term": "Acople",
+    "definition": "Elemento que se utiliza en motores para conectar diferentes componentes.",
+    "letter": "A",
+    "related": ["Motor", "Engranaje"]
+  },
+  {
+    "term": "Acumulador solar",
+    "definition": "Dispositivo utilizado para almacenar energía térmica generada por un sistema de colectores solares, generalmente en forma de agua caliente.",
+    "letter": "A",
+    "related": ["Colector solar", "Energía solar"]
+  },
+  {
+    "term": "Alargador",
+    "definition": "Herramienta que se utiliza para alcanzar objetos en lugares de difícil acceso.",
+    "letter": "A",
+    "related": ["Herramientas manuales"]
+  },
+  {
+    "term": "Alternador",
+    "definition": "Máquina que convierte energía mecánica de un elemento rotatorio como una turbina en electricidad.",
+    "letter": "A",
+    "related": ["Turbina", "Generador"]
+  },
+  {
+    "term": "Amoladora",
+    "definition": "Herramienta que se utiliza para trabajos metalúrgicos como cortes, desgastes o retoques finales.",
+    "letter": "A",
+    "related": ["Herramientas eléctricas"]
+  },
+  {
+    "term": "Amperímetro",
+    "definition": "Instrumento utilizado para medir la corriente eléctrica en un circuito, conectado en serie con el componente a medir.",
+    "letter": "A",
+    "related": ["Multímetro", "Corriente eléctrica"]
+  },
+  {
+    "term": "Amplificador",
+    "definition": "Aparato que se utiliza para incrementar los valores de corriente y voltaje con una baja frecuencia.",
+    "letter": "A",
+    "related": ["Corriente eléctrica", "Voltaje"]
+  },
+  {
+    "term": "Anemómetro",
+    "definition": "Instrumento que mide la velocidad del viento. Crucial para evaluar el potencial eólico.",
+    "letter": "A",
+    "related": ["Energía eólica", "Aerogenerador"]
+  },
+  {
+    "term": "Arnés",
+    "definition": "Conjunto de correas que sirve para sujetar a alguien que está trabajando en lugares altos.",
+    "letter": "A",
+    "related": ["EPP", "Seguridad laboral"]
+  },
+  {
+    "term": "Batería",
+    "definition": "Dispositivo utilizado para almacenar energía eléctrica a través de electrones y materiales conductores.",
+    "letter": "B",
+    "related": ["Almacenamiento energético", "Energía"]
+  },
+  {
+    "term": "Biodigestor",
+    "definition": "Equipo que produce biogás y fertilizantes al descomponer materia orgánica mediante procesos como la fermentación anaeróbica.",
+    "letter": "B",
+    "related": ["Biomasa", "Energía renovable"]
+  },
+  {
+    "term": "Boca para veteo",
+    "definition": "Válvula automática que sirve para liberar presión de un determinado sistema.",
+    "letter": "B",
+    "related": ["Válvula", "Presión"]
+  },
+  {
+    "term": "Buión",
+    "definition": "Tornillo grande de cabeza redondeada. Se suele usar como sinónimo de tornillo.",
+    "letter": "B",
+    "related": ["Tornillo", "Elementos de fijación"]
+  },
+  {
+    "term": "Buscapolos",
+    "definition": "Instrumento que se utiliza para detectar la presencia de corriente o voltaje en un sistema.",
+    "letter": "B",
+    "related": ["Tester", "Multímetro"]
+  },
+  {
+    "term": "Caja multiplicadora",
+    "definition": "Elemento que se utiliza para aumentar la velocidad a través de engranajes.",
+    "letter": "C",
+    "related": ["Engranaje", "Transmisión mecánica"]
+  },
+  {
+    "term": "Caladora",
+    "definition": "Herramienta eléctrica con una hoja que permite realizar cortes precisos en diversos materiales.",
+    "letter": "C",
+    "related": ["Herramientas eléctricas", "Cortadora"]
+  },
+  {
+    "term": "Caldera",
+    "definition": "Aparato que calienta agua para la producción de calor.",
+    "letter": "C",
+    "related": ["Energía térmica", "Vapor"]
+  },
+  {
+    "term": "Calibre",
+    "definition": "Herramienta usada para realizar medidas de profundidad y diámetros tanto internos como externos.",
+    "letter": "C",
+    "related": ["Instrumentos de medición", "Precisión"]
+  },
+  {
+    "term": "Cámara termográfica",
+    "definition": "Equipo que detecta diferencias de temperatura para analizar pérdidas energéticas en sistemas.",
+    "letter": "C",
+    "related": ["Termografía", "Eficiencia energética"]
+  },
+  {
+    "term": "Capacitores",
+    "definition": "Componentes eléctricos que almacenan y liberan energía en un circuito. También denominados condensadores.",
+    "letter": "C",
+    "related": ["Circuitos eléctricos", "Almacenamiento energético"]
+  },
+  {
+    "term": "Casco de protección",
+    "definition": "Tipo de casco que se usa para proteger la cabeza de lesiones debido a la caída de objetos.",
+    "letter": "C",
+    "related": ["EPP", "Seguridad laboral"]
+  },
+  {
+    "term": "Celdas de combustible",
+    "definition": "Dispositivo que genera electricidad a partir de reacciones químicas, generalmente de hidrógeno.",
+    "letter": "C",
+    "related": ["Hidrógeno verde", "Energía limpia"]
+  },
+  {
+    "term": "Celda solar testigo",
+    "definition": "Dispositivo calibrado que mide la radiación solar en tiempo real.",
+    "letter": "C",
+    "related": ["Radiación solar", "Energía solar"]
+  },
+  {
+    "term": "Célula fotovoltaica",
+    "definition": "Dispositivo semiconductor capaz de convertir la energía de la luz solar en energía eléctrica mediante el efecto fotovoltaico.",
+    "letter": "C",
+    "related": ["Panel solar", "Efecto fotovoltaico"]
+  },
+  {
+    "term": "Cinta métrica",
+    "definition": "Instrumento flexible que se utiliza para medir distancias o longitudes.",
+    "letter": "C",
+    "related": ["Instrumentos de medición"]
+  },
+  {
+    "term": "Cinta métrica láser",
+    "definition": "Herramienta de medición precisa para dimensionar distancias utilizando tecnología láser.",
+    "letter": "C",
+    "related": ["Instrumentos de medición", "Precisión"]
+  },
+  {
+    "term": "Colector solar",
+    "definition": "Sistema de aprovechamiento de la energía del sol (radiación) para generación térmica.",
+    "letter": "C",
+    "related": ["Energía solar", "Sistemas térmicos solares"]
+  },
+  {
+    "term": "Compresor",
+    "definition": "Máquina que aumenta la presión de un gas.",
+    "letter": "C",
+    "related": ["Presión", "Neumática"]
+  },
+  {
+    "term": "Concentrador solar",
+    "definition": "Dispositivo que enfoca la radiación solar hacia un punto para generar calor o electricidad.",
+    "letter": "C",
+    "related": ["Energía solar", "Tecnología de concentradores solares"]
+  },
+  {
+    "term": "Control numérico computarizado (CNC)",
+    "definition": "Sistema automatizado que controla máquinas a través de un programa informático, usado principalmente para cortar, moldear o dar forma a materiales.",
+    "letter": "C",
+    "related": ["Automatización", "Fresadora"]
+  },
+  {
+    "term": "Controlador de carga solar",
+    "definition": "Dispositivo electrónico que regula la cantidad de energía que fluye desde el sistema fotovoltaico a la batería.",
+    "letter": "C",
+    "related": ["Sistema fotovoltaico", "Batería"]
+  },
+  {
+    "term": "Correa dentada",
+    "definition": "Cadena con dientes que se usa en sistemas mecánicos para aumentar la velocidad, torque o distancia recorrida.",
+    "letter": "C",
+    "related": ["Transmisión mecánica", "Engranaje"]
+  },
+  {
+    "term": "Cortadora",
+    "definition": "Máquina que se utiliza para cortar materiales como madera, metal o plástico.",
+    "letter": "C",
+    "related": ["Herramientas eléctricas", "Sierra circular"]
+  },
+  {
+    "term": "Cortadora láser",
+    "definition": "Máquina que utiliza un láser para cortar materiales con alta precisión.",
+    "letter": "C",
+    "related": ["CNC", "Precisión"]
+  },
+  {
+    "term": "Criquet",
+    "definition": "Herramienta que se utiliza para ajustar o desajustar tuercas.",
+    "letter": "C",
+    "related": ["Herramientas manuales"]
+  },
+  {
+    "term": "Cura",
+    "definition": "Programa informático usado para 'laminar', convierte modelos 3D en instrucciones para impresoras 3D.",
+    "letter": "C",
+    "related": ["CAD", "Impresión 3D"]
+  },
+  {
+    "term": "Destornillador",
+    "definition": "Herramienta manual o eléctrica que se utiliza para aflojar o apretar tornillos.",
+    "letter": "D",
+    "related": ["Herramientas manuales"]
+  },
+  {
+    "term": "Disyuntor diferencial",
+    "definition": "Elemento de protección eléctrica que protege a las personas de descargas eléctricas.",
+    "letter": "D",
+    "related": ["Seguridad eléctrica", "Circuitos eléctricos"]
+  },
+  {
+    "term": "Electrodo",
+    "definition": "Componente utilizado en máquinas de soldar para realizar soldaduras.",
+    "letter": "E",
+    "related": ["Soldadura", "Unión de materiales"]
+  },
+  {
+    "term": "Engranaje",
+    "definition": "Mecanismo formado por dos ruedas con dientes que transmiten movimiento entre ejes.",
+    "letter": "E",
+    "related": ["Transmisión mecánica", "Caja multiplicadora"]
+  },
+  {
+    "term": "Esmeriladora",
+    "definition": "Máquina usada para lijar, afilar o pulir materiales mediante discos abrasivos.",
+    "letter": "E",
+    "related": ["Herramientas eléctricas", "Acabado superficial"]
+  },
+  {
+    "term": "Espárrago",
+    "definition": "Tornillo sin cabeza con rosca en ambos extremos.",
+    "letter": "E",
+    "related": ["Elementos de fijación", "Tornillo"]
+  },
+  {
+    "term": "Fresadora",
+    "definition": "Máquina que utiliza una herramienta rotativa para cortar o dar forma a un material. La acción se llama fresado.",
+    "letter": "F",
+    "related": ["CNC", "Mecanizado"]
+  },
+  {
+    "term": "Fusible",
+    "definition": "Dispositivo que protege un sistema eléctrico de sobrecargas al fundirse cuando la corriente supera un límite.",
+    "letter": "F",
+    "related": ["Protección eléctrica", "Circuitos eléctricos"]
+  },
+  {
+    "term": "Gafas de seguridad",
+    "definition": "Equipo de protección personal que se utiliza para proteger los ojos durante trabajos técnicos.",
+    "letter": "G",
+    "related": ["EPP", "Seguridad laboral"]
+  },
+  {
+    "term": "Guantes hidroeléctricos",
+    "definition": "Guantes que pueden soportar altos niveles de voltaje sin permitir que la corriente eléctrica pase a través de ellos.",
+    "letter": "G",
+    "related": ["EPP", "Seguridad eléctrica"]
+  },
+  {
+    "term": "Heliostato",
+    "definition": "Espejo que sigue la posición del sol para concentrar su luz en un receptor.",
+    "letter": "H",
+    "related": ["Energía solar", "Concentrador solar"]
+  },
+  {
+    "term": "Horno de recocido",
+    "definition": "Equipo que se usa para someter materiales a tratamiento térmico controlado, generalmente para metales.",
+    "letter": "H",
+    "related": ["Tratamiento térmico", "Propiedades de materiales"]
+  },
+  {
+    "term": "Instalación fotovoltaica",
+    "definition": "Conjunto de paneles solares y componentes relacionados que permiten captura, conversión y almacenamiento de energía solar.",
+    "letter": "I",
+    "related": ["Energía solar", "Sistema fotovoltaico"]
+  },
+  {
+    "term": "Interruptor",
+    "definition": "Sistema destinado a accionar o interrumpir un circuito eléctrico.",
+    "letter": "I",
+    "related": ["Circuitos eléctricos", "Control eléctrico"]
+  },
+  {
+    "term": "Inversor (o inverter)",
+    "definition": "Dispositivo que convierte corriente continua (CC) en corriente alterna (CA) para uso doméstico.",
+    "letter": "I",
+    "related": ["Sistema fotovoltaico", "Electrónica de potencia"]
+  },
+  {
+    "term": "Microinversor",
+    "definition": "Inversor de pequeña escala instalado en cada panel solar para optimizar la producción de energía.",
+    "letter": "M",
+    "related": ["Inversor", "Panel solar"]
+  },
+  {
+    "term": "Lijadora",
+    "definition": "Herramienta que se utiliza para lijar superficies y obtener acabados suaves.",
+    "letter": "L",
+    "related": ["Acabado superficial", "Herramientas eléctricas"]
+  },
+  {
+    "term": "Luxómetro",
+    "definition": "Aparato que mide la intensidad de la luz.",
+    "letter": "L",
+    "related": ["Instrumentos de medición", "Radiación solar"]
+  },
+  {
+    "term": "Martillo",
+    "definition": "Herramienta manual que se utiliza para golpear o clavar objetos.",
+    "letter": "M",
+    "related": ["Herramientas manuales"]
+  },
+  {
+    "term": "Motor",
+    "definition": "Elemento mecánico que a través de energía eléctrica produce movimiento rotatorio.",
+    "letter": "M",
+    "related": ["Energía mecánica", "Conversión energética"]
+  },
+  {
+    "term": "Multímetro",
+    "definition": "Instrumento para medir corriente, voltaje, resistencia y continuidad de un circuito eléctrico.",
+    "letter": "M",
+    "related": ["Instrumentos de medición", "Electrónica"]
+  },
+  {
+    "term": "Nivel de gota",
+    "definition": "Herramienta de medición que se utiliza para nivelar piezas de forma horizontal o vertical.",
+    "letter": "N",
+    "related": ["Instrumentos de medición", "Precisión"]
+  },
+  {
+    "term": "Osciloscopio",
+    "definition": "Instrumento que permite ver la representación gráfica de señales eléctricas.",
+    "letter": "O",
+    "related": ["Instrumentos de medición", "Electrónica"]
+  },
+  {
+    "term": "Panel solar",
+    "definition": "Dispositivo compuesto por células fotovoltaicas que convierten luz solar en energía eléctrica mediante efecto fotovoltaico.",
+    "letter": "P",
+    "related": ["Energía solar", "Sistema fotovoltaico"]
+  },
+  {
+    "term": "Panel monocristalino",
+    "definition": "Tipo de panel solar fabricado a partir de un solo cristal de silicio, de alta eficiencia.",
+    "letter": "P",
+    "related": ["Panel solar", "Eficiencia energética"]
+  },
+  {
+    "term": "Pañol",
+    "definition": "Lugar donde se guardan herramientas para su uso organizado.",
+    "letter": "P",
+    "related": ["Organización", "Taller"]
+  },
+  {
+    "term": "Parque eólico",
+    "definition": "Conjunto de aerogeneradores ubicados en una zona determinada para generar electricidad de forma conjunta.",
+    "letter": "P",
+    "related": ["Aerogenerador", "Energía eólica"]
+  },
+  {
+    "term": "Pinza de punta",
+    "definition": "Herramienta utilizada para trabajos eléctricos o manipulación en zonas pequeñas.",
+    "letter": "P",
+    "related": ["Herramientas manuales", "Electrónica"]
+  },
+  {
+    "term": "Piojo",
+    "definition": "Foco LED pequeño utilizado en la industria automotriz.",
+    "letter": "P",
+    "related": ["Iluminación", "Automoción"]
+  },
+  {
+    "term": "Prensa",
+    "definition": "Máquina que se utiliza para unir o separar objetos mediante presión.",
+    "letter": "P",
+    "related": ["Máquinas herramientas"]
+  },
+  {
+    "term": "Prensa hidráulica",
+    "definition": "Máquina que utiliza presión hidráulica para moldear o cortar materiales.",
+    "letter": "P",
+    "related": ["Hidráulica", "Prensa"]
+  },
+  {
+    "term": "Protectores auditivos",
+    "definition": "Aparatos que reducen el nivel de ruido en entornos industriales.",
+    "letter": "P",
+    "related": ["EPP", "Seguridad laboral"]
+  },
+  {
+    "term": "Resistencia",
+    "definition": "Dispositivo que limita el flujo de corriente eléctrica en un circuito.",
+    "letter": "R",
+    "related": ["Circuitos eléctricos", "Electrónica"]
+  },
+  {
+    "term": "Rodamiento",
+    "definition": "Elemento que se utiliza en sistemas mecánicos para reducir la fricción entre piezas móviles y fijas.",
+    "letter": "R",
+    "related": ["Mecánica", "Transmisión mecánica"]
+  },
+  {
+    "term": "Sierra circular",
+    "definition": "Máquina que utiliza una hoja circular para cortar madera y otros materiales.",
+    "letter": "S",
+    "related": ["Herramientas eléctricas", "Cortadora"]
+  },
+  {
+    "term": "Sensitiva",
+    "definition": "Herramienta para realizar cortes precisos en materiales metálicos, preferida en talleres por rapidez y eficiencia.",
+    "letter": "S",
+    "related": ["Herramientas eléctricas", "Cortadora"]
+  },
+  {
+    "term": "Soldadora",
+    "definition": "Herramienta que se utiliza para unir metales mediante soldadura.",
+    "letter": "S",
+    "related": ["Unión de materiales", "Técnicas de fabricación"]
+  },
+  {
+    "term": "String",
+    "definition": "Conjunto de paneles solares conectados en serie.",
+    "letter": "S",
+    "related": ["Sistema fotovoltaico", "Panel solar"]
+  },
+  {
+    "term": "Taladro",
+    "definition": "Herramienta eléctrica que se utiliza para perforar materiales mediante una mecha.",
+    "letter": "T",
+    "related": ["Herramientas eléctricas"]
+  },
+  {
+    "term": "Telurímetro",
+    "definition": "Instrumento para medición de resistencia de puesta a tierra.",
+    "letter": "T",
+    "related": ["Instrumentos de medición", "Seguridad eléctrica"]
+  },
+  {
+    "term": "Termocupla",
+    "definition": "Dispositivo formado por dos metales diferentes unidos, que genera corriente eléctrica proporcional a diferencia de temperatura.",
+    "letter": "T",
+    "related": ["Instrumentos de medición", "Temperatura"]
+  },
+  {
+    "term": "Termofusionadora",
+    "definition": "Máquina capaz de realizar fusión de materiales plásticos mediante calor.",
+    "letter": "T",
+    "related": ["Unión de materiales", "Termofusión"]
+  },
+  {
+    "term": "Termomagnética",
+    "definition": "Dispositivo capaz de interrumpir corriente eléctrica en un circuito por efecto térmico-magnético.",
+    "letter": "T",
+    "related": ["Protección eléctrica", "Circuitos eléctricos"]
+  },
+  {
+    "term": "Tester",
+    "definition": "Herramienta de medición en ámbitos eléctricos y electrónicos.",
+    "letter": "T",
+    "related": ["Multímetro", "Electrónica"]
+  },
+  {
+    "term": "Torno",
+    "definition": "Máquina que da forma a piezas girándolas mientras una herramienta de corte las modela.",
+    "letter": "T",
+    "related": ["Máquinas herramientas", "Mecanizado"]
+  },
+  {
+    "term": "Transformador",
+    "definition": "Máquina capaz de aumentar o disminuir voltaje o corriente eléctrica.",
+    "letter": "T",
+    "related": ["Electrónica de potencia", "Distribución eléctrica"]
+  },
+  {
+    "term": "Transistor",
+    "definition": "Aparato que se utiliza para amplificar o variar señales eléctricas dentro de un circuito.",
+    "letter": "T",
+    "related": ["Electrónica", "Circuitos integrados"]
+  },
+  {
+    "term": "Turbina",
+    "definition": "Máquina que convierte energía hidráulica, térmica o eólica en energía mecánica.",
+    "letter": "T",
+    "related": ["Generación de energía", "Conversión energética"]
+  },
+  {
+    "term": "Válvula",
+    "definition": "Componente que regula el flujo de fluidos en un sistema.",
+    "letter": "V",
+    "related": ["Control de fluidos", "Neumática"]
+  },
+  {
+    "term": "Voltímetro",
+    "definition": "Instrumento capaz de medir el voltaje dentro de un circuito eléctrico.",
+    "letter": "V",
+    "related": ["Instrumentos de medición", "Electrónica"]
+  },
+  {
+    "term": "Zócalo",
+    "definition": "Pieza que se utiliza para proteger los bordes de una superficie.",
+    "letter": "Z",
+    "related": ["Protección", "Acabados"]
+  }
+]
