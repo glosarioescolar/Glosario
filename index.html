@@ -30,6 +30,7 @@
             background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
         .container {
@@ -46,6 +47,7 @@
             box-shadow: var(--box-shadow);
             position: relative;
             overflow: hidden;
+            border-bottom: 4px solid var(--secondary);
         }
 
         header::before {
@@ -77,12 +79,14 @@
         .logo i {
             font-size: 2.5rem;
             color: var(--secondary);
+            animation: pulse 2s infinite;
         }
 
         .logo h1 {
             font-size: 2.8rem;
             font-weight: 700;
             letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .tagline {
@@ -102,6 +106,7 @@
             box-shadow: var(--box-shadow);
             position: relative;
             z-index: 10;
+            border: 1px solid #e0e0e0;
         }
 
         .search-container {
@@ -135,10 +140,12 @@
             font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
+            font-weight: 600;
         }
 
         .search-container button:hover {
             background: #2980b9;
+            transform: translateY(-2px);
         }
 
         #search-results {
@@ -152,6 +159,7 @@
             position: absolute;
             width: 100%;
             z-index: 100;
+            border: 1px solid #e0e0e0;
         }
 
         .search-result-item {
@@ -162,7 +170,7 @@
         }
 
         .search-result-item:hover {
-            background-color: #f9f9f9;
+            background-color: #f0f7ff;
         }
 
         .search-result-item h3 {
@@ -188,7 +196,7 @@
         /* Main Content */
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 3fr;
+            grid-template-columns: 1fr;
             gap: 30px;
             margin-top: 20px;
         }
@@ -199,46 +207,103 @@
             border-radius: var(--border-radius);
             padding: 25px;
             box-shadow: var(--box-shadow);
-            height: fit-content;
+            border: 1px solid #e0e0e0;
         }
 
         .categories-section h2 {
             color: var(--primary);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--secondary);
-            font-size: 1.5rem;
-        }
-
-        .category-list {
-            list-style: none;
-        }
-
-        .category-list li {
-            margin-bottom: 12px;
-        }
-
-        .category-list a {
+            margin-bottom: 25px;
+            font-size: 1.8rem;
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 10px 15px;
-            border-radius: var(--border-radius);
-            color: var(--dark);
-            text-decoration: none;
-            transition: var(--transition);
-            background: #f8f9fa;
         }
 
-        .category-list a:hover {
+        .category-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .category-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .category-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .category-card p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .category-card .term-count {
+            background: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: var(--dark);
+            border: 1px solid #dee2e6;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .category-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: var(--secondary);
             color: white;
-            transform: translateX(5px);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+            width: fit-content;
         }
 
-        .category-list i {
-            width: 20px;
-            text-align: center;
+        .category-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
         }
 
         /* Alphabet & Terms */
@@ -247,12 +312,16 @@
             border-radius: var(--border-radius);
             padding: 25px;
             box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
         }
 
         .terms-section h2 {
             color: var(--primary);
             margin-bottom: 25px;
             font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .alphabet-nav {
@@ -275,12 +344,14 @@
             text-decoration: none;
             font-weight: bold;
             transition: var(--transition);
+            border: 1px solid #ddd;
         }
 
         .alphabet-nav a:hover, .alphabet-nav a.active {
             background: var(--secondary);
             color: white;
             transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .term-group {
@@ -295,6 +366,7 @@
             margin-bottom: 20px;
             font-size: 1.5rem;
             display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .term-list {
@@ -310,23 +382,37 @@
             transition: var(--transition);
             border-left: 4px solid var(--secondary);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
         }
 
         .term-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
         }
 
         .term-card h4 {
             color: var(--primary);
             margin-bottom: 10px;
             font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .term-card h4 i {
+            color: var(--secondary);
+            font-size: 1.1rem;
         }
 
         .term-card p {
             color: #555;
             margin-bottom: 15px;
             font-size: 0.95rem;
+            flex-grow: 1;
         }
 
         .term-meta {
@@ -340,12 +426,16 @@
             color: var(--secondary);
             padding: 3px 10px;
             border-radius: 20px;
+            font-weight: 500;
         }
 
         .term-link {
             color: var(--accent);
             text-decoration: none;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .term-link:hover {
@@ -363,24 +453,28 @@
             font-size: 0.9rem;
             display: block;
             margin-bottom: 5px;
+            font-weight: 500;
         }
 
         .related-terms a {
             display: inline-block;
             background: #f0f7ff;
             color: var(--secondary);
-            padding: 3px 10px;
+            padding: 5px 12px;
             border-radius: 4px;
             margin-right: 8px;
             margin-bottom: 8px;
             font-size: 0.85rem;
             text-decoration: none;
             transition: var(--transition);
+            border: 1px solid #d0e8ff;
         }
 
         .related-terms a:hover {
             background: var(--secondary);
             color: white;
+            transform: translateY(-2px);
+            border-color: var(--secondary);
         }
 
         /* Footer */
@@ -389,6 +483,7 @@
             color: white;
             padding: 40px 0 20px;
             margin-top: 60px;
+            border-top: 4px solid var(--secondary);
         }
 
         .footer-content {
@@ -449,18 +544,90 @@
             padding: 15px 0;
             font-size: 0.9rem;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
         }
 
         .breadcrumb a {
             color: var(--secondary);
             text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .breadcrumb span {
             color: #666;
-            margin: 0 5px;
+            margin: 0 10px;
         }
 
+        /* Intro Section */
+        .intro-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
+        }
+
+        .intro-section h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .intro-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 200px;
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e9ecef;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .stat-card .number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
         /* Responsive */
         @media (max-width: 900px) {
             .main-content {
@@ -476,6 +643,10 @@
                 height: 35px;
                 line-height: 35px;
                 font-size: 0.9rem;
+            }
+            
+            .category-cards {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
 
@@ -495,71 +666,25 @@
             .search-section {
                 padding: 20px;
             }
+            
+            .header-content {
+                padding: 0 10px;
+            }
+            
+            .stat-card {
+                min-width: 100%;
+            }
         }
 
-        /* Nuevos estilos para la página de inicio */
-        .intro-section {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: var(--box-shadow);
-        }
-
-        .intro-section h2 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-
-        .intro-section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .stats-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .stat-card {
-            flex: 1;
-            min-width: 200px;
-            background: var(--light);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            text-align: center;
-            box-shadow: var(--box-shadow);
-        }
-
-        .stat-card i {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-
-        .stat-card .number {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .stat-card .label {
-            font-size: 1rem;
-            color: #666;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        /* Mensaje de error */
-        .error-message {
-            background: #ffebee;
-            color: #c62828;
-            padding: 15px;
-            border-radius: var(--border-radius);
-            margin: 20px 0;
-            text-align: center;
-            border-left: 4px solid #c62828;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -583,14 +708,6 @@
                 <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
                 <div id="search-results"></div>
             </div>
-        </div>
-    </div>
-
-    <!-- Mensaje de error -->
-    <div class="container">
-        <div class="error-message">
-            <i class="fas fa-exclamation-circle"></i> 
-            <strong>Nota:</strong> Las páginas de categorías están actualmente en desarrollo. Estamos trabajando para completar todo el contenido.
         </div>
     </div>
 
@@ -625,118 +742,42 @@
             </div>
         </div>
         
-        <div class="main-content">
-            <!-- Categories Section -->
-            <div class="categories-section">
-                <h2><i class="fas fa-tags"></i> Categorías</h2>
-                <ul class="category-list">
-                    <li><a href="categorias/herramientas-y-maquinaria.html"><i class="fas fa-tools"></i> Herramientas y Máquinas</a></li>
-                    <li><a href="categorias/unidades-de-medida-abreviaturas-y-siglas.html"><i class="fas fa-ruler-combined"></i> Unidades de Medida</a></li>
-                    <li><a href="categorias/materiales-y-propiedades.html"><i class="fas fa-cubes"></i> Materiales y Propiedades</a></li>
-                    <li><a href="categorias/procedimientos-tecnicos.html"><i class="fas fa-cogs"></i> Procedimientos Técnicos</a></li>
-                    <li><a href="categorias/conceptos-teoricos.html"><i class="fas fa-lightbulb"></i> Conceptos Teóricos</a></li>
-                </ul>
-            </div>
-
-            <!-- Terms Section -->
-            <div class="terms-section">
-                <h2><i class="fas fa-star"></i> Términos Destacados</h2>
-                
-                <div class="term-group">
-                    <h3>Conceptos Populares</h3>
-                    <div class="term-list">
-                        <!-- Term Card 1 -->
-                        <div class="term-card">
-                            <h4>Aerogenerador</h4>
-                            <p>Dispositivo que convierte la energía cinética del viento en energía eléctrica mediante el uso de turbinas eólicas.</p>
-                            <div class="term-meta">
-                                <span class="term-category">Herramientas y Máquinas</span>
-                                <a href="#" class="term-link">Ver definición completa <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                            <div class="related-terms">
-                                <span>Quizás te interese:</span>
-                                <a href="#">Aspas</a>
-                                <a href="#">Energía Eólica</a>
-                                <a href="#">Turbina</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Term Card 2 -->
-                        <div class="term-card">
-                            <h4>Amperímetro</h4>
-                            <p>Instrumento utilizado para medir la corriente eléctrica en un circuito, conectado en serie con el componente a medir.</p>
-                            <div class="term-meta">
-                                <span class="term-category">Unidades de Medida</span>
-                                <a href="#" class="term-link">Ver definición completa <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                            <div class="related-terms">
-                                <span>Quizás te interese:</span>
-                                <a href="#">Amperio</a>
-                                <a href="#">Multímetro</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Term Card 3 -->
-                        <div class="term-card">
-                            <h4>Aislante Térmico</h4>
-                            <p>Material que reduce la transferencia de calor entre objetos en contacto o en el rango de influencia radiativa.</p>
-                            <div class="term-meta">
-                                <span class="term-category">Materiales y Propiedades</span>
-                                <a href="#" class="term-link">Ver definición completa <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                            <div class="related-terms">
-                                <span>Quizás te interese:</span>
-                                <a href="#">Conductividad Térmica</a>
-                                <a href="#">Poliestireno Expandido</a>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Categories Section -->
+        <div class="categories-section">
+            <h2><i class="fas fa-tags"></i> Categorías Disponibles</h2>
+            <div class="category-cards" id="categories-container">
+                <!-- Las categorías se generarán dinámicamente -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando categorías...</p>
                 </div>
-                
-                <div class="term-group">
-                    <h3>Nuevos Términos</h3>
-                    <div class="term-list">
-                        <!-- Term Card 1 -->
-                        <div class="term-card">
-                            <h4>Balanza Analítica</h4>
-                            <p>Instrumento de medición de masa de alta precisión, utilizada principalmente en laboratorios para medir pequeñas cantidades.</p>
-                            <div class="term-meta">
-                                <span class="term-category">Herramientas y Máquinas</span>
-                                <a href="#" class="term-link">Ver definición completa <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        
-                        <!-- Term Card 2 -->
-                        <div class="term-card">
-                            <h4>Byte</h4>
-                            <p>Unidad de información digital que consta de 8 bits, utilizada para representar un carácter como una letra o número.</p>
-                            <div class="term-meta">
-                                <span class="term-category">Conceptos Teóricos</span>
-                                <a href="#" class="term-link">Ver definición completa <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                            <div class="related-terms">
-                                <span>Quizás te interese:</span>
-                                <a href="#">Bit</a>
-                                <a href="#">Kilobyte</a>
-                                <a href="#">Sistema Binario</a>
-                            </div>
-                        </div>
-                        
-                        <!-- Term Card 3 -->
-                        <div class="term-card">
-                            <h4>CAD</h4>
-                            <p>Diseño Asistido por Computadora (Computer-Aided Design), software utilizado para crear diseños técnicos en 2D y 3D.</p>
-                            <div class="term-meta">
-                                <span class="term-category">Diseño Técnico</span>
-                                <a href="#" class="term-link">Ver definición completa <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                            <div class="related-terms">
-                                <span>Quizás te interese:</span>
-                                <a href="#">CAM</a>
-                                <a href="#">Modelado 3D</a>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        
+        <!-- Alphabet & Terms Section -->
+        <div class="terms-section">
+            <div class="category-header">
+                <div class="category-info">
+                    <div class="category-icon">
+                        <i class="fas fa-sort-alpha-down"></i>
                     </div>
+                    <h2 class="category-title">Términos Destacados</h2>
+                    <div class="term-count" id="term-count">Cargando términos...</div>
+                </div>
+            </div>
+            
+            <div class="alphabet-section">
+                <h3><i class="fas fa-sort-alpha-down"></i> Índice Alfabético</h3>
+                <div class="alphabet-nav" id="alphabet-nav">
+                    <!-- Las letras se generarán dinámicamente -->
+                </div>
+            </div>
+            
+            <!-- Contenedor para los términos -->
+            <div id="terms-container">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Cargando términos técnicos...</p>
                 </div>
             </div>
         </div>
@@ -777,42 +818,47 @@
     </footer>
 
     <script>
-        // Datos de ejemplo para el buscador
-        const termsData = [
+        // URLs de los archivos JSON de cada categoría
+        const CATEGORIES = [
             {
-                term: "Aerogenerador",
-                definition: "Dispositivo que convierte la energía cinética del viento en energía eléctrica mediante el uso de turbinas eólicas.",
-                category: "Herramientas y Máquinas",
-                letter: "A",
-                related: ["Aspas", "Energía Eólica", "Turbina"]
+                id: "herramientas-y-maquinaria",
+                name: "Herramientas y Maquinaria",
+                icon: "fas fa-tools",
+                jsonUrl: "../data/herramientas-y-maquinaria.json",
+                description: "Herramientas, máquinas y equipos utilizados en instalaciones y mantenimiento de sistemas.",
+                color: "#3498db"
             },
             {
-                term: "Aspas",
-                definition: "Palas de una turbina eólica que capturan la energía del viento y la transforman en movimiento rotatorio.",
-                category: "Componentes Mecánicos",
-                letter: "A",
-                related: ["Aerogenerador", "Turbina Eólica"]
+                id: "unidades-de-medida-abreviaturas-y-siglas",
+                name: "Unidades de Medida",
+                icon: "fas fa-ruler-combined",
+                jsonUrl: "../data/unidades-de-medida-abreviaturas-y-siglas.json",
+                description: "Unidades estándar, abreviaturas comunes y siglas técnicas utilizadas en ingeniería.",
+                color: "#e74c3c"
             },
             {
-                term: "Amperímetro",
-                definition: "Instrumento utilizado para medir la corriente eléctrica en un circuito, conectado en serie con el componente a medir.",
-                category: "Unidades de Medida",
-                letter: "A",
-                related: ["Amperio", "Multímetro", "Corriente Eléctrica"]
+                id: "materiales-y-propiedades",
+                name: "Materiales y Propiedades",
+                icon: "fas fa-cubes",
+                jsonUrl: "../data/materiales-y-propiedades.json",
+                description: "Materiales industriales y sus propiedades físicas y químicas fundamentales.",
+                color: "#2ecc71"
             },
             {
-                term: "Byte",
-                definition: "Unidad de información digital que consta de 8 bits, utilizada para representar un carácter como una letra o número.",
-                category: "Conceptos Teóricos",
-                letter: "B",
-                related: ["Bit", "Kilobyte", "Sistema Binario"]
+                id: "procedimientos-tecnicos",
+                name: "Procedimientos Técnicos",
+                icon: "fas fa-cogs",
+                jsonUrl: "../data/procedimientos-tecnicos.json",
+                description: "Procedimientos esenciales para instalación y mantenimiento de sistemas energéticos.",
+                color: "#f39c12"
             },
             {
-                term: "Balanza Analítica",
-                definition: "Instrumento de medición de masa de alta precisión, utilizada principalmente en laboratorios para medir pequeñas cantidades.",
-                category: "Herramientas y Máquinas",
-                letter: "B",
-                related: ["Precisión", "Medición de Masa"]
+                id: "conceptos-teoricos",
+                name: "Conceptos Teóricos",
+                icon: "fas fa-lightbulb",
+                jsonUrl: "../data/conceptos-teoricos.json",
+                description: "Conceptos teóricos fundamentales relacionados con energías renovables y física.",
+                color: "#9b59b6"
             }
         ];
 
@@ -820,71 +866,235 @@
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
         const searchButton = document.getElementById('search-button');
-
-        // Función para mostrar resultados de búsqueda
-        function showSearchResults(query) {
-            if (!query) {
-                searchResults.style.display = 'none';
-                return;
-            }
-            
-            const results = termsData.filter(term => 
-                term.term.toLowerCase().includes(query.toLowerCase()) ||
-                term.definition.toLowerCase().includes(query.toLowerCase())
-            );
-            
-            if (results.length > 0) {
-                let html = '';
-                results.forEach(term => {
-                    html += `
-                    <div class="search-result-item" data-term="${term.term}">
-                        <h3>${term.term}</h3>
-                        <p>${term.definition.substring(0, 100)}...</p>
-                        <span class="category">${term.category}</span>
-                    </div>
-                    `;
-                });
-                searchResults.innerHTML = html;
-                searchResults.style.display = 'block';
+        const termsContainer = document.getElementById('terms-container');
+        const alphabetNav = document.getElementById('alphabet-nav');
+        const termCountElement = document.getElementById('term-count');
+        const categoriesContainer = document.getElementById('categories-container');
+        
+        // Almacenar todos los términos
+        let allTerms = [];
+        
+        // Función para cargar los términos de una categoría
+        async function loadCategoryTerms(category) {
+            try {
+                const response = await fetch(category.jsonUrl);
+                if (!response.ok) {
+                    throw new Error(`Error al cargar términos de ${category.name}`);
+                }
+                const terms = await response.json();
                 
-                // Agregar evento a los resultados
-                document.querySelectorAll('.search-result-item').forEach(item => {
-                    item.addEventListener('click', function() {
-                        const term = this.getAttribute('data-term');
-                        alert(`Redirigiendo a la definición de: ${term}`);
-                        // Aquí iría la redirección a la página del término
-                    });
-                });
-            } else {
-                searchResults.innerHTML = '<div class="search-result-item">No se encontraron resultados</div>';
-                searchResults.style.display = 'block';
+                // Añadir información de categoría a cada término
+                return terms.map(term => ({
+                    ...term,
+                    category: category.name,
+                    categoryId: category.id,
+                    icon: category.icon
+                }));
+            } catch (error) {
+                console.error('Error:', error);
+                return [];
             }
         }
-
-        // Event listeners
-        searchInput.addEventListener('input', function() {
-            showSearchResults(this.value);
-        });
-
-        searchButton.addEventListener('click', function() {
-            showSearchResults(searchInput.value);
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!searchResults.contains(e.target) && e.target !== searchInput) {
-                searchResults.style.display = 'none';
+        
+        // Función para cargar todas las categorías y términos
+        async function loadAllTerms() {
+            try {
+                // Cargar todas las categorías simultáneamente
+                const allTermsPromises = CATEGORIES.map(category => loadCategoryTerms(category));
+                const allTermsResults = await Promise.all(allTermsPromises);
+                
+                // Combinar todos los términos en un solo array
+                allTerms = allTermsResults.flat();
+                
+                // Actualizar contador de términos
+                termCountElement.textContent = allTerms.length + " términos";
+                
+                // Generar navegación alfabética
+                generateAlphabetNavigation(allTerms);
+                
+                // Renderizar términos destacados
+                renderFeaturedTerms(allTerms);
+                
+                // Renderizar categorías
+                renderCategories();
+                
+                // Configurar búsqueda
+                setupSearch();
+                
+            } catch (error) {
+                console.error('Error cargando términos:', error);
+                termsContainer.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Error:</strong> No se pudieron cargar los términos técnicos. Por favor, inténtalo de nuevo más tarde.
+                    </div>
+                `;
             }
-        });
-
-        // Simular clic en términos relacionados
-        document.querySelectorAll('.related-terms a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const term = this.textContent;
-                searchInput.value = term;
-                showSearchResults(term);
+        }
+        
+        // Renderizar las categorías
+        function renderCategories() {
+            let html = '';
+            
+            CATEGORIES.forEach(category => {
+                // Contar términos en esta categoría
+                const termCount = allTerms.filter(term => term.categoryId === category.id).length;
+                
+                html += `
+                <div class="category-card">
+                    <div class="category-icon" style="background-color: ${category.color}">
+                        <i class="${category.icon}"></i>
+                    </div>
+                    <h3>${category.name}</h3>
+                    <p>${category.description}</p>
+                    <div class="term-count">${termCount} términos</div>
+                    <a href="categorias/${category.id}.html" class="category-link">
+                        <i class="fas fa-arrow-right"></i> Ver categoría
+                    </a>
+                </div>
+                `;
             });
-        });
+            
+            categoriesContainer.innerHTML = html;
+        }
+        
+        // Agrupar términos por letra inicial
+        function groupTermsByLetter(terms) {
+            const groups = {};
+            
+            terms.forEach(term => {
+                const letter = term.letter.toUpperCase();
+                if (!groups[letter]) {
+                    groups[letter] = [];
+                }
+                groups[letter].push(term);
+            });
+            
+            return groups;
+        }
+        
+        // Generar navegación alfabética
+        function generateAlphabetNavigation(terms) {
+            const groupedTerms = groupTermsByLetter(terms);
+            const letters = Object.keys(groupedTerms).sort();
+            
+            let html = '';
+            letters.forEach(letter => {
+                html += `<a href="#group-${letter}">${letter}</a>`;
+            });
+            
+            alphabetNav.innerHTML = html;
+        }
+        
+        // Renderizar términos destacados (los primeros 9 términos)
+        function renderFeaturedTerms(terms) {
+            // Seleccionar los primeros 9 términos como destacados
+            const featuredTerms = terms.slice(0, 9);
+            const groupedTerms = groupTermsByLetter(featuredTerms);
+            const letters = Object.keys(groupedTerms).sort();
+            
+            let html = '';
+            
+            letters.forEach(letter => {
+                html += `
+                    <div class="term-group" id="group-${letter}">
+                        <h3>${letter}</h3>
+                        <div class="term-list">
+                `;
+                
+                groupedTerms[letter].forEach(term => {
+                    html += `
+                        <div class="term-card">
+                            <h4><i class="fas fa-bookmark"></i> ${term.term}</h4>
+                            <p>${term.definition}</p>
+                            <div class="term-meta">
+                                <span class="term-category">${term.category}</span>
+                                <a href="categorias/${term.categoryId}.html" class="term-link">
+                                    Ver más <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            termsContainer.innerHTML = html;
+        }
+        
+        // Configurar funcionalidad de búsqueda
+        function setupSearch() {
+            // Función para mostrar resultados de búsqueda
+            function showSearchResults(query) {
+                if (!query) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                
+                const results = allTerms.filter(term => 
+                    term.term.toLowerCase().includes(query.toLowerCase()) ||
+                    term.definition.toLowerCase().includes(query.toLowerCase())
+                );
+                
+                if (results.length > 0) {
+                    let html = '';
+                    results.forEach(term => {
+                        html += `
+                        <div class="search-result-item" data-term="${term.term}" data-category="${term.categoryId}">
+                            <h3>${term.term}</h3>
+                            <p>${term.definition.substring(0, 100)}...</p>
+                            <span class="category">${term.category}</span>
+                        </div>
+                        `;
+                    });
+                    searchResults.innerHTML = html;
+                    searchResults.style.display = 'block';
+                    
+                    // Agregar evento a los resultados
+                    document.querySelectorAll('.search-result-item').forEach(item => {
+                        item.addEventListener('click', function() {
+                            const term = this.getAttribute('data-term');
+                            const category = this.getAttribute('data-category');
+                            // Redirigir a la página de categoría correspondiente
+                            window.location.href = `categorias/${category}.html#${term}`;
+                        });
+                    });
+                } else {
+                    searchResults.innerHTML = '<div class="search-result-item">No se encontraron resultados</div>';
+                    searchResults.style.display = 'block';
+                }
+            }
+            
+            // Event listeners
+            searchInput.addEventListener('input', function() {
+                showSearchResults(this.value);
+            });
+            
+            searchButton.addEventListener('click', function() {
+                showSearchResults(searchInput.value);
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!searchResults.contains(e.target) && e.target !== searchInput) {
+                    searchResults.style.display = 'none';
+                }
+            });
+            
+            // Activar la letra actual en el índice alfabético
+            document.querySelectorAll('.alphabet-nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    document.querySelectorAll('.alphabet-nav a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        }
+        
+        // Cargar todos los términos al iniciar
+        document.addEventListener('DOMContentLoaded', loadAllTerms);
     </script>
 </body>
 </html>
