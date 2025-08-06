@@ -1,1 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedimientos Técnicos - Glosario Técnico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), #1a2530);
+            color: white;
+            padding: 30px 0;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            animation: pulse 2s infinite;
+        }
+
+        .logo h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        /* Search Section */
+        .search-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: -30px auto 40px;
+            max-width: 800px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            z-index: 10;
+            border: 1px solid #e0e0e0;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .search-container input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+            outline: none;
+        }
+
+        .search-container button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .search-container button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        #search-results {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+            border: 1px solid #e0e0e0;
+        }
+
+        .search-result-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-result-item:hover {
+            background-color: #f0f7ff;
+        }
+
+        .search-result-item h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .search-result-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .search-result-item .category {
+            display: inline-block;
+            background: #e1f0fa;
+            color: var(--secondary);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        /* Alphabet & Terms */
+        .terms-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
+        }
+
+        .terms-section h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .alphabet-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .alphabet-nav a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: var(--light);
+            color: var(--dark);
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: 1px solid #ddd;
+        }
+
+        .alphabet-nav a:hover, .alphabet-nav a.active {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .term-group {
+            margin-bottom: 40px;
+        }
+
+        .term-group h3 {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .term-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .term-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
+        }
+
+        .term-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .term-card h4 i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .term-card p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .term-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+        }
+
+        .term-category {
+            background: #e1f0fa;
+            color: var(--secondary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .term-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .related-terms {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .related-terms span {
+            color: #666;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .related-terms a {
+            display: inline-block;
+            background: #f0f7ff;
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid #d0e8ff;
+        }
+
+        .related-terms a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            border-color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb {
+            padding: 15px 0;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .alphabet-nav {
+                gap: 5px;
+            }
+            
+            .alphabet-nav a {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .term-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-section {
+                padding: 20px;
+            }
+            
+            .header-content {
+                padding: 0 10px;
+            }
+        }
+
+        /* Estilos para la página de categoría */
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .category-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .term-count {
+            background: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: var(--dark);
+            border: 1px solid #dee2e6;
+        }
+        
+        .category-description {
+            background: #e1f0fa;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            color: var(--dark);
+            line-height: 1.8;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .back-to-home:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+        
+        .alphabet-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .alphabet-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Mensaje de error */
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid #c62828;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* Mensaje de éxito */
+        .success-message {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid #2e7d32;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .loading i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            animation: spin 1.5s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <h1>Glosario Técnico</h1>
+            </div>
+            <p class="tagline">Tu recurso educativo con más de 200 términos técnicos explicados de manera clara y concisa. Perfecto para estudiantes e investigadores.</p>
+        </div>
+    </header>
+
+    <!-- Search Section -->
+    <div class="container">
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Buscar término técnico...">
+                <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
+                <div id="search-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="container breadcrumb">
+        <a href="https://glosarioescolar.github.io/Glosario"><i class="fas fa-home"></i> Inicio</a>
+        <span>></span>
+        <a href="https://glosarioescolar.github.io/Glosario/categorias/procedimientos-tecnicos.html">Procedimientos Técnicos</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="category-header">
+            <div class="category-info">
+                <div class="category-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h2 class="category-title">Procedimientos Técnicos</h2>
+                <div class="term-count" id="term-count">Cargando términos...</div>
+            </div>
+            <a href="https://glosarioescolar.github.io/Glosario" class="back-to-home">
+                <i class="fas fa-arrow-left"></i> Volver al Inicio
+            </a>
+        </div>
+        
+        <div class="category-description">
+            <p>Esta categoría contiene procedimientos técnicos esenciales utilizados en instalaciones, mantenimiento y operación de sistemas de energía renovable. Encuentra guías paso a paso para ejecutar tareas técnicas de forma segura y eficiente.</p>
+        </div>
+        
+        <div class="alphabet-section">
+            <h3><i class="fas fa-sort-alpha-down"></i> Índice Alfabético</h3>
+            <div class="alphabet-nav" id="alphabet-nav">
+                <!-- Las letras se generarán dinámicamente -->
+            </div>
+        </div>
+        
+        <div class="success-message">
+            <i class="fas fa-check-circle"></i> 
+            <strong>¡Contenido completo!</strong> Esta categoría contiene todos los términos disponibles.
+        </div>
+
+        <!-- Contenedor para los términos -->
+        <div class="terms-section" id="terms-container">
+            <div class="loading">
+                <i class="fas fa-spinner"></i>
+                <p>Cargando términos técnicos...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Acerca del Glosario</h3>
+                    <p>Este glosario técnico es un recurso educativo creado para estudiantes de ingeniería y tecnología, con más de 200 términos explicados de manera clara y precisa.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://glosarioescolar.github.io/Glosario"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="#"><i class="fas fa-list"></i> Todas las Categorías</a></li>
+                        <li><a href="#"><i class="fas fa-book"></i> Términos Recientes</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contribuir</h3>
+                    <p>¿Quieres contribuir con términos o mejorar definiciones? ¡Únete a nuestro proyecto educativo!</p>
+                    <button style="margin-top: 15px; background: var(--secondary); color: white; border: none; padding: 10px 20px; border-radius: var(--border-radius); cursor: pointer;">
+                        <i class="fas fa-plus-circle"></i> Añadir Término
+                    </button>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 Glosario Técnico Educativo. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // URL del archivo JSON
+        const JSON_URL = '../data/procedimientos-tecnicos.json';
+        
+        // Elementos del DOM
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        const searchButton = document.getElementById('search-button');
+        const termsContainer = document.getElementById('terms-container');
+        const alphabetNav = document.getElementById('alphabet-nav');
+        const termCountElement = document.getElementById('term-count');
+        
+        // Función para cargar los términos desde el JSON
+        async function loadTerms() {
+            try {
+                const response = await fetch(JSON_URL);
+                if (!response.ok) {
+                    throw new Error('Error al cargar los términos');
+                }
+                const terms = await response.json();
+                
+                // Actualizar contador
+                termCountElement.textContent = terms.length + " términos";
+                
+                // Agrupar términos por letra
+                const groupedTerms = groupTermsByLetter(terms);
+                
+                // Generar navegación alfabética
+                generateAlphabetNavigation(groupedTerms);
+                
+                // Renderizar términos
+                renderTerms(groupedTerms);
+                
+                // Configurar búsqueda
+                setupSearch(terms);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                termsContainer.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Error:</strong> No se pudieron cargar los términos técnicos. Por favor, inténtalo de nuevo más tarde.
+                    </div>
+                `;
+            }
+        }
+        
+        // Agrupar términos por letra inicial
+        function groupTermsByLetter(terms) {
+            const groups = {};
+            
+            terms.forEach(term => {
+                const letter = term.letter.toUpperCase();
+                if (!groups[letter]) {
+                    groups[letter] = [];
+                }
+                groups[letter].push(term);
+            });
+            
+            return groups;
+        }
+        
+        // Generar navegación alfabética
+        function generateAlphabetNavigation(groupedTerms) {
+            const letters = Object.keys(groupedTerms).sort();
+            
+            let html = '';
+            letters.forEach(letter => {
+                html += `<a href="#group-${letter}">${letter}</a>`;
+            });
+            
+            alphabetNav.innerHTML = html;
+        }
+        
+        // Renderizar los términos agrupados
+        function renderTerms(groupedTerms) {
+            const letters = Object.keys(groupedTerms).sort();
+            
+            let html = '';
+            
+            letters.forEach(letter => {
+                html += `
+                    <div class="term-group" id="group-${letter}">
+                        <h3>${letter}</h3>
+                        <div class="term-list">
+                `;
+                
+                groupedTerms[letter].forEach(term => {
+                    html += `
+                        <div class="term-card">
+                            <h4><i class="fas fa-bookmark"></i> ${term.term}</h4>
+                            <p>${term.definition}</p>
+                            <div class="related-terms">
+                                <span>Relacionado:</span>
+                    `;
+                    
+                    // Añadir términos relacionados
+                    if (term.related && term.related.length > 0) {
+                        term.related.forEach(relatedTerm => {
+                            html += `<a href="#" class="related-term">${relatedTerm}</a>`;
+                        });
+                    } else {
+                        html += `<span>Sin términos relacionados</span>`;
+                    }
+                    
+                    html += `
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+            
+            termsContainer.innerHTML = html;
+            
+            // Configurar eventos para términos relacionados
+            document.querySelectorAll('.related-term').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const term = this.textContent;
+                    searchInput.value = term;
+                    showSearchResults(term);
+                });
+            });
+        }
+        
+        // Configurar funcionalidad de búsqueda
+        function setupSearch(terms) {
+            // Función para mostrar resultados de búsqueda
+            function showSearchResults(query) {
+                if (!query) {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                
+                const results = terms.filter(term => 
+                    term.term.toLowerCase().includes(query.toLowerCase()) ||
+                    term.definition.toLowerCase().includes(query.toLowerCase())
+                );
+                
+                if (results.length > 0) {
+                    let html = '';
+                    results.forEach(term => {
+                        html += `
+                        <div class="search-result-item" data-term="${term.term}">
+                            <h3>${term.term}</h3>
+                            <p>${term.definition.substring(0, 100)}...</p>
+                            <span class="category">Procedimientos Técnicos</span>
+                        </div>
+                        `;
+                    });
+                    searchResults.innerHTML = html;
+                    searchResults.style.display = 'block';
+                    
+                    // Agregar evento a los resultados
+                    document.querySelectorAll('.search-result-item').forEach(item => {
+                        item.addEventListener('click', function() {
+                            const term = this.getAttribute('data-term');
+                            scrollToTerm(term);
+                        });
+                    });
+                } else {
+                    searchResults.innerHTML = '<div class="search-result-item">No se encontraron resultados</div>';
+                    searchResults.style.display = 'block';
+                }
+            }
+            
+            // Función para desplazarse a un término específico
+            function scrollToTerm(termName) {
+                const termElement = [...document.querySelectorAll('.term-card h4')].find(
+                    h4 => h4.textContent.includes(termName)
+                );
+                
+                if (termElement) {
+                    termElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Destacar el término
+                    termElement.parentElement.style.backgroundColor = '#e1f0fa';
+                    termElement.parentElement.style.boxShadow = '0 0 10px rgba(52, 152, 219, 0.3)';
+                    
+                    setTimeout(() => {
+                        termElement.parentElement.style.backgroundColor = '';
+                        termElement.parentElement.style.boxShadow = '';
+                    }, 2000);
+                }
+                
+                searchResults.style.display = 'none';
+                searchInput.value = '';
+            }
+            
+            // Event listeners
+            searchInput.addEventListener('input', function() {
+                showSearchResults(this.value);
+            });
+            
+            searchButton.addEventListener('click', function() {
+                showSearchResults(searchInput.value);
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!searchResults.contains(e.target) && e.target !== searchInput) {
+                    searchResults.style.display = 'none';
+                }
+            });
+            
+            // Activar la letra actual en el índice alfabético
+            document.querySelectorAll('.alphabet-nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    document.querySelectorAll('.alphabet-nav a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        }
+        
+        // Cargar términos al iniciar
+        document.addEventListener('DOMContentLoaded', loadTerms);
+    </script>
+</body>
+</html>
