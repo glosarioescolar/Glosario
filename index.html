@@ -193,21 +193,14 @@
             margin-top: 5px;
         }
 
-        /* Main Content */
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        /* Categories */
+        /* Categories Section */
         .categories-section {
             background: white;
             border-radius: var(--border-radius);
             padding: 25px;
             box-shadow: var(--box-shadow);
             border: 1px solid #e0e0e0;
+            margin-bottom: 30px;
         }
 
         .categories-section h2 {
@@ -219,10 +212,10 @@
             gap: 10px;
         }
 
-        .category-cards {
+        .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
 
         .category-card {
@@ -247,23 +240,26 @@
         }
 
         .category-icon {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             background: var(--secondary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 20px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .category-card h3 {
             color: var(--primary);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .category-card p {
@@ -273,7 +269,7 @@
             flex-grow: 1;
         }
 
-        .category-card .term-count {
+        .term-count {
             background: var(--light);
             padding: 5px 15px;
             border-radius: 20px;
@@ -281,7 +277,7 @@
             color: var(--dark);
             border: 1px solid #dee2e6;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-top: 10px;
         }
 
         .category-link {
@@ -306,7 +302,7 @@
             box-shadow: 0 6px 10px rgba(0,0,0,0.15);
         }
 
-        /* Alphabet & Terms */
+        /* Terms Section */
         .terms-section {
             background: white;
             border-radius: var(--border-radius);
@@ -322,36 +318,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-
-        .alphabet-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 30px;
-            justify-content: center;
-        }
-
-        .alphabet-nav a {
-            display: block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            background: var(--light);
-            color: var(--dark);
-            border-radius: 50%;
-            text-decoration: none;
-            font-weight: bold;
-            transition: var(--transition);
-            border: 1px solid #ddd;
-        }
-
-        .alphabet-nav a:hover, .alphabet-nav a.active {
-            background: var(--secondary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .term-group {
@@ -415,12 +381,6 @@
             flex-grow: 1;
         }
 
-        .term-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-        }
-
         .term-category {
             background: #e1f0fa;
             color: var(--secondary);
@@ -475,6 +435,58 @@
             color: white;
             transform: translateY(-2px);
             border-color: var(--secondary);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 200px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .stat-card .number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-card .label {
+            font-size: 1rem;
+            color: #666;
         }
 
         /* Footer */
@@ -562,91 +574,14 @@
             margin: 0 10px;
         }
 
-        /* Intro Section */
-        .intro-section {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: var(--box-shadow);
-            border: 1px solid #e0e0e0;
-        }
-
-        .intro-section h2 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .intro-section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .stats-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .stat-card {
-            flex: 1;
-            min-width: 200px;
-            background: var(--light);
-            border-radius: var(--border-radius);
-            padding: 25px;
-            text-align: center;
-            box-shadow: var(--box-shadow);
-            border: 1px solid #e9ecef;
-            transition: var(--transition);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-        }
-
-        .stat-card i {
-            font-size: 2.5rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-
-        .stat-card .number {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-
-        .stat-card .label {
-            font-size: 1rem;
-            color: #666;
-        }
-        
         /* Responsive */
         @media (max-width: 900px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .alphabet-nav {
-                gap: 5px;
-            }
-            
-            .alphabet-nav a {
-                width: 35px;
-                height: 35px;
-                line-height: 35px;
-                font-size: 0.9rem;
-            }
-            
-            .category-cards {
+            .categories-grid, .term-list {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .stats-container {
+                flex-direction: column;
             }
         }
 
@@ -659,10 +594,6 @@
                 font-size: 1rem;
             }
             
-            .term-list {
-                grid-template-columns: 1fr;
-            }
-            
             .search-section {
                 padding: 20px;
             }
@@ -671,20 +602,25 @@
                 padding: 0 10px;
             }
             
-            .stat-card {
-                min-width: 100%;
+            .categories-grid, .term-list {
+                grid-template-columns: 1fr;
             }
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
+        /* Animaciones */
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
         }
     </style>
 </head>
@@ -713,25 +649,23 @@
 
     <!-- Breadcrumb -->
     <div class="container breadcrumb">
-        <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="#"><i class="fas fa-home"></i> Inicio</a>
     </div>
 
     <!-- Main Content -->
     <div class="container">
-        <div class="intro-section">
-            <h2><i class="fas fa-info-circle"></i> Bienvenido al Glosario Técnico</h2>
-            <p>Este recurso educativo contiene definiciones claras y precisas de términos técnicos de diversas áreas, organizados por categorías y orden alfabético para facilitar tu aprendizaje y consulta.</p>
-            <p>Explora nuestras categorías, utiliza el buscador o navega por nuestro índice alfabético para encontrar la información que necesitas.</p>
-            
+        <!-- Stats Section -->
+        <div class="stats-section fade-in">
+            <h2><i class="fas fa-chart-line"></i> Estadísticas del Glosario</h2>
             <div class="stats-container">
                 <div class="stat-card">
                     <i class="fas fa-book"></i>
-                    <div class="number">5</div>
+                    <div class="number" id="total-categories">5</div>
                     <div class="label">Categorías</div>
                 </div>
                 <div class="stat-card">
                     <i class="fas fa-font"></i>
-                    <div class="number">200+</div>
+                    <div class="number" id="total-terms">200+</div>
                     <div class="label">Términos</div>
                 </div>
                 <div class="stat-card">
@@ -743,10 +677,10 @@
         </div>
         
         <!-- Categories Section -->
-        <div class="categories-section">
-            <h2><i class="fas fa-tags"></i> Categorías Disponibles</h2>
-            <div class="category-cards" id="categories-container">
-                <!-- Las categorías se generarán dinámicamente -->
+        <div class="categories-section fade-in">
+            <h2><i class="fas fa-tags"></i> Explorar Categorías</h2>
+            <div class="categories-grid" id="categories-container">
+                <!-- Las categorías se cargarán dinámicamente -->
                 <div class="loading">
                     <i class="fas fa-spinner fa-spin"></i>
                     <p>Cargando categorías...</p>
@@ -754,30 +688,22 @@
             </div>
         </div>
         
-        <!-- Alphabet & Terms Section -->
-        <div class="terms-section">
-            <div class="category-header">
-                <div class="category-info">
-                    <div class="category-icon">
-                        <i class="fas fa-sort-alpha-down"></i>
+        <!-- Featured Terms -->
+        <div class="terms-section fade-in">
+            <div class="category-header" style="margin-bottom: 30px;">
+                <h2><i class="fas fa-star"></i> Términos Destacados</h2>
+                <button id="refresh-terms" class="back-to-home" style="margin: 0;">
+                    <i class="fas fa-sync-alt"></i> Mostrar más
+                </button>
+            </div>
+            
+            <div class="term-group">
+                <div class="term-list" id="featured-terms">
+                    <!-- Términos destacados se cargarán dinámicamente -->
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Cargando términos destacados...</p>
                     </div>
-                    <h2 class="category-title">Términos Destacados</h2>
-                    <div class="term-count" id="term-count">Cargando términos...</div>
-                </div>
-            </div>
-            
-            <div class="alphabet-section">
-                <h3><i class="fas fa-sort-alpha-down"></i> Índice Alfabético</h3>
-                <div class="alphabet-nav" id="alphabet-nav">
-                    <!-- Las letras se generarán dinámicamente -->
-                </div>
-            </div>
-            
-            <!-- Contenedor para los términos -->
-            <div id="terms-container">
-                <div class="loading">
-                    <i class="fas fa-spinner fa-spin"></i>
-                    <p>Cargando términos técnicos...</p>
                 </div>
             </div>
         </div>
@@ -795,7 +721,7 @@
                 <div class="footer-section">
                     <h3>Enlaces Rápidos</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
                         <li><a href="#"><i class="fas fa-list"></i> Todas las Categorías</a></li>
                         <li><a href="#"><i class="fas fa-book"></i> Términos Recientes</a></li>
                         <li><a href="#"><i class="fas fa-question-circle"></i> Ayuda</a></li>
@@ -818,212 +744,211 @@
     </footer>
 
     <script>
-        // URLs de los archivos JSON de cada categoría
+        // URLs de los archivos JSON para cada categoría
         const CATEGORIES = [
             {
-                id: "herramientas-y-maquinaria",
-                name: "Herramientas y Maquinaria",
-                icon: "fas fa-tools",
-                jsonUrl: "../data/herramientas-y-maquinaria.json",
-                description: "Herramientas, máquinas y equipos utilizados en instalaciones y mantenimiento de sistemas.",
+                name: "Conceptos Teóricos",
+                icon: "fas fa-lightbulb",
+                url: "data/conceptos-teoricos.json",
+                page: "categorias/conceptos-teoricos.html",
                 color: "#3498db"
             },
             {
-                id: "unidades-de-medida-abreviaturas-y-siglas",
-                name: "Unidades de Medida",
-                icon: "fas fa-ruler-combined",
-                jsonUrl: "../data/unidades-de-medida-abreviaturas-y-siglas.json",
-                description: "Unidades estándar, abreviaturas comunes y siglas técnicas utilizadas en ingeniería.",
+                name: "Herramientas y Maquinaria",
+                icon: "fas fa-tools",
+                url: "data/herramientas-y-maquinaria.json",
+                page: "categorias/herramientas-y-maquinaria.html",
                 color: "#e74c3c"
             },
             {
-                id: "materiales-y-propiedades",
                 name: "Materiales y Propiedades",
                 icon: "fas fa-cubes",
-                jsonUrl: "../data/materiales-y-propiedades.json",
-                description: "Materiales industriales y sus propiedades físicas y químicas fundamentales.",
+                url: "data/materiales-y-propiedades.json",
+                page: "categorias/materiales-y-propiedades.html",
                 color: "#2ecc71"
             },
             {
-                id: "procedimientos-tecnicos",
                 name: "Procedimientos Técnicos",
                 icon: "fas fa-cogs",
-                jsonUrl: "../data/procedimientos-tecnicos.json",
-                description: "Procedimientos esenciales para instalación y mantenimiento de sistemas energéticos.",
+                url: "data/procedimientos-tecnicos.json",
+                page: "categorias/procedimientos-tecnicos.html",
                 color: "#f39c12"
             },
             {
-                id: "conceptos-teoricos",
-                name: "Conceptos Teóricos",
-                icon: "fas fa-lightbulb",
-                jsonUrl: "../data/conceptos-teoricos.json",
-                description: "Conceptos teóricos fundamentales relacionados con energías renovables y física.",
+                name: "Unidades de Medida, Abreviaturas y Siglas",
+                icon: "fas fa-ruler-combined",
+                url: "data/unidades-de-medida-abreviaturas-y-siglas.json",
+                page: "categorias/unidades-de-medida-abreviaturas-y-siglas.html",
                 color: "#9b59b6"
             }
         ];
-
+        
         // Elementos del DOM
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
         const searchButton = document.getElementById('search-button');
-        const termsContainer = document.getElementById('terms-container');
-        const alphabetNav = document.getElementById('alphabet-nav');
-        const termCountElement = document.getElementById('term-count');
         const categoriesContainer = document.getElementById('categories-container');
+        const featuredTermsContainer = document.getElementById('featured-terms');
+        const totalTermsElement = document.getElementById('total-terms');
+        const totalCategoriesElement = document.getElementById('total-categories');
+        const refreshButton = document.getElementById('refresh-terms');
         
-        // Almacenar todos los términos
+        // Variable para almacenar todos los términos combinados
         let allTerms = [];
-        
-        // Función para cargar los términos de una categoría
-        async function loadCategoryTerms(category) {
+        let totalTerms = 0;
+
+        // Función para cargar todas las categorías
+        async function loadCategories() {
             try {
-                const response = await fetch(category.jsonUrl);
-                if (!response.ok) {
-                    throw new Error(`Error al cargar términos de ${category.name}`);
-                }
-                const terms = await response.json();
+                // Actualizar contador de categorías
+                totalCategoriesElement.textContent = CATEGORIES.length;
                 
-                // Añadir información de categoría a cada término
-                return terms.map(term => ({
-                    ...term,
-                    category: category.name,
-                    categoryId: category.id,
-                    icon: category.icon
-                }));
-            } catch (error) {
-                console.error('Error:', error);
-                return [];
-            }
-        }
-        
-        // Función para cargar todas las categorías y términos
-        async function loadAllTerms() {
-            try {
-                // Cargar todas las categorías simultáneamente
-                const allTermsPromises = CATEGORIES.map(category => loadCategoryTerms(category));
-                const allTermsResults = await Promise.all(allTermsPromises);
+                // Cargar cada categoría
+                const categoryPromises = CATEGORIES.map(category => 
+                    fetch(category.url)
+                        .then(response => response.json())
+                        .then(terms => {
+                            category.terms = terms;
+                            totalTerms += terms.length;
+                            return category;
+                        })
+                );
                 
-                // Combinar todos los términos en un solo array
-                allTerms = allTermsResults.flat();
+                const categories = await Promise.all(categoryPromises);
                 
                 // Actualizar contador de términos
-                termCountElement.textContent = allTerms.length + " términos";
-                
-                // Generar navegación alfabética
-                generateAlphabetNavigation(allTerms);
-                
-                // Renderizar términos destacados
-                renderFeaturedTerms(allTerms);
+                totalTermsElement.textContent = totalTerms + "+";
                 
                 // Renderizar categorías
-                renderCategories();
+                renderCategories(categories);
+                
+                // Combinar todos los términos
+                allTerms = categories.flatMap(category => 
+                    category.terms.map(term => ({
+                        ...term,
+                        category: category.name,
+                        categoryPage: category.page,
+                        categoryColor: category.color
+                    }))
+                );
                 
                 // Configurar búsqueda
                 setupSearch();
                 
+                // Cargar términos destacados
+                loadFeaturedTerms();
+                
             } catch (error) {
-                console.error('Error cargando términos:', error);
-                termsContainer.innerHTML = `
-                    <div class="error-message">
+                console.error('Error al cargar las categorías:', error);
+                categoriesContainer.innerHTML = `
+                    <div class="error-message" style="grid-column: 1/-1;">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <strong>Error:</strong> No se pudieron cargar los términos técnicos. Por favor, inténtalo de nuevo más tarde.
+                        <strong>Error:</strong> No se pudieron cargar las categorías. Por favor, inténtalo de nuevo más tarde.
                     </div>
                 `;
             }
         }
         
         // Renderizar las categorías
-        function renderCategories() {
+        function renderCategories(categories) {
             let html = '';
             
-            CATEGORIES.forEach(category => {
-                // Contar términos en esta categoría
-                const termCount = allTerms.filter(term => term.categoryId === category.id).length;
-                
+            categories.forEach(category => {
                 html += `
-                <div class="category-card">
-                    <div class="category-icon" style="background-color: ${category.color}">
-                        <i class="${category.icon}"></i>
+                    <div class="category-card">
+                        <div class="category-icon" style="background: ${category.color}">
+                            <i class="${category.icon}"></i>
+                        </div>
+                        <h3>${category.name}</h3>
+                        <p>${getCategoryDescription(category.name)}</p>
+                        <div class="term-count">${category.terms.length} términos</div>
+                        <a href="${category.page}" class="category-link">
+                            <i class="fas fa-arrow-right"></i> Ver categoría
+                        </a>
                     </div>
-                    <h3>${category.name}</h3>
-                    <p>${category.description}</p>
-                    <div class="term-count">${termCount} términos</div>
-                    <a href="categorias/${category.id}.html" class="category-link">
-                        <i class="fas fa-arrow-right"></i> Ver categoría
-                    </a>
-                </div>
                 `;
             });
             
             categoriesContainer.innerHTML = html;
         }
         
-        // Agrupar términos por letra inicial
-        function groupTermsByLetter(terms) {
-            const groups = {};
+        // Obtener descripción de la categoría
+        function getCategoryDescription(categoryName) {
+            switch(categoryName) {
+                case "Conceptos Teóricos":
+                    return "Fundamentos científicos detrás de las tecnologías de energía limpia.";
+                case "Herramientas y Maquinaria":
+                    return "Equipos utilizados en instalación y mantenimiento de sistemas renovables.";
+                case "Materiales y Propiedades":
+                    return "Propiedades físicas y químicas de materiales industriales.";
+                case "Procedimientos Técnicos":
+                    return "Guías para ejecutar tareas técnicas de forma segura y eficiente.";
+                case "Unidades de Medida, Abreviaturas y Siglas":
+                    return "Estándares técnicos y abreviaturas esenciales en ingeniería.";
+                default:
+                    return "Explora términos técnicos en esta categoría especializada.";
+            }
+        }
+        
+        // Cargar términos destacados
+        function loadFeaturedTerms() {
+            // Seleccionar 6 términos aleatorios
+            const featuredTerms = [];
+            const indices = new Set();
+            
+            while (featuredTerms.length < 6 && indices.size < allTerms.length) {
+                const randomIndex = Math.floor(Math.random() * allTerms.length);
+                if (!indices.has(randomIndex)) {
+                    indices.add(randomIndex);
+                    featuredTerms.push(allTerms[randomIndex]);
+                }
+            }
+            
+            // Renderizar términos destacados
+            renderFeaturedTerms(featuredTerms);
+        }
+        
+        // Renderizar términos destacados
+        function renderFeaturedTerms(terms) {
+            let html = '';
             
             terms.forEach(term => {
-                const letter = term.letter.toUpperCase();
-                if (!groups[letter]) {
-                    groups[letter] = [];
-                }
-                groups[letter].push(term);
-            });
-            
-            return groups;
-        }
-        
-        // Generar navegación alfabética
-        function generateAlphabetNavigation(terms) {
-            const groupedTerms = groupTermsByLetter(terms);
-            const letters = Object.keys(groupedTerms).sort();
-            
-            let html = '';
-            letters.forEach(letter => {
-                html += `<a href="#group-${letter}">${letter}</a>`;
-            });
-            
-            alphabetNav.innerHTML = html;
-        }
-        
-        // Renderizar términos destacados (los primeros 9 términos)
-        function renderFeaturedTerms(terms) {
-            // Seleccionar los primeros 9 términos como destacados
-            const featuredTerms = terms.slice(0, 9);
-            const groupedTerms = groupTermsByLetter(featuredTerms);
-            const letters = Object.keys(groupedTerms).sort();
-            
-            let html = '';
-            
-            letters.forEach(letter => {
                 html += `
-                    <div class="term-group" id="group-${letter}">
-                        <h3>${letter}</h3>
-                        <div class="term-list">
-                `;
-                
-                groupedTerms[letter].forEach(term => {
-                    html += `
-                        <div class="term-card">
-                            <h4><i class="fas fa-bookmark"></i> ${term.term}</h4>
-                            <p>${term.definition}</p>
-                            <div class="term-meta">
-                                <span class="term-category">${term.category}</span>
-                                <a href="categorias/${term.categoryId}.html" class="term-link">
-                                    Ver más <i class="fas fa-arrow-right"></i>
-                                </a>
-                            </div>
+                    <div class="term-card">
+                        <h4><i class="fas fa-bookmark" style="color: ${term.categoryColor}"></i> ${term.term}</h4>
+                        <p>${term.definition.substring(0, 120)}${term.definition.length > 120 ? '...' : ''}</p>
+                        <div class="term-meta">
+                            <span class="term-category" style="background: ${lightenColor(term.categoryColor, 85)}; color: ${term.categoryColor}">
+                                ${term.category}
+                            </span>
                         </div>
-                    `;
-                });
-                
-                html += `
-                        </div>
+                        <a href="${term.categoryPage}" class="term-link">
+                            Ver completo <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 `;
             });
             
-            termsContainer.innerHTML = html;
+            featuredTermsContainer.innerHTML = html;
+        }
+        
+        // Función para aclarar un color
+        function lightenColor(hex, percent) {
+            // Eliminar el # si está presente
+            hex = hex.replace(/^#/, '');
+            
+            // Convertir a RGB
+            const r = parseInt(hex.substring(0, 2), 16);
+            const g = parseInt(hex.substring(2, 4), 16);
+            const b = parseInt(hex.substring(4, 6), 16);
+            
+            // Calcular nuevo color más claro
+            const newR = Math.min(255, r + (255 - r) * (percent / 100));
+            const newG = Math.min(255, g + (255 - g) * (percent / 100));
+            const newB = Math.min(255, b + (255 - b) * (percent / 100));
+            
+            // Convertir a formato hexadecimal
+            return `#${Math.round(newR).toString(16).padStart(2, '0')}${Math.round(newG).toString(16).padStart(2, '0')}${Math.round(newB).toString(16).padStart(2, '0')}`;
         }
         
         // Configurar funcionalidad de búsqueda
@@ -1042,15 +967,22 @@
                 
                 if (results.length > 0) {
                     let html = '';
-                    results.forEach(term => {
+                    results.slice(0, 10).forEach(term => {
                         html += `
-                        <div class="search-result-item" data-term="${term.term}" data-category="${term.categoryId}">
+                        <div class="search-result-item" data-term="${term.term}" data-category="${term.categoryPage}">
                             <h3>${term.term}</h3>
                             <p>${term.definition.substring(0, 100)}...</p>
                             <span class="category">${term.category}</span>
                         </div>
                         `;
                     });
+                    
+                    if (results.length > 10) {
+                        html += `<div class="search-result-item" style="text-align: center; font-style: italic;">
+                            ${results.length - 10} resultados más...
+                        </div>`;
+                    }
+                    
                     searchResults.innerHTML = html;
                     searchResults.style.display = 'block';
                     
@@ -1058,9 +990,8 @@
                     document.querySelectorAll('.search-result-item').forEach(item => {
                         item.addEventListener('click', function() {
                             const term = this.getAttribute('data-term');
-                            const category = this.getAttribute('data-category');
-                            // Redirigir a la página de categoría correspondiente
-                            window.location.href = `categorias/${category}.html#${term}`;
+                            const categoryPage = this.getAttribute('data-category');
+                            window.location.href = `${categoryPage}?highlight=${encodeURIComponent(term)}`;
                         });
                     });
                 } else {
@@ -1083,18 +1014,13 @@
                     searchResults.style.display = 'none';
                 }
             });
-            
-            // Activar la letra actual en el índice alfabético
-            document.querySelectorAll('.alphabet-nav a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    document.querySelectorAll('.alphabet-nav a').forEach(a => a.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
         }
         
-        // Cargar todos los términos al iniciar
-        document.addEventListener('DOMContentLoaded', loadAllTerms);
+        // Evento para refrescar términos destacados
+        refreshButton.addEventListener('click', loadFeaturedTerms);
+        
+        // Cargar categorías al iniciar
+        document.addEventListener('DOMContentLoaded', loadCategories);
     </script>
 </body>
 </html>
