@@ -30,6 +30,7 @@
             background-color: #f5f7fa;
             color: #333;
             line-height: 1.6;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
         .container {
@@ -46,6 +47,7 @@
             box-shadow: var(--box-shadow);
             position: relative;
             overflow: hidden;
+            border-bottom: 4px solid var(--secondary);
         }
 
         header::before {
@@ -77,12 +79,14 @@
         .logo i {
             font-size: 2.5rem;
             color: var(--secondary);
+            animation: pulse 2s infinite;
         }
 
         .logo h1 {
             font-size: 2.8rem;
             font-weight: 700;
             letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
         .tagline {
@@ -102,6 +106,7 @@
             box-shadow: var(--box-shadow);
             position: relative;
             z-index: 10;
+            border: 1px solid #e0e0e0;
         }
 
         .search-container {
@@ -135,10 +140,12 @@
             font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
+            font-weight: 600;
         }
 
         .search-container button:hover {
             background: #2980b9;
+            transform: translateY(-2px);
         }
 
         #search-results {
@@ -152,6 +159,7 @@
             position: absolute;
             width: 100%;
             z-index: 100;
+            border: 1px solid #e0e0e0;
         }
 
         .search-result-item {
@@ -162,7 +170,7 @@
         }
 
         .search-result-item:hover {
-            background-color: #f9f9f9;
+            background-color: #f0f7ff;
         }
 
         .search-result-item h3 {
@@ -193,60 +201,13 @@
             margin-top: 20px;
         }
 
-        /* Categories */
-        .categories-section {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 25px;
-            box-shadow: var(--box-shadow);
-            height: fit-content;
-        }
-
-        .categories-section h2 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--secondary);
-            font-size: 1.5rem;
-        }
-
-        .category-list {
-            list-style: none;
-        }
-
-        .category-list li {
-            margin-bottom: 12px;
-        }
-
-        .category-list a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 15px;
-            border-radius: var(--border-radius);
-            color: var(--dark);
-            text-decoration: none;
-            transition: var(--transition);
-            background: #f8f9fa;
-        }
-
-        .category-list a:hover {
-            background: var(--secondary);
-            color: white;
-            transform: translateX(5px);
-        }
-
-        .category-list i {
-            width: 20px;
-            text-align: center;
-        }
-
         /* Alphabet & Terms */
         .terms-section {
             background: white;
             border-radius: var(--border-radius);
             padding: 25px;
             box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
         }
 
         .terms-section h2 {
@@ -278,12 +239,14 @@
             text-decoration: none;
             font-weight: bold;
             transition: var(--transition);
+            border: 1px solid #ddd;
         }
 
         .alphabet-nav a:hover, .alphabet-nav a.active {
             background: var(--secondary);
             color: white;
             transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .term-group {
@@ -298,6 +261,7 @@
             margin-bottom: 20px;
             font-size: 1.5rem;
             display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .term-list {
@@ -313,23 +277,37 @@
             transition: var(--transition);
             border-left: 4px solid var(--secondary);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
         }
 
         .term-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
         }
 
         .term-card h4 {
             color: var(--primary);
             margin-bottom: 10px;
             font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .term-card h4 i {
+            color: var(--secondary);
+            font-size: 1.1rem;
         }
 
         .term-card p {
             color: #555;
             margin-bottom: 15px;
             font-size: 0.95rem;
+            flex-grow: 1;
         }
 
         .term-meta {
@@ -343,12 +321,16 @@
             color: var(--secondary);
             padding: 3px 10px;
             border-radius: 20px;
+            font-weight: 500;
         }
 
         .term-link {
             color: var(--accent);
             text-decoration: none;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .term-link:hover {
@@ -366,24 +348,28 @@
             font-size: 0.9rem;
             display: block;
             margin-bottom: 5px;
+            font-weight: 500;
         }
 
         .related-terms a {
             display: inline-block;
             background: #f0f7ff;
             color: var(--secondary);
-            padding: 3px 10px;
+            padding: 5px 12px;
             border-radius: 4px;
             margin-right: 8px;
             margin-bottom: 8px;
             font-size: 0.85rem;
             text-decoration: none;
             transition: var(--transition);
+            border: 1px solid #d0e8ff;
         }
 
         .related-terms a:hover {
             background: var(--secondary);
             color: white;
+            transform: translateY(-2px);
+            border-color: var(--secondary);
         }
 
         /* Footer */
@@ -392,6 +378,7 @@
             color: white;
             padding: 40px 0 20px;
             margin-top: 60px;
+            border-top: 4px solid var(--secondary);
         }
 
         .footer-content {
@@ -452,16 +439,22 @@
             padding: 15px 0;
             font-size: 0.9rem;
             margin-bottom: 20px;
+            display: flex;
+            align-items: center;
         }
 
         .breadcrumb a {
             color: var(--secondary);
             text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .breadcrumb span {
             color: #666;
-            margin: 0 5px;
+            margin: 0 10px;
         }
 
         /* Responsive */
@@ -498,9 +491,13 @@
             .search-section {
                 padding: 20px;
             }
+            
+            .header-content {
+                padding: 0 10px;
+            }
         }
 
-        /* Nuevos estilos para la página de categoría */
+        /* Estilos para la página de categoría */
         .category-header {
             display: flex;
             align-items: center;
@@ -526,11 +523,13 @@
             justify-content: center;
             color: white;
             font-size: 1.8rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
         .category-title {
             font-size: 1.8rem;
             color: var(--primary);
+            font-weight: 700;
         }
         
         .term-count {
@@ -539,6 +538,7 @@
             border-radius: 20px;
             font-weight: bold;
             color: var(--dark);
+            border: 1px solid #dee2e6;
         }
         
         .category-description {
@@ -549,6 +549,7 @@
             color: var(--dark);
             line-height: 1.8;
             border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .back-to-home {
@@ -561,11 +562,15 @@
             border-radius: var(--border-radius);
             text-decoration: none;
             transition: var(--transition);
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
         }
         
         .back-to-home:hover {
             background: #2980b9;
             transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
         }
         
         .alphabet-section {
@@ -574,12 +579,16 @@
             padding: 25px;
             box-shadow: var(--box-shadow);
             margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
         }
         
         .alphabet-section h3 {
             color: var(--primary);
             margin-bottom: 20px;
             font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         /* Mensaje de error */
@@ -591,6 +600,10 @@
             margin: 20px 0;
             text-align: center;
             border-left: 4px solid #c62828;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
         /* Mensaje de éxito */
@@ -602,6 +615,11 @@
             margin: 20px 0;
             text-align: center;
             border-left: 4px solid #2e7d32;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 500;
         }
         
         .loading {
@@ -620,6 +638,12 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
     </style>
 </head>
@@ -661,7 +685,7 @@
                     <i class="fas fa-lightbulb"></i>
                 </div>
                 <h2 class="category-title">Conceptos Teóricos</h2>
-                <div class="term-count">Cargando términos...</div>
+                <div class="term-count" id="term-count">Cargando términos...</div>
             </div>
             <a href="https://glosarioescolar.github.io/Glosario" class="back-to-home">
                 <i class="fas fa-arrow-left"></i> Volver al Inicio
@@ -729,7 +753,7 @@
 
     <script>
         // URL del archivo JSON
-        const JSON_URL = 'https://glosarioescolar.github.io/Glosario/data/conceptos-teoricos.json';
+        const JSON_URL = '../data/conceptos-teoricos.json';
         
         // Elementos del DOM
         const searchInput = document.getElementById('search-input');
@@ -737,7 +761,7 @@
         const searchButton = document.getElementById('search-button');
         const termsContainer = document.getElementById('terms-container');
         const alphabetNav = document.getElementById('alphabet-nav');
-        const termCountElement = document.querySelector('.term-count');
+        const termCountElement = document.getElementById('term-count');
         
         // Función para cargar los términos desde el JSON
         async function loadTerms() {
@@ -817,7 +841,7 @@
                 groupedTerms[letter].forEach(term => {
                     html += `
                         <div class="term-card">
-                            <h4>${term.term}</h4>
+                            <h4><i class="fas fa-bookmark"></i> ${term.term}</h4>
                             <p>${term.definition}</p>
                             <div class="related-terms">
                                 <span>Relacionado:</span>
@@ -901,7 +925,7 @@
             // Función para desplazarse a un término específico
             function scrollToTerm(termName) {
                 const termElement = [...document.querySelectorAll('.term-card h4')].find(
-                    h4 => h4.textContent === termName
+                    h4 => h4.textContent.includes(termName)
                 );
                 
                 if (termElement) {
@@ -931,7 +955,7 @@
             });
             
             document.addEventListener('click', function(e) {
-                if (!searchResults.contains(e.target) {
+                if (!searchResults.contains(e.target) && e.target !== searchInput) {
                     searchResults.style.display = 'none';
                 }
             });
