@@ -3,168 +3,168 @@
     "term": "Aceite monogrado",
     "definition": "Aceite que, al variar su temperatura, mantiene su grado de viscosidad.",
     "letter": "A",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Acero",
     "definition": "Aleación de hierro y carbono, con este último en un porcentaje de hasta el 2,1 %. En cambio, la fundición de hierro es la aleación de hierro y carbono, con este último en un porcentaje superior al 2,1 %.",
     "letter": "A",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Aislante",
     "definition": "Material con la capacidad de aislar y evitar transferencia de calor, electricidad, etc. Por ejemplo, un aislante eléctrico es un material incapaz de conducir corrientes eléctricas.",
     "letter": "A",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Biomasa",
     "definition": "Materia orgánica que se puede convertir en energía eléctrica dependiendo del proceso posterior a su uso que se le pueda realizar. A partir de ella se pueden producir biocombustibles.",
     "letter": "B",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Conductividad térmica",
     "definition": "Capacidad de un material para transmitir calor. Es un concepto fundamental en la ciencia de los materiales, ya que los metales tienen una alta conductividad térmica, mientras que los plásticos o la madera tienen baja conductividad.",
     "letter": "C",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Conductor eléctrico",
     "definition": "Material que no opone resistencia a la energía eléctrica, permitiendo que esta circule libremente por dicho material.",
     "letter": "C",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Cuarteado",
     "definition": "Agrietamiento o fisuración de una superficie.",
     "letter": "C",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Densidad",
     "definition": "Relación entre la masa y el volumen de un material.",
     "letter": "D",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Ductilidad",
     "definition": "Capacidad de un material para estirarse o alargarse sin romperse. Este término se aplica sobre todo en metales, como el cobre o el aluminio, pero también se usa en plásticos y materiales compuestos.",
     "letter": "D",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Efluentes",
     "definition": "Cualquier líquido que es descargado o liberado.",
     "letter": "E",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Elasticidad",
     "definition": "Propiedad de un material para volver a su forma original después de haber sido deformado. En materiales como la goma o los metales, la elasticidad es fundamental para la flexibilidad.",
     "letter": "E",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Fatiga",
     "definition": "Debilitamiento de un material por cargas repetidas. Se refiere a la disminución, con el paso del tiempo, de la resistencia de un elemento debido a esfuerzos cíclicos.",
     "letter": "F",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Filamento",
     "definition": "Elemento conductor que genera calor o luz al ser atravesado por una corriente eléctrica, común en resistencias y lámparas.",
     "letter": "F",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Flexibilidad",
     "definition": "Capacidad de un material para doblarse sin romperse.",
     "letter": "F",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Fragilidad",
     "definition": "Tendencia de un material a romperse fácilmente sin deformarse primero. Este término se aplica especialmente a materiales como el vidrio o cerámica.",
     "letter": "F",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Gas refrigerante",
     "definition": "Sustancia en forma gaseosa utilizada en sistemas de refrigeración para absorber y liberar calor durante su ciclo de compresión y expansión.",
     "letter": "G",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Hidrocarburos",
     "definition": "Combustibles fósiles como el petróleo y el gas natural.",
     "letter": "H",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Hidrógeno verde",
     "definition": "Hidrógeno producido mediante procesos de electrólisis impulsados por fuentes de energía renovables.",
     "letter": "H",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
-    "term": "Ignifugo",
+    "term": "Ignífugo",
     "definition": "Material (tela, pintura, etc.) que no se inflama ni propaga la llama ni el fuego.",
     "letter": "I",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Inductancia",
     "definition": "Propiedad de un conductor eléctrico que permite almacenar energía en un campo magnético.",
     "letter": "I",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Lubricante",
     "definition": "Aditivo que sirve para reducir la fricción entre dos piezas y actúa como aislante térmico. La acción de aplicar esta sustancia se denomina lubricado.",
     "letter": "L",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Maleabilidad",
     "definition": "Capacidad de un material para ser moldeado o aplanado sin romperse, como en el caso de metales que pueden ser martillados hasta convertirse en láminas.",
     "letter": "M",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Oxidación",
-    "definition": "Proceso químico por el que un material, típicamente un metal, reacciona con el oxígeno del aire y forma óxido. Esto ocurre frecuentemente en hierro y acero, creando lo que conocemos como \"herrumbre\".",
+    "definition": "Proceso químico por el que un material, típicamente un metal, reacciona con el oxígeno del aire y forma óxido. Esto ocurre frecuentemente en hierro y acero, creando lo que conocemos como 'herrumbre'.",
     "letter": "O",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Poliol",
     "definition": "Compuesto químico que funciona como aislante.",
     "letter": "P",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Rebaba",
     "definition": "Porción de material sobrante que sobresale en los bordes de un objeto. Por ejemplo, al amolar un metal, suele quedar un borde irregular y filoso que representa un riesgo.",
     "letter": "R",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Resistencia",
     "definition": "Capacidad de un material para soportar fuerzas o cargas.",
     "letter": "R",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Teflonado",
     "definition": "Recubrimiento de una capa de una superficie realizada con teflón con fines anti adherentes o anticorrosiva.",
     "letter": "T",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   },
   {
     "term": "Viscosidad",
     "definition": "Resistencia de un líquido a fluir.",
     "letter": "V",
-    "related": []
+    "related": ["Materiales y Propiedades"]
   }
 ]
