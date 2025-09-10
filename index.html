@@ -580,6 +580,84 @@
             margin: 0 10px;
         }
 
+        /* Modal de contacto */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .categories-grid, .term-list {
@@ -737,7 +815,7 @@
                 <div class="footer-section">
                     <h3>Contribuir</h3>
                     <p>¿Quieres contribuir con términos o mejorar definiciones? ¡Únete a nuestro proyecto educativo!</p>
-                    <button style="margin-top: 15px; background: var(--secondary); color: white; border: none; padding: 10px 20px; border-radius: var(--border-radius); cursor: pointer;">
+                    <button id="contact-btn" style="margin-top: 15px; background: var(--secondary); color: white; border: none; padding: 10px 20px; border-radius: var(--border-radius); cursor: pointer;">
                         <i class="fas fa-plus-circle"></i> Añadir Término
                     </button>
                 </div>
@@ -748,6 +826,36 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal de contacto -->
+    <div class="contact-modal" id="contact-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2><i class="fas fa-envelope"></i> Contribuir al Glosario</h2>
+            <p>Envía tu sugerencia de término o mejora para nuestro glosario técnico.</p>
+            
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" placeholder="Tu nombre" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" placeholder="tu.email@ejemplo.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contribution">Tu contribución</label>
+                    <textarea id="contribution" placeholder="Describe el término que quieres añadir o la mejora que propones..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Enviar por correo
+                </button>
+            </form>
+        </div>
+    </div>
 
     <script>
         // URLs de los archivos JSON para cada categoría
@@ -798,6 +906,10 @@
         const totalTermsElement = document.getElementById('total-terms');
         const totalCategoriesElement = document.getElementById('total-categories');
         const refreshButton = document.getElementById('refresh-terms');
+        const contactBtn = document.getElementById('contact-btn');
+        const contactModal = document.getElementById('contact-modal');
+        const closeModal = document.getElementById('close-modal');
+        const contactForm = document.getElementById('contact-form');
         
         // Variable para almacenar todos los términos combinados
         let allTerms = [];
@@ -1022,11 +1134,57 @@
             });
         }
         
+        // Configurar funcionalidad de contacto
+        function setupContact() {
+            // Abrir modal
+            contactBtn.addEventListener('click', function() {
+                contactModal.style.display = 'flex';
+            });
+            
+            // Cerrar modal
+            closeModal.addEventListener('click', function() {
+                contactModal.style.display = 'none';
+            });
+            
+            // Cerrar modal al hacer clic fuera
+            window.addEventListener('click', function(e) {
+                if (e.target === contactModal) {
+                    contactModal.style.display = 'none';
+                }
+            });
+            
+            // Enviar formulario
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const contribution = document.getElementById('contribution').value;
+                
+                // Crear el enlace mailto
+                const subject = "Contribución Términos Glosario Escolar Técnico";
+                const body = `Nombre: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AContribución:%0D%0A${contribution}`;
+                
+                // Abrir el cliente de correo
+                window.location.href = `mailto:carinacatalfamo@sanluis.edu.ar?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                
+                // Cerrar el modal después de un breve retraso
+                setTimeout(() => {
+                    contactModal.style.display = 'none';
+                    contactForm.reset();
+                    alert('Gracias por tu contribución. Se abrirá tu cliente de correo para enviar tu sugerencia.');
+                }, 500);
+            });
+        }
+        
         // Evento para refrescar términos destacados
         refreshButton.addEventListener('click', loadFeaturedTerms);
         
         // Cargar categorías al iniciar
-        document.addEventListener('DOMContentLoaded', loadCategories);
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCategories();
+            setupContact();
+        });
     </script>
 </body>
 </html>
