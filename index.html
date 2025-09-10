@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glosario Técnico - Tu recurso educativo</title>
-    <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-<link rel="manifest" href="assets/site.webmanifest">
-<link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -613,49 +607,49 @@
             color: #666;
         }
 
-        .contact-form {
+        .contact-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .contact-email {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .form-group label {
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            padding: 12px;
-            border: 1px solid #ddd;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 15px;
             border-radius: var(--border-radius);
-            font-size: 1rem;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
         }
 
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
+        .contact-email span {
+            font-weight: 500;
+            color: var(--primary);
         }
 
-        .submit-btn {
+        .copy-btn {
             background: var(--secondary);
             color: white;
             border: none;
-            padding: 12px;
+            padding: 8px 15px;
             border-radius: var(--border-radius);
-            font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
-            font-weight: 600;
         }
 
-        .submit-btn:hover {
+        .copy-btn:hover {
             background: #2980b9;
+        }
+
+        .contact-note {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid var(--secondary);
         }
 
         /* Responsive */
@@ -705,6 +699,20 @@
         
         .fade-in {
             animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            z-index: 1001;
+            display: none;
         }
     </style>
 </head>
@@ -832,29 +840,31 @@
         <div class="modal-content">
             <span class="close-modal" id="close-modal">&times;</span>
             <h2><i class="fas fa-envelope"></i> Contribuir al Glosario</h2>
-            <p>Envía tu sugerencia de término o mejora para nuestro glosario técnico.</p>
             
-            <form class="contact-form" id="contact-form">
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" id="name" placeholder="Tu nombre" required>
+            <div class="contact-info">
+                <p>Para contribuir con términos o mejorar definiciones, contacta a:</p>
+                
+                <div class="contact-email">
+                    <i class="fas fa-envelope" style="color: var(--secondary); font-size: 1.5rem;"></i>
+                    <span id="email-text">carinacatalfamo@sanluis.edu.ar</span>
+                    <button class="copy-btn" id="copy-btn">
+                        <i class="fas fa-copy"></i> Copiar
+                    </button>
                 </div>
                 
-                <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" placeholder="tu.email@ejemplo.com" required>
+                <div class="contact-note">
+                    <p><strong>Nota:</strong> Por favor, utiliza el asunto <em>"Contribución Términos Glosario Escolar Técnico"</em> en tu correo.</p>
+                    <p>Incluye en el mensaje los términos que deseas añadir o las mejoras que propones.</p>
                 </div>
                 
-                <div class="form-group">
-                    <label for="contribution">Tu contribución</label>
-                    <textarea id="contribution" placeholder="Describe el término que quieres añadir o la mejora que propones..." required></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i> Enviar por correo
-                </button>
-            </form>
+                <p>Tu contribución será revisada y añadida al glosario lo antes posible.</p>
+            </div>
         </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i> Correo copiado al portapapeles
     </div>
 
     <script>
@@ -909,7 +919,9 @@
         const contactBtn = document.getElementById('contact-btn');
         const contactModal = document.getElementById('contact-modal');
         const closeModal = document.getElementById('close-modal');
-        const contactForm = document.getElementById('contact-form');
+        const copyBtn = document.getElementById('copy-btn');
+        const emailText = document.getElementById('email-text');
+        const toast = document.getElementById('toast');
         
         // Variable para almacenar todos los términos combinados
         let allTerms = [];
@@ -1153,27 +1165,19 @@
                 }
             });
             
-            // Enviar formulario
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const contribution = document.getElementById('contribution').value;
-                
-                // Crear el enlace mailto
-                const subject = "Contribución Términos Glosario Escolar Técnico";
-                const body = `Nombre: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AContribución:%0D%0A${contribution}`;
-                
-                // Abrir el cliente de correo
-                window.location.href = `mailto:carinacatalfamo@sanluis.edu.ar?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                
-                // Cerrar el modal después de un breve retraso
-                setTimeout(() => {
-                    contactModal.style.display = 'none';
-                    contactForm.reset();
-                    alert('Gracias por tu contribución. Se abrirá tu cliente de correo para enviar tu sugerencia.');
-                }, 500);
+            // Copiar correo al portapapeles
+            copyBtn.addEventListener('click', function() {
+                const email = emailText.textContent;
+                navigator.clipboard.writeText(email).then(() => {
+                    // Mostrar toast de confirmación
+                    toast.style.display = 'block';
+                    setTimeout(() => {
+                        toast.style.display = 'none';
+                    }, 3000);
+                }).catch(err => {
+                    console.error('Error al copiar el texto: ', err);
+                    alert('No se pudo copiar el correo. Por favor, cópialo manualmente: ' + email);
+                });
             });
         }
         
