@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptos Teóricos - Glosario Técnico</title>
+    <meta name="description" content="Fundamentos científicos detrás de las tecnologías de energía limpia.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+        :root {
+            /* Light Theme (Default) */
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+
+            --bg-body: #f5f7fa;
+            --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --bg-card: #ffffff;
+            --bg-card-hover: #f8f9fa;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
+            --border-hover: #3498db;
+
+            --header-bg: linear-gradient(135deg, var(--primary), #1a2530);
+            --header-text: #ffffff;
+            --footer-bg: var(--primary);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px var(--shadow-color);
+            --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #1e293b;
+            --secondary: #3b82f6;
+            --accent: #ef4444;
+            --light: #0f172a;
+            --dark: #f8fafc;
+
+            --bg-body: #0f172a;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --border-hover: #60a5fa;
+
+            --header-bg: linear-gradient(135deg, #020617, #0f172a);
+            --footer-bg: #020617;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="reading"] {
+            --primary: #5c4b37;
+            --secondary: #d97706;
+            --accent: #b45309;
+            --light: #fefce8;
+            --dark: #422006;
+
+            --bg-body: #fefce8;
+            --bg-gradient: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+            --bg-card: #fffbeb;
+            --bg-card-hover: #fef3c7;
+            --text-main: #422006;
+            --text-muted: #78350f;
+            --border-color: #fde68a;
+            --border-hover: #f59e0b;
+
+            --header-bg: linear-gradient(135deg, #78350f, #92400e);
+            --footer-bg: #422006;
+            --shadow-color: rgba(120, 53, 15, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), #1a2530);
+            color: white;
+            padding: 30px 0;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            animation: pulse 2s infinite;
+        }
+
+        .logo h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        /* Search Section */
+        .search-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: -30px auto 40px;
+            max-width: 800px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            z-index: 10;
+            border: 1px solid #e0e0e0;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .search-container input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+            outline: none;
+        }
+
+        .search-container button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .search-container button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        #search-results {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+            border: 1px solid #e0e0e0;
+        }
+
+        .search-result-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-result-item:hover {
+            background-color: #f0f7ff;
+        }
+
+        .search-result-item h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .search-result-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .search-result-item .category {
+            display: inline-block;
+            background: #e1f0fa;
+            color: var(--secondary);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .categories-section h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-card p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .term-count {
+            background: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: var(--dark);
+            border: 1px solid #dee2e6;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .category-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: fit-content;
+        }
+
+        .category-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Terms Section */
+        .terms-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
+        }
+
+        .terms-section h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .term-group {
+            margin-bottom: 40px;
+        }
+
+        .term-group h3 {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .term-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .term-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
+        }
+
+        .term-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .term-card h4 i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .term-card p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .term-category {
+            background: #e1f0fa;
+            color: var(--secondary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .term-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .related-terms {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .related-terms span {
+            color: #666;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .related-terms a {
+            display: inline-block;
+            background: #f0f7ff;
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid #d0e8ff;
+        }
+
+        .related-terms a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            border-color: var(--secondary);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 200px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .stat-card .number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-card .label {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb {
+            padding: 15px 0;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 10px;
+        }
+
+        /* Modal de contacto */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .contact-email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .contact-email span {
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .copy-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background: #2980b9;
+        }
+
+        .contact-note {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+
+            .categories-grid,
+            .term-list {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .stats-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .search-section {
+                padding: 20px;
+            }
+
+            .header-content {
+                padding: 0 10px;
+            }
+
+            .categories-grid,
+            .term-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            z-index: 1001;
+            display: none;
+        }
+
+        /* Botón Volver Arriba */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1005;
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        #back-to-top:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            opacity: 1;
+        }
+
+        /* Animaciones de Scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Extreme Mobile Optimizations & Robustness */
+        @media (max-width: 600px) {
+            body {
+                touch-action: manipulation;
+                /* Prevents double-tap zoom delay */
+            }
+
+            /* Prevent iOS input auto-zoom by forcing 16px */
+            input[type="text"],
+            input[type="search"] {
+                font-size: 16px !important;
+            }
+
+            /* Increase touch targets */
+            .search-container button {
+                padding: 12px 20px;
+                min-height: 44px;
+            }
+
+            #clear-search {
+                padding: 10px;
+                min-width: 44px;
+                min-height: 44px;
+                right: 120px;
+            }
+
+            .alphabet-nav a {
+                min-width: 44px;
+                min-height: 44px;
+                line-height: 44px;
+            }
+
+            .footer-links a {
+                min-height: 44px;
+            }
+
+            /* Robustness: Prevent text overflow */
+            .term-card p,
+            .category-description p {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+
+            /* Modal tweaks for small screens */
+            .modal-content,
+            .contact-modal .modal-content {
+                width: 95%;
+                padding: 20px 15px;
+                margin: 10px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .contact-email {
+                flex-direction: column;
+                gap: 15px;
+                word-break: break-all;
+            }
+
+            .copy-btn {
+                width: 100%;
+                min-height: 44px;
+            }
+        }
+
+        /* Theming Core Styles */
+        body {
+            background-color: var(--bg-body);
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+        }
+
+        .search-section,
+        .categories-section,
+        .terms-section,
+        .category-header {
+            background-color: var(--bg-card);
+            border-color: var(--border-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border-color: var(--border-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        .category-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            box-shadow: var(--box-shadow-hover);
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .category-card h3 {
+            color: var(--text-main);
+        }
+
+        .category-card p {
+            color: var(--text-muted);
+        }
+
+        .term-card {
+            background: var(--bg-card);
+            border-color: var(--border-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        .term-card:hover {
+            box-shadow: var(--box-shadow-hover);
+            border-left-color: var(--border-hover);
+        }
+
+        .term-card h3 {
+            color: var(--secondary);
+        }
+
+        .term-card p {
+            color: var(--text-main);
+        }
+
+        .related-terms strong {
+            color: var(--text-muted);
+        }
+
+        .search-container input {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border-color: var(--border-color);
+        }
+
+        #search-results {
+            background: var(--bg-card);
+            border-color: var(--border-color);
+        }
+
+        .search-result-item {
+            border-bottom-color: var(--border-color);
+        }
+
+        .search-result-item:hover {
+            background-color: var(--bg-card-hover);
+        }
+
+        .search-result-item h3 {
+            color: var(--secondary);
+        }
+
+        .search-result-item p {
+            color: var(--text-muted);
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+        }
+
+        /* Theme Switcher UI */
+        .theme-switcher {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .theme-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .theme-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .theme-btn.active {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            box-shadow: 0 0 15px var(--secondary);
+        }
+
+        /* Reading Mode specific overrides */
+        [data-theme="reading"] body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        [data-theme="reading"] header .logo h1 {
+            font-family: 'Segoe UI', sans-serif;
+            /* Keep logo modern */
+        }
+
+
+        /* Input & Select Theming Fixes */
+        input,
+        select,
+        textarea {
+            background-color: var(--bg-card) !important;
+            color: var(--text-main) !important;
+            border: 1px solid var(--border-color) !important;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--text-muted) !important;
+        }
+
+        select option {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+        }
+
+        /* Phase 6: Deep QA & Contrast Fixes */
+        .breadcrumb,
+        .breadcrumb a,
+        .alphabet-nav a,
+        .category-description p,
+        .contact-modal p,
+        .contact-modal h2,
+        .contact-email a,
+        .copy-btn {
+            color: var(--text-main) !important;
+            transition: var(--transition);
+        }
+
+        /* Tagline lives inside header (always dark bg), so keep it white */
+        .tagline {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .breadcrumb a:hover,
+        .footer-links a:hover,
+        .alphabet-nav a:hover,
+        .contact-email a:hover {
+            color: var(--secondary) !important;
+        }
+
+        /* Fix the Search Clear Button contrasting background in dark mode */
+        #clear-search {
+            background-color: transparent !important;
+            color: var(--text-muted) !important;
+        }
+
+        #clear-search:hover {
+            color: var(--accent) !important;
+        }
+
+        /* Prevent link default blue color bleeding through in Category Pages */
+        a.category-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Enhance Breathing Room (Paddings/Margins) */
+        .term-card {
+            padding: 25px !important;
+            margin-bottom: 25px !important;
+        }
+
+        .category-card {
+            padding: 30px !important;
+        }
+
+        .alphabet-nav {
+            gap: 10px !important;
+            margin-bottom: 30px !important;
+        }
+
+        /* Critical Text Contrast Fixes for Cards in Dark Mode */
+        .category-card h3,
+        .term-card h4,
+        .search-result-item h3 {
+            color: var(--primary) !important;
+            /* Will adapt correctly if var is mapped, BUT Wait! --primary is dark in dark mode! */
+        }
+
+        /* Better yet, just force var(--text-main) for titles and var(--text-muted) for text */
+        .category-card h3,
+        .term-card h4,
+        .search-result-item h3,
+        .term-group h3 {
+            color: var(--text-main) !important;
+        }
+
+        .category-card p,
+        .term-card p,
+        .search-result-item p {
+            color: var(--text-muted) !important;
+        }
+
+        .term-group h3 {
+            background-color: var(--primary) !important;
+            color: var(--header-text) !important;
+            /* White in dark mode */
+        }
+
+        .term-category {
+            background-color: var(--secondary) !important;
+            color: white !important;
+        }
+
+        .search-result-item:hover {
+            background-color: var(--bg-card-hover) !important;
+        }
+
+        #search-results {
+            background-color: var(--bg-card) !important;
+        }
+
+        /* ===== COMPREHENSIVE THEME FIX (Final Pass) ===== */
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .stat-card {
+            background: var(--bg-card-hover) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .stat-card .number {
+            color: var(--text-main) !important;
+        }
+
+        .stat-card .label {
+            color: var(--text-muted) !important;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg, var(--primary)) !important;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary) !important;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        /* Sections with white backgrounds */
+        .search-section,
+        .categories-section,
+        .terms-section {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* Section headings that use --primary (dark blue, invisible in dark mode) */
+        .categories-section h2,
+        .terms-section h2 {
+            color: var(--text-main) !important;
+        }
+
+        /* Category & Term Cards */
+        .category-card,
+        .term-card {
+            background: var(--bg-card-hover) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .category-card h3,
+        .term-card h4 {
+            color: var(--text-main) !important;
+        }
+
+        /* Related Terms */
+        .related-terms {
+            border-top-color: var(--border-color) !important;
+        }
+
+        .related-terms span {
+            color: var(--text-muted) !important;
+        }
+
+        .related-terms a {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* Term Count Badge */
+        .term-count {
+            background: var(--bg-card-hover) !important;
+            color: var(--text-main) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumb span {
+            color: var(--text-muted) !important;
+        }
+
+        /* Contact Modal */
+        .modal-content {
+            background-color: var(--bg-card) !important;
+        }
+
+        .close-modal {
+            color: var(--text-muted) !important;
+        }
+
+        .contact-email {
+            background: var(--bg-card-hover) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .contact-email span {
+            color: var(--text-main) !important;
+        }
+
+        .contact-note {
+            background: var(--bg-card-hover) !important;
+        }
+
+        /* Search Results Dropdown */
+        #search-results {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .search-result-item {
+            border-bottom-color: var(--border-color) !important;
+        }
+
+        .search-result-item:hover {
+            background-color: var(--bg-card-hover) !important;
+        }
+
+        .search-result-item .category {
+            background: var(--secondary) !important;
+            color: white !important;
+        }
+
+        /* Search input */
+        .search-container input {
+            background: var(--bg-card) !important;
+            color: var(--text-main) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* ===== END COMPREHENSIVE THEME FIX ===== */
+    
+        /* Category-specific header accent */
+        .category-header {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid #3498db;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .category-header h2 {
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        .category-header h2 i {
+            color: #3498db;
+        }
+        .category-description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 8px;
+        }
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .back-to-home:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        .alphabet-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        .alphabet-nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        .alphabet-nav a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            border-color: var(--secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="theme-switcher">
+            <button class="theme-btn" data-set-theme="light" title="Modo Claro"><i class="fas fa-sun"></i></button>
+            <button class="theme-btn" data-set-theme="dark" title="Modo Oscuro"><i class="fas fa-moon"></i></button>
+            <button class="theme-btn" data-set-theme="reading" title="Modo Lectura"><i class="fas fa-book"></i></button>
+        </div>
+        <div class="container header-content">
+            <a href="https://glosarioescolar.github.io/Glosario/" class="logo" style="text-decoration: none; color: inherit; cursor: pointer;">
+                <i class="fas fa-book-open"></i>
+                <h1>Glosario Técnico</h1>
+            </a>
+            <p class="tagline">Tu recurso educativo con más de 200 términos técnicos explicados de manera clara y concisa. Perfecto para estudiantes e investigadores.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb" style="margin: 20px 0;">
+            <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+            <span>/</span>
+            <span style="color: var(--text-muted);">Conceptos Teóricos</span>
+        </div>
+
+        <!-- Category Header -->
+        <div class="category-header">
+            <div>
+                <h2><i class="fas fa-lightbulb"></i> Conceptos Teóricos</h2>
+                <p class="category-description">Fundamentos científicos detrás de las tecnologías de energía limpia.</p>
+            </div>
+            <a href="../index.html" class="back-to-home"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+        </div>
+
+        <!-- Alphabet Navigation -->
+        <div class="alphabet-nav">
+                <a href="#letter-A">A</a>
+                <a href="#letter-B">B</a>
+                <a href="#letter-C">C</a>
+                <a href="#letter-D">D</a>
+                <a href="#letter-E">E</a>
+                <a href="#letter-F">F</a>
+                <a href="#letter-G">G</a>
+                <a href="#letter-H">H</a>
+                <a href="#letter-L">L</a>
+                <a href="#letter-M">M</a>
+                <a href="#letter-N">N</a>
+                <a href="#letter-O">O</a>
+                <a href="#letter-P">P</a>
+                <a href="#letter-R">R</a>
+                <a href="#letter-S">S</a>
+                <a href="#letter-T">T</a>
+                <a href="#letter-V">V</a>
+        </div>
+
+        <!-- Terms by Letter -->
+
+        <div class="term-group" id="letter-A">
+            <h3>A</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Acimut 0°</h4>
+                    <p>Esto es el Norte (dirección).</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Radiación solar</a><a href="#">Cenit</a><a href="#">Carta solar</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Acimut óptimo</h4>
+                    <p>Ángulo de orientación ideal para un panel solar.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Acimut 0°</a><a href="#">Radiación solar</a><a href="#">Cenit</a><a href="#">Carta solar</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Afelio</h4>
+                    <p>Fecha en la que la Tierra está más alejada del sol. En cambio, el perihelio es la fecha en la que la Tierra está más cerca del sol.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Almacenamiento energético</h4>
+                    <p>Tecnología que permite acumular energía para su posterior uso, tales como baterías o sistemas de bombeo.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Anclaje</h4>
+                    <p>Sistema de fijación que se utiliza para sujetar objetos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-B">
+            <h3>B</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Balance energético</h4>
+                    <p>Balance de flujos energéticos de entrada y salida en una central o área geográfica.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-C">
+            <h3>C</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Calor recuperado</h4>
+                    <p>Energía térmica que se recupera y reutiliza durante un proceso.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Capacidad de carga</h4>
+                    <p>Máxima cantidad de energía que puede producir un sistema de generación de energía renovable bajo condiciones óptimas.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Captación solar</h4>
+                    <p>Proceso mediante el cual los sistemas solares recogen la energía proveniente del sol para su conversión en energía útil, ya sea térmica o eléctrica.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Acimut 0°</a><a href="#">Radiación solar</a><a href="#">Cenit</a><a href="#">Carta solar</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Carta solar</h4>
+                    <p>Estudio de la proyección de la radiación solar en un punto determinado.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Acimut 0°</a><a href="#">Radiación solar</a><a href="#">Cenit</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Cavitación</h4>
+                    <p>Fenómeno en donde la presión en un fluido cae por debajo de su punto de vapor, lo que provoca burbujas que colapsan violentamente.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Cenit</h4>
+                    <p>Intersección de la vertical de un punto geográfico con la esfera celeste; por encima de un observador ubicado en ese punto.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Acimut 0°</a><a href="#">Radiación solar</a><a href="#">Carta solar</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Ciclo de vida</h4>
+                    <p>Análisis de todos los impactos ambientales de un producto desde su creación hasta su eliminación.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Ciclo profundo</h4>
+                    <p>Característica de ciertas baterías que permiten soportar cientos de descargas completas.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Circulación forzada</h4>
+                    <p>Ocurre cuando se agrega una bomba a un sistema de circulación de un fluido.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Conexión off grid</h4>
+                    <p>Tipo de conexión en los sistemas solares fotovoltaicos que emplean baterías, también se puede decir que el sistema está aislado de la red de distribución eléctrica.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Conexión on grid</h4>
+                    <p>Tipo de conexión de un sistema solar fotovoltaico conectado a la red de distribución, es decir, el usuario puede generar energía eléctrica para abastecer sus aparatos eléctricos y suministrar energía de sobra a la red.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Constante solar</h4>
+                    <p>Cantidad de energía solar que llega a la tierra en vacío.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Acimut 0°</a><a href="#">Radiación solar</a><a href="#">Cenit</a><a href="#">Carta solar</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Corriente</h4>
+                    <p>Flujo eléctrico que pasa por un conductor.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Corriente nominal</h4>
+                    <p>Corriente inicial que necesita un sistema mecánico para arrancar.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Corrientes parásitas</h4>
+                    <p>Corrientes eléctricas inducidas en materiales conductores debido a un cambio en el campo magnético circundante, que causa pérdida de energía en forma de calor.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Critical load</h4>
+                    <p>Carga eléctrica esencial que debe mantenerse en sistemas de respaldo.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Croquis</h4>
+                    <p>Es un dibujo o esquema realizado de forma rápida y sin denotar tantos detalles.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Curva de potencia de un aerogenerador</h4>
+                    <p>Gráfico que muestra la relación entre la velocidad del viento y la potencia generada por la turbina.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-D">
+            <h3>D</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Datasheet</h4>
+                    <p>Documento técnico con especificaciones clave de un componente o equipo.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Descarbonización</h4>
+                    <p>Proceso que reduce las emisiones de carbono en la producción de energía. Complementariamente, la captura de carbono es la tecnología para atrapar y almacenar dióxido de carbono emitido por fuentes industriales.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Desempeño energético</h4>
+                    <p>Medida de la capacidad de un sistema solar para generar energía en función de las condiciones climáticas, la orientación de los paneles y otros factores.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-E">
+            <h3>E</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Efecto fotovoltaico</h4>
+                    <p>Fenómeno físico que ocurre cuando la luz solar incide sobre materiales semiconductores, generando una corriente eléctrica debido a la liberación de electrones.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Eficiencia aerodinámica</h4>
+                    <p>Medida de cuánta energía del viento es capturada por las palas de la turbina.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Eficiencia energética</h4>
+                    <p>Es la medida de la energía útil que se obtiene de un sistema respecto de la cantidad total de energía que llega.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Ejes cartesianos</h4>
+                    <p>Sistema de referencia ortogonal usado para ubicar puntos en un plano o en el espacio. Fundamental para representar gráficas de funciones, ondas y otros fenómenos.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Vértice</a><a href="#">Valle</a><a href="#">Periodo</a><a href="#">Frecuencia</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Electrólisis</h4>
+                    <p>Procedimiento utilizado para separar elementos de un compuesto químico utilizando corriente eléctrica.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía cinética</h4>
+                    <p>Pertenece a un cuerpo en movimiento.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía eólica</h4>
+                    <p>Obtenida a partir del viento.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía fotovoltaica</h4>
+                    <p>Generación de electricidad mediante paneles que convierten la luz solar en energía.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía geotérmica</h4>
+                    <p>Obtenida a partir del aprovechamiento del calor interno de la Tierra.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía hidráulica</h4>
+                    <p>Generada a partir del movimiento del agua.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía limpia</h4>
+                    <p>Fuentes de energía que no producen contaminación.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía mareomotriz</h4>
+                    <p>Producida a partir de las mareas y corrientes marinas.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía renovable</h4>
+                    <p>Aquella que se obtiene de fuentes naturales y se puede reponer naturalmente.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía solar pasiva</h4>
+                    <p>Es el aprovechamiento de la energía solar sin el uso de dispositivos mecánicos o electrónicos, aprovechando las características arquitectónicas y el diseño de los edificios, como la orientación, el aislamiento, y el uso de materiales que almacenan y liberan calor de manera natural, como paredes y ventanas.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Acimut 0°</a><a href="#">Radiación solar</a><a href="#">Cenit</a><a href="#">Carta solar</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Ergonomía</h4>
+                    <p>Ciencia que se ocupa de adaptar el trabajo y las herramientas a las capacidades y limitaciones del trabajador para reducir el riesgo de lesiones.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Esfuerzo de flexión</h4>
+                    <p>Resulta de aplicar fuerzas perpendicularmente al eje principal de un elemento que tienden a doblarlo.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Esfuerzo de tracción</h4>
+                    <p>Aquel que experimenta un elemento cuando se lo somete a una tensión o estiramiento producido por fuerzas de dirección opuesta.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Espectro visible</h4>
+                    <p>Parte de la radiación electromagnética perceptible por el ojo humano, entre 400 y 700 nm de longitud de onda.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-F">
+            <h3>F</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Flujo turbulento</h4>
+                    <p>Movimiento del aire que no es laminar y puede reducir la eficiencia de una turbina. Por el contrario, el flujo laminar es un tipo de movimiento de un fluido en el que las partículas se desplazan de forma suave, ordenada y paralela, formando capas que se no mezclan entre sí.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Fotón</h4>
+                    <p>Partícula elemental que transporta la energía de la luz. Es la unidad básica de la radiación electromagnética, cuya absorción en las células solares genera electricidad.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Frecuencia</h4>
+                    <p>Número de repeticiones de un fenómeno periódico (como una onda) por unidad de tiempo. En el Sistema Internacional se mide en Hercios (Hz).</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Periodo</a><a href="#">Ejes cartesianos</a><a href="#">Onda</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-G">
+            <h3>G</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Generación distribuida</h4>
+                    <p>Proceso en el cual se generan energías renovables, como la solar, de manera local y distribuida, es decir, a pequeña escala, cerca del lugar de consumo, reduciendo pérdidas en la transmisión de energía.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-H">
+            <h3>H</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Hidrólisis</h4>
+                    <p>Proceso químico en el que una molécula de agua se rompe para separar un compuesto en dos o más moléculas.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Hoja técnica</h4>
+                    <p>Cuadrante que se encuentra en maquinarias, aditivos o elementos y muestra sus principales características.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Huella de carbono</h4>
+                    <p>Medida del impacto ambiental de una actividad en términos de CO2 emitido.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-L">
+            <h3>L</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Ley de generación distribuida</h4>
+                    <p>Legislación nacional que promueve el uso de las energías renovables y da permiso a la instalación de elementos que generen energía eléctrica a través de energía solar en instalaciones aptas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-M">
+            <h3>M</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Matriz energética</h4>
+                    <p>Conjunto de fuentes de energía utilizadas en una región.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-N">
+            <h3>N</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Normas de seguridad laboral</h4>
+                    <p>Conjunto de reglas que garantizan la seguridad de los trabajadores durante el desarrollo de sus actividades profesionales.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-O">
+            <h3>O</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Off shore</h4>
+                    <p>Referido a construcciones en el mar, como por ejemplo, turbinas eólicas off shore. Contrario a on shore, referido a construcciones en tierra.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> On shore</h4>
+                    <p>Referido a construcciones en tierra.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Onda</h4>
+                    <p>Propagación de una perturbación de alguna propiedad del espacio, implicando un transporte de energía sin transporte de materia.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Frecuencia</a><a href="#">Periodo</a><a href="#">Vértice</a><a href="#">Valle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-P">
+            <h3>P</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Periodo</h4>
+                    <p>Tiempo que tarda una onda en completar un ciclo completo. Es el inverso de la frecuencia.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Frecuencia</a><a href="#">Ejes cartesianos</a><a href="#">Onda</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Plan de mantenimiento</h4>
+                    <p>Documento que tiene plasmado los trabajos de mantenimiento de un equipo.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Política energética</h4>
+                    <p>Conjunto de decisiones y acciones para gestionar y regular el uso de la energía.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Potencia activa</h4>
+                    <p>Cantidad de potencia que se convierte en trabajo útil en un sistema eléctrico.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Potencia nominal</h4>
+                    <p>Energía almacenada en un sistema en función de su posición.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Protección IP</h4>
+                    <p>Resguardo que puede poseer un aparato ante el polvo o la humedad. El número indica cuánta protección tiene. Por ejemplo, si dice IP 55, protege del polvo y de una cantidad muy pequeña de agua.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Pérdida de calor</h4>
+                    <p>Disminución de la energía térmica de un sistema hacia su entorno, generalmente debido a diferencias de temperatura y falta de aislamiento adecuado.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-R">
+            <h3>R</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Radiación solar</h4>
+                    <p>Energía emitida por el sol en forma de luz y calor, que puede ser aprovechada para generar electricidad o calor en sistemas solares.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Acimut 0°</a><a href="#">Cenit</a><a href="#">Carta solar</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Reacción química endotérmica</h4>
+                    <p>Requiere energía calórica para que tenga lugar, mientras que la exotérmica libera energía en forma de calor.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Reacción química exotérmica</h4>
+                    <p>Libera energía en forma de calor.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Red de media tensión</h4>
+                    <p>Cables que circulan de pueblo a pueblo por los cuales se transporta la energía eléctrica de entre 13Kv y 33Kv.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Red eléctrica</h4>
+                    <p>Sistema de distribución de energía eléctrica desde las centrales a los usuarios.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Red inteligente</h4>
+                    <p>Sistema eléctrico que utiliza tecnología digital para mejorar la gestión de la energía.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Remanente</h4>
+                    <p>Lo que queda o sobra luego de un proceso. Por ejemplo, líquido remanente, magnetismo remanente.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-S">
+            <h3>S</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Sistemas híbridos</h4>
+                    <p>Sistemas energéticos que combinan diferentes fuentes de energía, como la solar y la eólica, para mejorar la estabilidad y la fiabilidad del suministro.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Sistemas térmicos solares</h4>
+                    <p>Sistemas que capturan la energía solar en forma de calor, generalmente mediante colectores solares, para ser utilizada en calefacción, agua caliente sanitaria o procesos industriales.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Acimut 0°</a><a href="#">Radiación solar</a><a href="#">Cenit</a><a href="#">Carta solar</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Solsticio</h4>
+                    <p>Cada uno de los dos momento anuales en que el sol se halla en uno de los dos trópicos, lo cual sucede del 21 al 22 de junio para el de Cáncer, y del 21 al 22 de diciembre para el de Capricornio, y en los que la diferencia entre la duración del día y de la noche es mayor. El solsticio de invierno es el día más corto del año y la noche más larga, mientras que el solsticio de verano es el día más largo del año y la noche más corta.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Sostenibilidad</h4>
+                    <p>Capacidad de satisfacer las necesidades actuales sin comprometer los recursos futuros, es decir, mantener un equilibrio ecológico sin agotar recursos.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-T">
+            <h3>T</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Tecnología de concentradores solares</h4>
+                    <p>Tecnología que utiliza espejos o lentes para concentrar la luz solar sobre una pequeña área, lo que permite generar altas temperaturas para la producción de electricidad o calor.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Acimut 0°</a><a href="#">Radiación solar</a><a href="#">Cenit</a><a href="#">Carta solar</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Temperatura de trabajo (de un sistema)</h4>
+                    <p>Rango de temperatura en el cual un sistema o componente, como un panel fotovoltaico o un colector térmico, opera de manera óptima.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Termodinámica</h4>
+                    <p>Rama de la Física que estudia las relaciones entre calor y otras formas de energía.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Termosifón</h4>
+                    <p>Método pasivo de transferencia térmica basado en la diferencia de densidad de un fluido. Al tener menos densidad el agua caliente que la fría, esta asciende y genera la circulación de agua, sin necesidad de bombas.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Tolerancia</h4>
+                    <p>Margen de error permitido en un proceso o medida.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Transferencia de calor</h4>
+                    <p>Movimiento de energía térmica de un sistema a otro debido a una diferencia de temperatura.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Tratamiento térmico</h4>
+                    <p>Conjunto de procesos industriales que permiten modificar la estructura molecular de ciertos materiales.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Trifásica</h4>
+                    <p>Utilizado para denominar la cantidad de fases que tiene una red eléctrica. En este caso, hace referencia a que el sistema tiene tres fases y, normalmente, un neutro. Este tipo de corrientes se emplea principalmente en instalaciones industriales, maquinaria pesada y sistemas que requieren otra potencia.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-V">
+            <h3>V</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Valle</h4>
+                    <p>Punto mínimo espacia en la representación gráfica de una onda o función matemática en un sistema de ejes.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Ejes cartesianos</a><a href="#">Vértice</a><a href="#">Onda</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Velocidad de corte</h4>
+                    <p>En el ámbito de la energía eólica, se trata de la velocidad mínima del viento a la que una turbina comienza a generar electricidad, mientras que la velocidad de corte superior es la velocidad máxima del viento a la que una turbina sigue funcionando antes de apagarse para evitar daños.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Velocidad de corte superior</h4>
+                    <p>Velocidad máxima del viento a la que una turbina sigue funcionando antes de apagarse para evitar daños.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Viento nominal</h4>
+                    <p>Velocidad del viento a la que una turbina eólica genera su potencia nominal.</p>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Vértice</h4>
+                    <p>Punto máximo (pico) de una onda o función representada en un sistema de ejes.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Ejes cartesianos</a><a href="#">Valle</a><a href="#">Onda</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Glosario Técnico</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Recurso educativo para estudiantes e investigadores del ámbito técnico-industrial.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="../index.html#categories-container"><i class="fas fa-tags"></i> Todas las Categorías</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Información</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Este glosario es parte de un proyecto educativo de la Escuela Técnica N.° 37.</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Glosario Técnico. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Theme Logic
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtns = document.querySelectorAll('.theme-btn');
+            
+            themeBtns.forEach(btn => {
+                if(btn.getAttribute('data-set-theme') === currentTheme) {
+                    btn.classList.add('active');
+                }
+                
+                btn.addEventListener('click', () => {
+                    const newTheme = btn.getAttribute('data-set-theme');
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    
+                    themeBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // Back to Top
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+            });
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Fade-in animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

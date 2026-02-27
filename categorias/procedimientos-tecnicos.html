@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedimientos Técnicos - Glosario Técnico</title>
+    <meta name="description" content="Guías para ejecutar tareas técnicas de forma segura y eficiente.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+        :root {
+            /* Light Theme (Default) */
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+
+            --bg-body: #f5f7fa;
+            --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --bg-card: #ffffff;
+            --bg-card-hover: #f8f9fa;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
+            --border-hover: #3498db;
+
+            --header-bg: linear-gradient(135deg, var(--primary), #1a2530);
+            --header-text: #ffffff;
+            --footer-bg: var(--primary);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px var(--shadow-color);
+            --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #1e293b;
+            --secondary: #3b82f6;
+            --accent: #ef4444;
+            --light: #0f172a;
+            --dark: #f8fafc;
+
+            --bg-body: #0f172a;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --border-hover: #60a5fa;
+
+            --header-bg: linear-gradient(135deg, #020617, #0f172a);
+            --footer-bg: #020617;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="reading"] {
+            --primary: #5c4b37;
+            --secondary: #d97706;
+            --accent: #b45309;
+            --light: #fefce8;
+            --dark: #422006;
+
+            --bg-body: #fefce8;
+            --bg-gradient: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+            --bg-card: #fffbeb;
+            --bg-card-hover: #fef3c7;
+            --text-main: #422006;
+            --text-muted: #78350f;
+            --border-color: #fde68a;
+            --border-hover: #f59e0b;
+
+            --header-bg: linear-gradient(135deg, #78350f, #92400e);
+            --footer-bg: #422006;
+            --shadow-color: rgba(120, 53, 15, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), #1a2530);
+            color: white;
+            padding: 30px 0;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--secondary);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            animation: pulse 2s infinite;
+        }
+
+        .logo h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        /* Search Section */
+        .search-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin: -30px auto 40px;
+            max-width: 800px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            z-index: 10;
+            border: 1px solid #e0e0e0;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .search-container input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.3);
+            outline: none;
+        }
+
+        .search-container button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .search-container button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        #search-results {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-top: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+            position: absolute;
+            width: 100%;
+            z-index: 100;
+            border: 1px solid #e0e0e0;
+        }
+
+        .search-result-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-result-item:hover {
+            background-color: #f0f7ff;
+        }
+
+        .search-result-item h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .search-result-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .search-result-item .category {
+            display: inline-block;
+            background: #e1f0fa;
+            color: var(--secondary);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        .categories-section h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-card p {
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .term-count {
+            background: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: var(--dark);
+            border: 1px solid #dee2e6;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .category-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: fit-content;
+        }
+
+        .category-link:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Terms Section */
+        .terms-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
+        }
+
+        .terms-section h2 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .term-group {
+            margin-bottom: 40px;
+        }
+
+        .term-group h3 {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .term-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .term-card {
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary);
+        }
+
+        .term-card h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .term-card h4 i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .term-card p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .term-category {
+            background: #e1f0fa;
+            color: var(--secondary);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .term-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .related-terms {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #ddd;
+        }
+
+        .related-terms span {
+            color: #666;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .related-terms a {
+            display: inline-block;
+            background: #f0f7ff;
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid #d0e8ff;
+        }
+
+        .related-terms a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            border-color: var(--secondary);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 200px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .stat-card .number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-card .label {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            border-top: 4px solid var(--secondary);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb {
+            padding: 15px 0;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .breadcrumb span {
+            color: #666;
+            margin: 0 10px;
+        }
+
+        /* Modal de contacto */
+        .contact-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .contact-email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .contact-email span {
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .copy-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .copy-btn:hover {
+            background: #2980b9;
+        }
+
+        .contact-note {
+            background: #e1f5fe;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            text-align: center;
+            border-left: 4px solid var(--secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+
+            .categories-grid,
+            .term-list {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .stats-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .search-section {
+                padding: 20px;
+            }
+
+            .header-content {
+                padding: 0 10px;
+            }
+
+            .categories-grid,
+            .term-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--success);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            z-index: 1001;
+            display: none;
+        }
+
+        /* Botón Volver Arriba */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1005;
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        #back-to-top:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            opacity: 1;
+        }
+
+        /* Animaciones de Scroll */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Extreme Mobile Optimizations & Robustness */
+        @media (max-width: 600px) {
+            body {
+                touch-action: manipulation;
+                /* Prevents double-tap zoom delay */
+            }
+
+            /* Prevent iOS input auto-zoom by forcing 16px */
+            input[type="text"],
+            input[type="search"] {
+                font-size: 16px !important;
+            }
+
+            /* Increase touch targets */
+            .search-container button {
+                padding: 12px 20px;
+                min-height: 44px;
+            }
+
+            #clear-search {
+                padding: 10px;
+                min-width: 44px;
+                min-height: 44px;
+                right: 120px;
+            }
+
+            .alphabet-nav a {
+                min-width: 44px;
+                min-height: 44px;
+                line-height: 44px;
+            }
+
+            .footer-links a {
+                min-height: 44px;
+            }
+
+            /* Robustness: Prevent text overflow */
+            .term-card p,
+            .category-description p {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                hyphens: auto;
+            }
+
+            /* Modal tweaks for small screens */
+            .modal-content,
+            .contact-modal .modal-content {
+                width: 95%;
+                padding: 20px 15px;
+                margin: 10px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .contact-email {
+                flex-direction: column;
+                gap: 15px;
+                word-break: break-all;
+            }
+
+            .copy-btn {
+                width: 100%;
+                min-height: 44px;
+            }
+        }
+
+        /* Theming Core Styles */
+        body {
+            background-color: var(--bg-body);
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+        }
+
+        .search-section,
+        .categories-section,
+        .terms-section,
+        .category-header {
+            background-color: var(--bg-card);
+            border-color: var(--border-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border-color: var(--border-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        .category-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+            box-shadow: var(--box-shadow-hover);
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .category-card h3 {
+            color: var(--text-main);
+        }
+
+        .category-card p {
+            color: var(--text-muted);
+        }
+
+        .term-card {
+            background: var(--bg-card);
+            border-color: var(--border-color);
+            box-shadow: var(--box-shadow);
+        }
+
+        .term-card:hover {
+            box-shadow: var(--box-shadow-hover);
+            border-left-color: var(--border-hover);
+        }
+
+        .term-card h3 {
+            color: var(--secondary);
+        }
+
+        .term-card p {
+            color: var(--text-main);
+        }
+
+        .related-terms strong {
+            color: var(--text-muted);
+        }
+
+        .search-container input {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border-color: var(--border-color);
+        }
+
+        #search-results {
+            background: var(--bg-card);
+            border-color: var(--border-color);
+        }
+
+        .search-result-item {
+            border-bottom-color: var(--border-color);
+        }
+
+        .search-result-item:hover {
+            background-color: var(--bg-card-hover);
+        }
+
+        .search-result-item h3 {
+            color: var(--secondary);
+        }
+
+        .search-result-item p {
+            color: var(--text-muted);
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+        }
+
+        /* Theme Switcher UI */
+        .theme-switcher {
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .theme-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .theme-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .theme-btn.active {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            box-shadow: 0 0 15px var(--secondary);
+        }
+
+        /* Reading Mode specific overrides */
+        [data-theme="reading"] body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        [data-theme="reading"] header .logo h1 {
+            font-family: 'Segoe UI', sans-serif;
+            /* Keep logo modern */
+        }
+
+
+        /* Input & Select Theming Fixes */
+        input,
+        select,
+        textarea {
+            background-color: var(--bg-card) !important;
+            color: var(--text-main) !important;
+            border: 1px solid var(--border-color) !important;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--text-muted) !important;
+        }
+
+        select option {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+        }
+
+        /* Phase 6: Deep QA & Contrast Fixes */
+        .breadcrumb,
+        .breadcrumb a,
+        .alphabet-nav a,
+        .category-description p,
+        .contact-modal p,
+        .contact-modal h2,
+        .contact-email a,
+        .copy-btn {
+            color: var(--text-main) !important;
+            transition: var(--transition);
+        }
+
+        /* Tagline lives inside header (always dark bg), so keep it white */
+        .tagline {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .breadcrumb a:hover,
+        .footer-links a:hover,
+        .alphabet-nav a:hover,
+        .contact-email a:hover {
+            color: var(--secondary) !important;
+        }
+
+        /* Fix the Search Clear Button contrasting background in dark mode */
+        #clear-search {
+            background-color: transparent !important;
+            color: var(--text-muted) !important;
+        }
+
+        #clear-search:hover {
+            color: var(--accent) !important;
+        }
+
+        /* Prevent link default blue color bleeding through in Category Pages */
+        a.category-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Enhance Breathing Room (Paddings/Margins) */
+        .term-card {
+            padding: 25px !important;
+            margin-bottom: 25px !important;
+        }
+
+        .category-card {
+            padding: 30px !important;
+        }
+
+        .alphabet-nav {
+            gap: 10px !important;
+            margin-bottom: 30px !important;
+        }
+
+        /* Critical Text Contrast Fixes for Cards in Dark Mode */
+        .category-card h3,
+        .term-card h4,
+        .search-result-item h3 {
+            color: var(--primary) !important;
+            /* Will adapt correctly if var is mapped, BUT Wait! --primary is dark in dark mode! */
+        }
+
+        /* Better yet, just force var(--text-main) for titles and var(--text-muted) for text */
+        .category-card h3,
+        .term-card h4,
+        .search-result-item h3,
+        .term-group h3 {
+            color: var(--text-main) !important;
+        }
+
+        .category-card p,
+        .term-card p,
+        .search-result-item p {
+            color: var(--text-muted) !important;
+        }
+
+        .term-group h3 {
+            background-color: var(--primary) !important;
+            color: var(--header-text) !important;
+            /* White in dark mode */
+        }
+
+        .term-category {
+            background-color: var(--secondary) !important;
+            color: white !important;
+        }
+
+        .search-result-item:hover {
+            background-color: var(--bg-card-hover) !important;
+        }
+
+        #search-results {
+            background-color: var(--bg-card) !important;
+        }
+
+        /* ===== COMPREHENSIVE THEME FIX (Final Pass) ===== */
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .stat-card {
+            background: var(--bg-card-hover) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .stat-card .number {
+            color: var(--text-main) !important;
+        }
+
+        .stat-card .label {
+            color: var(--text-muted) !important;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg, var(--primary)) !important;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.85) !important;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary) !important;
+        }
+
+        .copyright {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        /* Sections with white backgrounds */
+        .search-section,
+        .categories-section,
+        .terms-section {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* Section headings that use --primary (dark blue, invisible in dark mode) */
+        .categories-section h2,
+        .terms-section h2 {
+            color: var(--text-main) !important;
+        }
+
+        /* Category & Term Cards */
+        .category-card,
+        .term-card {
+            background: var(--bg-card-hover) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .category-card h3,
+        .term-card h4 {
+            color: var(--text-main) !important;
+        }
+
+        /* Related Terms */
+        .related-terms {
+            border-top-color: var(--border-color) !important;
+        }
+
+        .related-terms span {
+            color: var(--text-muted) !important;
+        }
+
+        .related-terms a {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* Term Count Badge */
+        .term-count {
+            background: var(--bg-card-hover) !important;
+            color: var(--text-main) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumb span {
+            color: var(--text-muted) !important;
+        }
+
+        /* Contact Modal */
+        .modal-content {
+            background-color: var(--bg-card) !important;
+        }
+
+        .close-modal {
+            color: var(--text-muted) !important;
+        }
+
+        .contact-email {
+            background: var(--bg-card-hover) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .contact-email span {
+            color: var(--text-main) !important;
+        }
+
+        .contact-note {
+            background: var(--bg-card-hover) !important;
+        }
+
+        /* Search Results Dropdown */
+        #search-results {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        .search-result-item {
+            border-bottom-color: var(--border-color) !important;
+        }
+
+        .search-result-item:hover {
+            background-color: var(--bg-card-hover) !important;
+        }
+
+        .search-result-item .category {
+            background: var(--secondary) !important;
+            color: white !important;
+        }
+
+        /* Search input */
+        .search-container input {
+            background: var(--bg-card) !important;
+            color: var(--text-main) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* ===== END COMPREHENSIVE THEME FIX ===== */
+    
+        /* Category-specific header accent */
+        .category-header {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            border-left: 5px solid #f39c12;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .category-header h2 {
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        .category-header h2 i {
+            color: #f39c12;
+        }
+        .category-description {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 8px;
+        }
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .back-to-home:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        .alphabet-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        .alphabet-nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            color: var(--text-main);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+        .alphabet-nav a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+            border-color: var(--secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="theme-switcher">
+            <button class="theme-btn" data-set-theme="light" title="Modo Claro"><i class="fas fa-sun"></i></button>
+            <button class="theme-btn" data-set-theme="dark" title="Modo Oscuro"><i class="fas fa-moon"></i></button>
+            <button class="theme-btn" data-set-theme="reading" title="Modo Lectura"><i class="fas fa-book"></i></button>
+        </div>
+        <div class="container header-content">
+            <a href="https://glosarioescolar.github.io/Glosario/" class="logo" style="text-decoration: none; color: inherit; cursor: pointer;">
+                <i class="fas fa-book-open"></i>
+                <h1>Glosario Técnico</h1>
+            </a>
+            <p class="tagline">Tu recurso educativo con más de 200 términos técnicos explicados de manera clara y concisa. Perfecto para estudiantes e investigadores.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb" style="margin: 20px 0;">
+            <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+            <span>/</span>
+            <span style="color: var(--text-muted);">Procedimientos Técnicos</span>
+        </div>
+
+        <!-- Category Header -->
+        <div class="category-header">
+            <div>
+                <h2><i class="fas fa-cogs"></i> Procedimientos Técnicos</h2>
+                <p class="category-description">Guías para ejecutar tareas técnicas de forma segura y eficiente.</p>
+            </div>
+            <a href="../index.html" class="back-to-home"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+        </div>
+
+        <!-- Alphabet Navigation -->
+        <div class="alphabet-nav">
+                <a href="#letter-A">A</a>
+                <a href="#letter-C">C</a>
+                <a href="#letter-D">D</a>
+                <a href="#letter-E">E</a>
+                <a href="#letter-F">F</a>
+                <a href="#letter-G">G</a>
+                <a href="#letter-L">L</a>
+                <a href="#letter-M">M</a>
+                <a href="#letter-N">N</a>
+                <a href="#letter-P">P</a>
+                <a href="#letter-R">R</a>
+                <a href="#letter-S">S</a>
+                <a href="#letter-T">T</a>
+                <a href="#letter-V">V</a>
+        </div>
+
+        <!-- Terms by Letter -->
+
+        <div class="term-group" id="letter-A">
+            <h3>A</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Acoplar</h4>
+                    <p>Unir dos piezas, usualmente cañerías.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Aislación</h4>
+                    <p>Acción de agregarle a algún sistema una protección para que no haya pérdidas de energía, ya sea calórica o eléctrica.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Ajuste</h4>
+                    <p>Proceso de ajustar piezas para que encajen perfectamente.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Ajuste interferencia</h4>
+                    <p>Tipo de acoplamiento entre dos piezas en donde una de ellas tiene un diámetro ligeramente mayor.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Alcación</h4>
+                    <p>Mezcla de dos o más elementos, al menos uno de ellos metálico, para mejorar propiedades como la dureza o resistencia.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Antiflama</h4>
+                    <p>Tratamiento aplicado a telas o materiales similares, para hacerlas resistentes al fuego y reducir el riesgo de incendio.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Análisis de fallos</h4>
+                    <p>Estudio de las causas y efectos de los fallos en un sistema o equipo, utilizado para mejorar su rendimiento y fiabilidad.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-C">
+            <h3>C</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Calibración</h4>
+                    <p>Ajustar los resultados del instrumento de medición a una referencia estandarizada (patrón).</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Cebar (una bomba)</h4>
+                    <p>Proceso de llenar su cuerpo y la tubería de aspiración.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Cementado</h4>
+                    <p>Tratamiento térmico que se realiza con cementante para darle un endurecimiento superficial a los aceros. Esto mejora su tenacidad.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Conformado</h4>
+                    <p>Proceso en el que se cambia la forma de un material sin alterar su volumen.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-D">
+            <h3>D</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Desbastar</h4>
+                    <p>Quitar los excesos de metal en las piezas que tienen relieves.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-E">
+            <h3>E</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Empalme</h4>
+                    <p>Unir dos cables desde sus extremos para hacer extensiones o arreglos.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Endurecimiento</h4>
+                    <p>Proceso en el que un material, generalmente un metal, se vuelve más duro y resistente a la deformación.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Enfriamiento adiabático</h4>
+                    <p>Proceso en el cual un gas o sistema se enfría al expandirse sin intercambiar calor con su entorno.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Ensamblaje</h4>
+                    <p>Proceso de unir piezas para formar un conjunto.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Estopadura</h4>
+                    <p>Sistema de sellado que evita que ingrese gas y líquido a un eje.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Estratificación</h4>
+                    <p>Formación de capas de distinta temperatura en un sistema térmico.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-F">
+            <h3>F</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Flapear</h4>
+                    <p>Quitar una capa a los metales para dejarlos más pulidos. Se realiza con una herramienta llamada flapper o disco para flapear.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Fresado</h4>
+                    <p>Utilizar la fresadora para crear formas o acabados específicos en piezas de metal, madera o plástico.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-G">
+            <h3>G</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Gasificación</h4>
+                    <p>Proceso por el cual se convierte un material sólido o líquido en un gas, generalmente mediante la aplicación de calor.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-L">
+            <h3>L</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Lijado</h4>
+                    <p>Proceso de lijar superficies para obtener un acabado suave.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-M">
+            <h3>M</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Mantenimiento preventivo</h4>
+                    <p>Conjunto de acciones programadas para evitar fallos o averías en equipos, instalaciones o maquinaria.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Montaje</h4>
+                    <p>Proceso de ensamblar y ajustar piezas para formar un equipo o sistema.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-N">
+            <h3>N</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Nitrurado</h4>
+                    <p>Tratamiento térmico que se le realiza a los metales dentro de una cámara con atmósfera de nitrógeno líquido para cambiar sus propiedades de dureza.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-P">
+            <h3>P</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Prototipo</h4>
+                    <p>Modelo o versión inicial de un producto o sistema que se utiliza para probar su funcionamiento antes de su producción en serie.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Prácticas pre-profesionales</h4>
+                    <p>Actividades formativas que permiten al estudiante aplicar sus conocimientos en un entorno de trabajo real antes de egresar.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-R">
+            <h3>R</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Recocido</h4>
+                    <p>Tratamiento térmico que implica calentar un material (generalmente metal) y luego enfriarlo lentamente para mejorar sus propiedades.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Renderizado</h4>
+                    <p>Proceso de acabar una imagen digital o un modelo 3D utilizando algún software informático.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-S">
+            <h3>S</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Soldadura</h4>
+                    <p>Procedimiento utilizado para unir piezas metálicas mediante calor y presión para fusionarlos.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-T">
+            <h3>T</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Taladrado</h4>
+                    <p>Proceso que implica hacer agujeros en materiales.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Templado</h4>
+                    <p>Proceso térmico que se le aplica a los metales para aumentar sus propiedades mecánicas.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Termofusión</h4>
+                    <p>Fusión de dos materiales a través del calor.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Torneado</h4>
+                    <p>Proceso de dar forma a un objeto mediante un torno.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Tubulación</h4>
+                    <p>Proceso de montaje de tubos en un colector solar de tubo de vacío.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="term-group" id="letter-V">
+            <h3>V</h3>
+            <div class="term-list">
+                <div class="term-card fade-in-up">
+                    <h4><i class="fas fa-bookmark" style="color: #f39c12"></i> Verificación</h4>
+                    <p>Comprobación de la calidad y precisión de un trabajo.</p>
+                    <div class="related-terms">
+                        <span><i class="fas fa-link"></i> Relacionados:</span>
+                        <a href="#">Procedimientos Técnicos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Glosario Técnico</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Recurso educativo para estudiantes e investigadores del ámbito técnico-industrial.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="../index.html"><i class="fas fa-home"></i> Inicio</a></li>
+                        <li><a href="../index.html#categories-container"><i class="fas fa-tags"></i> Todas las Categorías</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Información</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Este glosario es parte de un proyecto educativo de la Escuela Técnica N.° 37.</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Glosario Técnico. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" title="Volver arriba"><i class="fas fa-arrow-up"></i></button>
+
+    <script>
+        // Theme Logic
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtns = document.querySelectorAll('.theme-btn');
+            
+            themeBtns.forEach(btn => {
+                if(btn.getAttribute('data-set-theme') === currentTheme) {
+                    btn.classList.add('active');
+                }
+                
+                btn.addEventListener('click', () => {
+                    const newTheme = btn.getAttribute('data-set-theme');
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    
+                    themeBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+
+            // Back to Top
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                backToTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+            });
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Fade-in animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
