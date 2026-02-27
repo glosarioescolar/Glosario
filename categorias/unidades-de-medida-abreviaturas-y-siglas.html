@@ -457,11 +457,10 @@
             font-weight: 500;
             font-size: 0.85rem;
             display: inline-block;
-            max-width: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            max-width: fit-content;
+            word-break: break-word;
             vertical-align: middle;
+            border: 1px solid rgba(52, 152, 219, 0.2);
         }
 
         .term-link {
@@ -1323,7 +1322,7 @@
             border-radius: var(--border-radius);
             padding: 25px 30px;
             margin-bottom: 30px;
-            box-shadow: var(--box-shadow);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             border-left: 5px solid #9b59b6;
             display: flex;
             justify-content: space-between;
@@ -1338,6 +1337,7 @@
             gap: 12px;
             font-size: 1.8rem;
             margin: 0;
+            text-shadow: none;
         }
         .category-header h2 i {
             color: #9b59b6;
@@ -1393,6 +1393,44 @@
             transform: translateY(-2px);
             border-color: var(--secondary);
         }
+
+        .breadcrumb {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        .breadcrumb a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        .breadcrumb i {
+            font-size: 1.1rem;
+        }
+        .breadcrumb span.sep {
+            opacity: 0.3;
+            font-style: normal;
+        }
+
+        /* Term Highlight Effect */
+        .term-card:target {
+            border-color: var(--secondary) !important;
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+            animation: highlight-fade 2.5s ease-out;
+            transform: scale(1.01);
+            z-index: 5;
+        }
+        @keyframes highlight-fade {
+            0% { background-color: rgba(52, 152, 219, 0.1); }
+            100% { background-color: var(--bg-card); }
+        }
     </style>
 </head>
 
@@ -1416,10 +1454,10 @@
     <!-- Main Content -->
     <div class="container">
         <!-- Breadcrumb -->
-        <div class="breadcrumb" style="margin: 20px 0;">
+        <div class="breadcrumb">
             <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
-            <span>/</span>
-            <span style="color: var(--text-muted);">Unidades de Medida, Abreviaturas y Siglas</span>
+            <span class="sep">/</span>
+            <span style="font-weight: 600;">Unidades de Medida, Abreviaturas y Siglas</span>
         </div>
 
         <!-- Category Header -->
@@ -1457,9 +1495,9 @@
         <!-- Terms by Letter -->
 
         <div class="term-group" id="letter-A">
-            <h3>A</h3>
+            <h3 style="text-shadow: none;">A</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-aea">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> AEA</h4>
                     <p>Asociación Electrotécnica Argentina: organización no gubernamental que se dedica a crear normas relacionadas con la electrotecnia, dictar cursos y capacitaciones y realizar publicaciones vinculadas con el tema a público especializado (electricistas, empresas, etc.).</p>
                     <div class="related-terms">
@@ -1467,7 +1505,7 @@
                         <a href="#">CPT</a><a href="#">Factor de potencia o coseno de phi</a><a href="#">UTS</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-albedo">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Albedo</h4>
                     <p>Medida de la reflectividad de una superficie. Indica la proporción existente entre la energía luminosa que incide en una superficie y la que se refleja. Es importante en el estudio de la energía solar y su aprovechamiento.</p>
                     <div class="related-terms">
@@ -1475,7 +1513,7 @@
                         <a href="#">RPM</a><a href="#">BEP</a><a href="#">CAD</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-amperio">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Amperio</h4>
                     <p>Unidad de medida de la intensidad de la corriente eléctrica.</p>
                     <div class="related-terms">
@@ -1483,7 +1521,7 @@
                         <a href="#">Corriente</a><a href="#">NLGI</a><a href="#">COP</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-api">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> API</h4>
                     <p>Interfaz de Programación de Aplicaciones: conjunto de protocolos y reglas que les permite a las diferentes aplicaciones de software comunicarse entre sí.</p>
                     <div class="related-terms">
@@ -1491,7 +1529,7 @@
                         <a href="#">Factor de potencia o coseno de phi</a><a href="#">K (Kelvin)</a><a href="#">UTS</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-astm">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> ASTM</h4>
                     <p>Sociedad Estadounidense para Pruebas y Materiales: organismo que establece normas para ensayos de materiales y productos. Aunque su origen es en Estados Unidos, ASTM establece estándares que son utilizados globalmente en distintas industrias.</p>
                     <div class="related-terms">
@@ -1503,9 +1541,9 @@
         </div>
 
         <div class="term-group" id="letter-B">
-            <h3>B</h3>
+            <h3 style="text-shadow: none;">B</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-bep">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> BEP</h4>
                     <p>Barril equivalente de petróleo: unidad de medida para comparar energías de diferentes fuentes.</p>
                     <div class="related-terms">
@@ -1517,9 +1555,9 @@
         </div>
 
         <div class="term-group" id="letter-C">
-            <h3>C</h3>
+            <h3 style="text-shadow: none;">C</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-ca">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> CA</h4>
                     <p>Corriente alterna: tipo de corriente eléctrica cuyo flujo de electrones cambia de dirección periódicamente. Es la forma de energía utilizada en la mayoría de los electrodomésticos e instalaciones eléctricas.</p>
                     <div class="related-terms">
@@ -1527,7 +1565,7 @@
                         <a href="#">Corriente</a><a href="#">Electrodo</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-cad">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> CAD</h4>
                     <p>Diseño Asistido por Computadora: se refiere al uso de software para crear y modificar diseños, planos y modelos técnicos.</p>
                     <div class="related-terms">
@@ -1535,7 +1573,7 @@
                         <a href="#">Nano</a><a href="#">RPM</a><a href="#">OEM</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-cchp">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> CCHP</h4>
                     <p>Cogeneración de calor y potencia: sistema que produce simultáneamente calefacción y electricidad.</p>
                     <div class="related-terms">
@@ -1543,7 +1581,7 @@
                         <a href="#">PLC</a><a href="#">kWh</a><a href="#">Escala brinell</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-cop">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> COP</h4>
                     <p>Coeficiente de rendimiento de un sistema solar térmico: es un indicador que mide la eficiencia de un sistema que convierte energía solar en calor. El COP se calcula dividiendo la cantidad de energía térmica útil generada entre la energía eléctrica consumida por el sistema.</p>
                     <div class="related-terms">
@@ -1551,7 +1589,7 @@
                         <a href="#">Torque</a><a href="#">LED</a><a href="#">ASTM</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-cpt">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> CPT</h4>
                     <p>Temperatura de la placa del colector: es un parámetro importante en los sistemas solares térmicos para evaluar su rendimiento.</p>
                     <div class="related-terms">
@@ -1559,7 +1597,7 @@
                         <a href="#">PLC</a><a href="#">CCHP</a><a href="#">ISC</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-csp">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> CSP</h4>
                     <p>Energía solar de concentración: tecnología que utiliza espejos o lentes para concentrar la luz solar en un punto focal, generando calor para producir electricidad.</p>
                     <div class="related-terms">
@@ -1571,9 +1609,9 @@
         </div>
 
         <div class="term-group" id="letter-E">
-            <h3>E</h3>
+            <h3 style="text-shadow: none;">E</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-entalp-a">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Entalpía</h4>
                     <p>Medida de la cantidad total de energía conocida en un sistema.</p>
                     <div class="related-terms">
@@ -1581,7 +1619,7 @@
                         <a href="#">LED</a><a href="#">OEM</a><a href="#">Factor de potencia o coseno de phi</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-entrop-a">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Entropía</h4>
                     <p>Medida del desorden o aleatoriedad en un sistema termodinámico.</p>
                     <div class="related-terms">
@@ -1589,7 +1627,7 @@
                         <a href="#">OEM</a><a href="#">UTS</a><a href="#">NLGI</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-epp">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> EPP</h4>
                     <p>Elementos de protección personal: aquellos con los que debe contar cada trabajador a la hora de ingresar a su puesto laboral.</p>
                     <div class="related-terms">
@@ -1597,7 +1635,7 @@
                         <a href="#">PLC</a><a href="#">Albedo</a><a href="#">CAD</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-escala-brinell">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Escala brinell</h4>
                     <p>Sistema de medición de la dureza de los materiales.</p>
                     <div class="related-terms">
@@ -1609,9 +1647,9 @@
         </div>
 
         <div class="term-group" id="letter-F">
-            <h3>F</h3>
+            <h3 style="text-shadow: none;">F</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-factor-de-capacidad">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Factor de capacidad</h4>
                     <p>Relación entre la energía real generada por una turbina y la cantidad de energía que podría generar si operara a su capacidad máxima.</p>
                     <div class="related-terms">
@@ -1619,7 +1657,7 @@
                         <a href="#">Turbina</a><a href="#">LED</a><a href="#">Entalpía</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-factor-de-potencia-o-coseno-de-phi">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Factor de potencia o coseno de phi</h4>
                     <p>Es el coseno del ángulo de desfasaje entre voltaje y corriente en un circuito de corriente alterna monofásico o trifásico.</p>
                     <div class="related-terms">
@@ -1627,7 +1665,7 @@
                         <a href="#">Corriente</a><a href="#">Albedo</a><a href="#">LED</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-fv">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> FV</h4>
                     <p>Fotovoltaico: tecnología solar que convierte la luz del sol directamente en electricidad mediante el efecto fotovoltaico.</p>
                     <div class="related-terms">
@@ -1639,9 +1677,9 @@
         </div>
 
         <div class="term-group" id="letter-H">
-            <h3>H</h3>
+            <h3 style="text-shadow: none;">H</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-hsp">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> HSP</h4>
                     <p>Hora solar pico: cantidad de horas pico que tenemos de sol en determinadas épocas del año. Por ejemplo, en invierno este calor es de 4.73 Kw m².</p>
                     <div class="related-terms">
@@ -1653,9 +1691,9 @@
         </div>
 
         <div class="term-group" id="letter-I">
-            <h3>I</h3>
+            <h3 style="text-shadow: none;">I</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-iram">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> IRAM</h4>
                     <p>Instituto Argentino de Normalización y Certificación: es una asociación civil privada sin fines de lucro que desarrolla normas, capacita y brinda servicios de evaluación y certificación, relacionadas con la calidad, la seguridad y el cuidado del ambiente.</p>
                     <div class="related-terms">
@@ -1663,7 +1701,7 @@
                         <a href="#">Esfuerzo de tracción</a><a href="#">FV</a><a href="#">Nano</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-isc">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> ISC</h4>
                     <p>Corriente de cortocircuito: pico máximo de corriente que se aplica a un circuito por un plazo de tiempo corto, cuando sus bornes están conectados directamente sin resistencia alguna.</p>
                     <div class="related-terms">
@@ -1671,7 +1709,7 @@
                         <a href="#">Corriente</a><a href="#">Resistencia</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-iso">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> ISO</h4>
                     <p>Organización Internacional para la Normalización: organismo que establece normas internacionales para productos, servicios y sistemas. Las normativas ISO cubren una amplia gama de industrias, desde la gestión de calidad hasta la seguridad de la información.</p>
                     <div class="related-terms">
@@ -1683,9 +1721,9 @@
         </div>
 
         <div class="term-group" id="letter-J">
-            <h3>J</h3>
+            <h3 style="text-shadow: none;">J</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-joules">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Joules</h4>
                     <p>Unidad de medición energética definida como el trabajo necesario o para producir un Watt de potencia por segundo.</p>
                     <div class="related-terms">
@@ -1697,9 +1735,9 @@
         </div>
 
         <div class="term-group" id="letter-K">
-            <h3>K</h3>
+            <h3 style="text-shadow: none;">K</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-k--kelvin-">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> K (Kelvin)</h4>
                     <p>Unidad de medida de temperatura en la escala termodinámica, donde el cero absoluto (la temperatura más baja posible) es 0 K.</p>
                     <div class="related-terms">
@@ -1707,7 +1745,7 @@
                         <a href="#">Termodinámica</a><a href="#">ISO</a><a href="#">PFV</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-kwh">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> kWh</h4>
                     <p>Kilovatio-hora: unidad de medida de energía que equivale a la cantidad de energía consumida o generada por un dispositivo con una potencia de un kilovatio durante una hora. Es comúnmente utilizada para medir la producción de energía en sistemas solares.</p>
                     <div class="related-terms">
@@ -1719,9 +1757,9 @@
         </div>
 
         <div class="term-group" id="letter-L">
-            <h3>L</h3>
+            <h3 style="text-shadow: none;">L</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-led">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> LED</h4>
                     <p>Diodo emisor de luz: diodo constituido por un material semiconductor que emite luz cuando se aplica una corriente eléctrica a través de él.</p>
                     <div class="related-terms">
@@ -1733,9 +1771,9 @@
         </div>
 
         <div class="term-group" id="letter-M">
-            <h3>M</h3>
+            <h3 style="text-shadow: none;">M</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-mpp">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> MPP</h4>
                     <p>Punto de máxima potencia: punto de máxima producción de energía de una máquina. En el caso de los paneles solares, se trata del momento del día en el que más se aprovecha la radiación solar.</p>
                     <div class="related-terms">
@@ -1747,9 +1785,9 @@
         </div>
 
         <div class="term-group" id="letter-N">
-            <h3>N</h3>
+            <h3 style="text-shadow: none;">N</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-nano">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Nano</h4>
                     <p>Es la 10⁻⁹ parte de algo. Con la unidad correspondiente, forma un submúltiplo de esa unidad.</p>
                     <div class="related-terms">
@@ -1757,7 +1795,7 @@
                         <a href="#">Trafo.</a><a href="#">USB</a><a href="#">Entalpía</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-nlgi">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> NLGI</h4>
                     <p>Instituto Nacional de Grasas Lubricantes: el grado NLGI es una medida que indica la dureza o viscosidad de un lubricante.</p>
                     <div class="related-terms">
@@ -1769,9 +1807,9 @@
         </div>
 
         <div class="term-group" id="letter-O">
-            <h3>O</h3>
+            <h3 style="text-shadow: none;">O</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-oem">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> OEM</h4>
                     <p>Fabricante de equipo original: empresa que manufactura productos que luego son comprados por otra y vendidos al por menor bajo la marca de la empresa que lo compró.</p>
                     <div class="related-terms">
@@ -1783,9 +1821,9 @@
         </div>
 
         <div class="term-group" id="letter-P">
-            <h3>P</h3>
+            <h3 style="text-shadow: none;">P</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-pfv">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> PFV</h4>
                     <p>Panel fotovoltaico: dispositivo que capta energía solar y la transforma directamente en electricidad.</p>
                     <div class="related-terms">
@@ -1793,7 +1831,7 @@
                         <a href="#">Torque</a><a href="#">CA</a><a href="#">ISC</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-ph">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> pH</h4>
                     <p>Potencial de hidrógeno: medida de la acidez o alcalinidad de una sustancia.</p>
                     <div class="related-terms">
@@ -1801,7 +1839,7 @@
                         <a href="#">EPP</a><a href="#">PFV</a><a href="#">Pulgada</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-plc">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> PLC</h4>
                     <p>Controlador Lógico Programable: sistema electrónico con memoria programable. Se utiliza en sistemas industriales para automatizar procesos mecánicos.</p>
                     <div class="related-terms">
@@ -1809,7 +1847,7 @@
                         <a href="#">Torque</a><a href="#">CA</a><a href="#">Trafo.</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-pulgada">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Pulgada</h4>
                     <p>Unidad de medida que siempre suele tenerse en cuenta a la hora de pedir las piezas, por ejemplo, tuerca de media pulgada.</p>
                     <div class="related-terms">
@@ -1821,9 +1859,9 @@
         </div>
 
         <div class="term-group" id="letter-R">
-            <h3>R</h3>
+            <h3 style="text-shadow: none;">R</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-rpm">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> RPM</h4>
                     <p>Revoluciones por minuto: medida de velocidad de un motor.</p>
                     <div class="related-terms">
@@ -1835,9 +1873,9 @@
         </div>
 
         <div class="term-group" id="letter-T">
-            <h3>T</h3>
+            <h3 style="text-shadow: none;">T</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-torque">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Torque</h4>
                     <p>Medida de la fuerza que produce la rotación en un objeto, fundamental en aerogeneradores y turbinas.</p>
                     <div class="related-terms">
@@ -1845,7 +1883,7 @@
                         <a href="#">Aerogenerador</a><a href="#">Turbina</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-trafo-">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Trafo.</h4>
                     <p>Abreviatura de transformador.</p>
                     <div class="related-terms">
@@ -1857,9 +1895,9 @@
         </div>
 
         <div class="term-group" id="letter-U">
-            <h3>U</h3>
+            <h3 style="text-shadow: none;">U</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-usb">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> USB</h4>
                     <p>Universal Serial Bus: conector que transmite datos y energía entre dispositivos.</p>
                     <div class="related-terms">
@@ -1867,7 +1905,7 @@
                         <a href="#">LED</a><a href="#">Factor de capacidad</a><a href="#">FV</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-uts">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> UTS</h4>
                     <p>Resistencia máxima a la tracción: máxima fuerza que un material puede resistir antes de romperse cuando se estira. Este término se usa principalmente en la ingeniería de materiales y se aplica a metales, plásticos y otros materiales sujetos a tensiones.</p>
                     <div class="related-terms">
@@ -1879,9 +1917,9 @@
         </div>
 
         <div class="term-group" id="letter-V">
-            <h3>V</h3>
+            <h3 style="text-shadow: none;">V</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-voc">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> VOC</h4>
                     <p>Voltaje de circuito abierto: tensión máxima de un circuito cuando no está bajo carga.</p>
                     <div class="related-terms">
@@ -1893,9 +1931,9 @@
         </div>
 
         <div class="term-group" id="letter-W">
-            <h3>W</h3>
+            <h3 style="text-shadow: none;">W</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-watt">
                     <h4><i class="fas fa-bookmark" style="color: #9b59b6"></i> Watt</h4>
                     <p>Unidad de potencia del sistema internacional.</p>
                     <div class="related-terms">
@@ -1968,6 +2006,24 @@
             backToTop.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+
+            // Scroll to term if present in URL
+            if (window.location.hash) {
+                const targetId = decodeURIComponent(window.location.hash.substring(1));
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    setTimeout(() => {
+                        const headerOffset = 100;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }, 600);
+                }
+            }
 
             // Fade-in animations
             const observer = new IntersectionObserver((entries) => {

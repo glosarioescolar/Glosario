@@ -457,11 +457,10 @@
             font-weight: 500;
             font-size: 0.85rem;
             display: inline-block;
-            max-width: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            max-width: fit-content;
+            word-break: break-word;
             vertical-align: middle;
+            border: 1px solid rgba(52, 152, 219, 0.2);
         }
 
         .term-link {
@@ -1323,7 +1322,7 @@
             border-radius: var(--border-radius);
             padding: 25px 30px;
             margin-bottom: 30px;
-            box-shadow: var(--box-shadow);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             border-left: 5px solid #3498db;
             display: flex;
             justify-content: space-between;
@@ -1338,6 +1337,7 @@
             gap: 12px;
             font-size: 1.8rem;
             margin: 0;
+            text-shadow: none;
         }
         .category-header h2 i {
             color: #3498db;
@@ -1393,6 +1393,44 @@
             transform: translateY(-2px);
             border-color: var(--secondary);
         }
+
+        .breadcrumb {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        .breadcrumb a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        .breadcrumb i {
+            font-size: 1.1rem;
+        }
+        .breadcrumb span.sep {
+            opacity: 0.3;
+            font-style: normal;
+        }
+
+        /* Term Highlight Effect */
+        .term-card:target {
+            border-color: var(--secondary) !important;
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+            animation: highlight-fade 2.5s ease-out;
+            transform: scale(1.01);
+            z-index: 5;
+        }
+        @keyframes highlight-fade {
+            0% { background-color: rgba(52, 152, 219, 0.1); }
+            100% { background-color: var(--bg-card); }
+        }
     </style>
 </head>
 
@@ -1416,10 +1454,10 @@
     <!-- Main Content -->
     <div class="container">
         <!-- Breadcrumb -->
-        <div class="breadcrumb" style="margin: 20px 0;">
+        <div class="breadcrumb">
             <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
-            <span>/</span>
-            <span style="color: var(--text-muted);">Conceptos Teóricos</span>
+            <span class="sep">/</span>
+            <span style="font-weight: 600;">Conceptos Teóricos</span>
         </div>
 
         <!-- Category Header -->
@@ -1455,9 +1493,9 @@
         <!-- Terms by Letter -->
 
         <div class="term-group" id="letter-A">
-            <h3>A</h3>
+            <h3 style="text-shadow: none;">A</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-acimut-0-">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Acimut 0°</h4>
                     <p>Esto es el Norte (dirección).</p>
                     <div class="related-terms">
@@ -1465,7 +1503,7 @@
                         <a href="#">Política energética</a><a href="#">Pérdida de calor</a><a href="#">Energía fotovoltaica</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-acimut--ptimo">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Acimut óptimo</h4>
                     <p>Ángulo de orientación ideal para un panel solar.</p>
                     <div class="related-terms">
@@ -1473,7 +1511,7 @@
                         <a href="#">Panel solar</a><a href="#">Afelio</a><a href="#">Normas de seguridad laboral</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-afelio">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Afelio</h4>
                     <p>Fecha en la que la Tierra está más alejada del sol. En cambio, el perihelio es la fecha en la que la Tierra está más cerca del sol.</p>
                     <div class="related-terms">
@@ -1481,7 +1519,7 @@
                         <a href="#">Espectro visible</a><a href="#">Calor recuperado</a><a href="#">Flujo turbulento</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-almacenamiento-energ-tico">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Almacenamiento energético</h4>
                     <p>Tecnología que permite acumular energía para su posterior uso, tales como baterías o sistemas de bombeo.</p>
                     <div class="related-terms">
@@ -1489,7 +1527,7 @@
                         <a href="#">Batería</a><a href="#">Corriente nominal</a><a href="#">Solsticio</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-anclaje">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Anclaje</h4>
                     <p>Sistema de fijación que se utiliza para sujetar objetos.</p>
                     <div class="related-terms">
@@ -1501,9 +1539,9 @@
         </div>
 
         <div class="term-group" id="letter-B">
-            <h3>B</h3>
+            <h3 style="text-shadow: none;">B</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-balance-energ-tico">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Balance energético</h4>
                     <p>Balance de flujos energéticos de entrada y salida en una central o área geográfica.</p>
                     <div class="related-terms">
@@ -1515,9 +1553,9 @@
         </div>
 
         <div class="term-group" id="letter-C">
-            <h3>C</h3>
+            <h3 style="text-shadow: none;">C</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-calor-recuperado">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Calor recuperado</h4>
                     <p>Energía térmica que se recupera y reutiliza durante un proceso.</p>
                     <div class="related-terms">
@@ -1525,7 +1563,7 @@
                         <a href="#">Corrientes parásitas</a><a href="#">Matriz energética</a><a href="#">Red eléctrica</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-capacidad-de-carga">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Capacidad de carga</h4>
                     <p>Máxima cantidad de energía que puede producir un sistema de generación de energía renovable bajo condiciones óptimas.</p>
                     <div class="related-terms">
@@ -1533,7 +1571,7 @@
                         <a href="#">Energía renovable</a><a href="#">Fotón</a><a href="#">Anclaje</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-captaci-n-solar">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Captación solar</h4>
                     <p>Proceso mediante el cual los sistemas solares recogen la energía proveniente del sol para su conversión en energía útil, ya sea térmica o eléctrica.</p>
                     <div class="related-terms">
@@ -1541,7 +1579,7 @@
                         <a href="#">Ley de generación distribuida</a><a href="#">Sistemas híbridos</a><a href="#">Afelio</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-carta-solar">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Carta solar</h4>
                     <p>Estudio de la proyección de la radiación solar en un punto determinado.</p>
                     <div class="related-terms">
@@ -1549,7 +1587,7 @@
                         <a href="#">Radiación solar</a><a href="#">Potencia nominal</a><a href="#">Efecto fotovoltaico</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-cavitaci-n">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Cavitación</h4>
                     <p>Fenómeno en donde la presión en un fluido cae por debajo de su punto de vapor, lo que provoca burbujas que colapsan violentamente.</p>
                     <div class="related-terms">
@@ -1557,7 +1595,7 @@
                         <a href="#">Croquis</a><a href="#">Descarbonización</a><a href="#">Matriz energética</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-cenit">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Cenit</h4>
                     <p>Intersección de la vertical de un punto geográfico con la esfera celeste; por encima de un observador ubicado en ese punto.</p>
                     <div class="related-terms">
@@ -1565,7 +1603,7 @@
                         <a href="#">Frecuencia</a><a href="#">Croquis</a><a href="#">Tolerancia</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-ciclo-de-vida">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Ciclo de vida</h4>
                     <p>Análisis de todos los impactos ambientales de un producto desde su creación hasta su eliminación.</p>
                     <div class="related-terms">
@@ -1573,7 +1611,7 @@
                         <a href="#">Huella de carbono</a><a href="#">Tolerancia</a><a href="#">Termodinámica</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-ciclo-profundo">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Ciclo profundo</h4>
                     <p>Característica de ciertas baterías que permiten soportar cientos de descargas completas.</p>
                     <div class="related-terms">
@@ -1581,7 +1619,7 @@
                         <a href="#">Batería</a><a href="#">Termodinámica</a><a href="#">Critical load</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-circulaci-n-forzada">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Circulación forzada</h4>
                     <p>Ocurre cuando se agrega una bomba a un sistema de circulación de un fluido.</p>
                     <div class="related-terms">
@@ -1589,7 +1627,7 @@
                         <a href="#">Cavitación</a><a href="#">Generación distribuida</a><a href="#">Ciclo de vida</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-conexi-n-off-grid">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Conexión off grid</h4>
                     <p>Tipo de conexión en los sistemas solares fotovoltaicos que emplean baterías, también se puede decir que el sistema está aislado de la red de distribución eléctrica.</p>
                     <div class="related-terms">
@@ -1597,7 +1635,7 @@
                         <a href="#">Batería</a><a href="#">Temperatura de trabajo (de un sistema)</a><a href="#">Tecnología de concentradores solares</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-conexi-n-on-grid">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Conexión on grid</h4>
                     <p>Tipo de conexión de un sistema solar fotovoltaico conectado a la red de distribución, es decir, el usuario puede generar energía eléctrica para abastecer sus aparatos eléctricos y suministrar energía de sobra a la red.</p>
                     <div class="related-terms">
@@ -1605,7 +1643,7 @@
                         <a href="#">Velocidad de corte superior</a><a href="#">Acimut 0°</a><a href="#">Reacción química exotérmica</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-constante-solar">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Constante solar</h4>
                     <p>Cantidad de energía solar que llega a la tierra en vacío.</p>
                     <div class="related-terms">
@@ -1613,7 +1651,7 @@
                         <a href="#">Energía mareomotriz</a><a href="#">Matriz energética</a><a href="#">Trifásica</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-corriente">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Corriente</h4>
                     <p>Flujo eléctrico que pasa por un conductor.</p>
                     <div class="related-terms">
@@ -1621,7 +1659,7 @@
                         <a href="#">Aislante</a><a href="#">Amperio</a><a href="#">Amperímetro</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-corriente-nominal">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Corriente nominal</h4>
                     <p>Corriente inicial que necesita un sistema mecánico para arrancar.</p>
                     <div class="related-terms">
@@ -1629,7 +1667,7 @@
                         <a href="#">Corriente</a><a href="#">Protección IP</a><a href="#">Almacenamiento energético</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-corrientes-par-sitas">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Corrientes parásitas</h4>
                     <p>Corrientes eléctricas inducidas en materiales conductores debido a un cambio en el campo magnético circundante, que causa pérdida de energía en forma de calor.</p>
                     <div class="related-terms">
@@ -1637,7 +1675,7 @@
                         <a href="#">Corriente</a><a href="#">Esfuerzo de flexión</a><a href="#">Red de media tensión</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-critical-load">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Critical load</h4>
                     <p>Carga eléctrica esencial que debe mantenerse en sistemas de respaldo.</p>
                     <div class="related-terms">
@@ -1645,7 +1683,7 @@
                         <a href="#">Esfuerzo de tracción</a><a href="#">Energía hidráulica</a><a href="#">Temperatura de trabajo (de un sistema)</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-croquis">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Croquis</h4>
                     <p>Es un dibujo o esquema realizado de forma rápida y sin denotar tantos detalles.</p>
                     <div class="related-terms">
@@ -1653,7 +1691,7 @@
                         <a href="#">Espectro visible</a><a href="#">Calor recuperado</a><a href="#">Critical load</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-curva-de-potencia-de-un-aerogenerador">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Curva de potencia de un aerogenerador</h4>
                     <p>Gráfico que muestra la relación entre la velocidad del viento y la potencia generada por la turbina.</p>
                     <div class="related-terms">
@@ -1665,9 +1703,9 @@
         </div>
 
         <div class="term-group" id="letter-D">
-            <h3>D</h3>
+            <h3 style="text-shadow: none;">D</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-datasheet">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Datasheet</h4>
                     <p>Documento técnico con especificaciones clave de un componente o equipo.</p>
                     <div class="related-terms">
@@ -1675,7 +1713,7 @@
                         <a href="#">Eficiencia aerodinámica</a><a href="#">Pérdida de calor</a><a href="#">Tratamiento térmico</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-descarbonizaci-n">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Descarbonización</h4>
                     <p>Proceso que reduce las emisiones de carbono en la producción de energía. Complementariamente, la captura de carbono es la tecnología para atrapar y almacenar dióxido de carbono emitido por fuentes industriales.</p>
                     <div class="related-terms">
@@ -1683,7 +1721,7 @@
                         <a href="#">Circulación forzada</a><a href="#">Red eléctrica</a><a href="#">Potencia nominal</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-desempe-o-energ-tico">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Desempeño energético</h4>
                     <p>Medida de la capacidad de un sistema solar para generar energía en función de las condiciones climáticas, la orientación de los paneles y otros factores.</p>
                     <div class="related-terms">
@@ -1695,9 +1733,9 @@
         </div>
 
         <div class="term-group" id="letter-E">
-            <h3>E</h3>
+            <h3 style="text-shadow: none;">E</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-efecto-fotovoltaico">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Efecto fotovoltaico</h4>
                     <p>Fenómeno físico que ocurre cuando la luz solar incide sobre materiales semiconductores, generando una corriente eléctrica debido a la liberación de electrones.</p>
                     <div class="related-terms">
@@ -1705,7 +1743,7 @@
                         <a href="#">Célula fotovoltaica</a><a href="#">FV</a><a href="#">Panel solar</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-eficiencia-aerodin-mica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Eficiencia aerodinámica</h4>
                     <p>Medida de cuánta energía del viento es capturada por las palas de la turbina.</p>
                     <div class="related-terms">
@@ -1713,7 +1751,7 @@
                         <a href="#">Turbina</a><a href="#">Viento nominal</a><a href="#">Energía eólica</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-eficiencia-energ-tica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Eficiencia energética</h4>
                     <p>Es la medida de la energía útil que se obtiene de un sistema respecto de la cantidad total de energía que llega.</p>
                     <div class="related-terms">
@@ -1721,7 +1759,7 @@
                         <a href="#">Matriz energética</a><a href="#">Tolerancia</a><a href="#">Normas de seguridad laboral</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-ejes-cartesianos">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Ejes cartesianos</h4>
                     <p>Sistema de referencia ortogonal usado para ubicar puntos en un plano o en el espacio. Fundamental para representar gráficas de funciones, ondas y otros fenómenos.</p>
                     <div class="related-terms">
@@ -1729,7 +1767,7 @@
                         <a href="#">Onda</a><a href="#">Temperatura de trabajo (de un sistema)</a><a href="#">Off shore</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-electr-lisis">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Electrólisis</h4>
                     <p>Procedimiento utilizado para separar elementos de un compuesto químico utilizando corriente eléctrica.</p>
                     <div class="related-terms">
@@ -1737,7 +1775,7 @@
                         <a href="#">Hidrógeno verde</a><a href="#">Corriente</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-energ-a-cin-tica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía cinética</h4>
                     <p>Pertenece a un cuerpo en movimiento.</p>
                     <div class="related-terms">
@@ -1745,7 +1783,7 @@
                         <a href="#">Aerogenerador</a><a href="#">Corriente</a><a href="#">Energía renovable</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-energ-a-e-lica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía eólica</h4>
                     <p>Obtenida a partir del viento.</p>
                     <div class="related-terms">
@@ -1753,7 +1791,7 @@
                         <a href="#">Velocidad de corte</a><a href="#">Sistemas térmicos solares</a><a href="#">Vértice</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-energ-a-fotovoltaica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía fotovoltaica</h4>
                     <p>Generación de electricidad mediante paneles que convierten la luz solar en energía.</p>
                     <div class="related-terms">
@@ -1761,7 +1799,7 @@
                         <a href="#">Termosifón</a><a href="#">Política energética</a><a href="#">Energía limpia</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-energ-a-geot-rmica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía geotérmica</h4>
                     <p>Obtenida a partir del aprovechamiento del calor interno de la Tierra.</p>
                     <div class="related-terms">
@@ -1769,7 +1807,7 @@
                         <a href="#">Datasheet</a><a href="#">Croquis</a><a href="#">Ley de generación distribuida</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-energ-a-hidr-ulica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía hidráulica</h4>
                     <p>Generada a partir del movimiento del agua.</p>
                     <div class="related-terms">
@@ -1777,7 +1815,7 @@
                         <a href="#">Turbina</a><a href="#">Esfuerzo de flexión</a><a href="#">Frecuencia</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-energ-a-limpia">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía limpia</h4>
                     <p>Fuentes de energía que no producen contaminación.</p>
                     <div class="related-terms">
@@ -1785,7 +1823,7 @@
                         <a href="#">Esfuerzo de tracción</a><a href="#">Eficiencia aerodinámica</a><a href="#">Red de media tensión</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-energ-a-mareomotriz">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía mareomotriz</h4>
                     <p>Producida a partir de las mareas y corrientes marinas.</p>
                     <div class="related-terms">
@@ -1793,7 +1831,7 @@
                         <a href="#">Corriente</a><a href="#">Ciclo profundo</a><a href="#">Tratamiento térmico</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-energ-a-renovable">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía renovable</h4>
                     <p>Aquella que se obtiene de fuentes naturales y se puede reponer naturalmente.</p>
                     <div class="related-terms">
@@ -1801,7 +1839,7 @@
                         <a href="#">Hidrógeno verde</a><a href="#">Capacidad de carga</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-energ-a-solar-pasiva">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Energía solar pasiva</h4>
                     <p>Es el aprovechamiento de la energía solar sin el uso de dispositivos mecánicos o electrónicos, aprovechando las características arquitectónicas y el diseño de los edificios, como la orientación, el aislamiento, y el uso de materiales que almacenan y liberan calor de manera natural, como paredes y ventanas.</p>
                     <div class="related-terms">
@@ -1809,7 +1847,7 @@
                         <a href="#">Normas de seguridad laboral</a><a href="#">Energía cinética</a><a href="#">Tecnología de concentradores solares</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-ergonom-a">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Ergonomía</h4>
                     <p>Ciencia que se ocupa de adaptar el trabajo y las herramientas a las capacidades y limitaciones del trabajador para reducir el riesgo de lesiones.</p>
                     <div class="related-terms">
@@ -1817,7 +1855,7 @@
                         <a href="#">Acimut 0°</a><a href="#">Conexión on grid</a><a href="#">Reacción química exotérmica</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-esfuerzo-de-flexi-n">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Esfuerzo de flexión</h4>
                     <p>Resulta de aplicar fuerzas perpendicularmente al eje principal de un elemento que tienden a doblarlo.</p>
                     <div class="related-terms">
@@ -1825,7 +1863,7 @@
                         <a href="#">Acimut óptimo</a><a href="#">Tratamiento térmico</a><a href="#">Off shore</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-esfuerzo-de-tracci-n">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Esfuerzo de tracción</h4>
                     <p>Aquel que experimenta un elemento cuando se lo somete a una tensión o estiramiento producido por fuerzas de dirección opuesta.</p>
                     <div class="related-terms">
@@ -1833,7 +1871,7 @@
                         <a href="#">IRAM</a><a href="#">Trifásica</a><a href="#">Ley de generación distribuida</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-espectro-visible">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Espectro visible</h4>
                     <p>Parte de la radiación electromagnética perceptible por el ojo humano, entre 400 y 700 nm de longitud de onda.</p>
                     <div class="related-terms">
@@ -1845,9 +1883,9 @@
         </div>
 
         <div class="term-group" id="letter-F">
-            <h3>F</h3>
+            <h3 style="text-shadow: none;">F</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-flujo-turbulento">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Flujo turbulento</h4>
                     <p>Movimiento del aire que no es laminar y puede reducir la eficiencia de una turbina. Por el contrario, el flujo laminar es un tipo de movimiento de un fluido en el que las partículas se desplazan de forma suave, ordenada y paralela, formando capas que se no mezclan entre sí.</p>
                     <div class="related-terms">
@@ -1855,7 +1893,7 @@
                         <a href="#">Turbina</a><a href="#">Potencia nominal</a><a href="#">Eficiencia aerodinámica</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-fot-n">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Fotón</h4>
                     <p>Partícula elemental que transporta la energía de la luz. Es la unidad básica de la radiación electromagnética, cuya absorción en las células solares genera electricidad.</p>
                     <div class="related-terms">
@@ -1863,7 +1901,7 @@
                         <a href="#">Solsticio</a><a href="#">Energía fotovoltaica</a><a href="#">Cenit</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-frecuencia">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Frecuencia</h4>
                     <p>Número de repeticiones de un fenómeno periódico (como una onda) por unidad de tiempo. En el Sistema Internacional se mide en Hercios (Hz).</p>
                     <div class="related-terms">
@@ -1875,9 +1913,9 @@
         </div>
 
         <div class="term-group" id="letter-G">
-            <h3>G</h3>
+            <h3 style="text-shadow: none;">G</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-generaci-n-distribuida">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Generación distribuida</h4>
                     <p>Proceso en el cual se generan energías renovables, como la solar, de manera local y distribuida, es decir, a pequeña escala, cerca del lugar de consumo, reduciendo pérdidas en la transmisión de energía.</p>
                     <div class="related-terms">
@@ -1889,9 +1927,9 @@
         </div>
 
         <div class="term-group" id="letter-H">
-            <h3>H</h3>
+            <h3 style="text-shadow: none;">H</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-hidr-lisis">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Hidrólisis</h4>
                     <p>Proceso químico en el que una molécula de agua se rompe para separar un compuesto en dos o más moléculas.</p>
                     <div class="related-terms">
@@ -1899,7 +1937,7 @@
                         <a href="#">Captación solar</a><a href="#">Matriz energética</a><a href="#">Efecto fotovoltaico</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-hoja-t-cnica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Hoja técnica</h4>
                     <p>Cuadrante que se encuentra en maquinarias, aditivos o elementos y muestra sus principales características.</p>
                     <div class="related-terms">
@@ -1907,7 +1945,7 @@
                         <a href="#">Energía eólica</a><a href="#">Energía geotérmica</a><a href="#">Esfuerzo de flexión</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-huella-de-carbono">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Huella de carbono</h4>
                     <p>Medida del impacto ambiental de una actividad en términos de CO2 emitido.</p>
                     <div class="related-terms">
@@ -1919,9 +1957,9 @@
         </div>
 
         <div class="term-group" id="letter-L">
-            <h3>L</h3>
+            <h3 style="text-shadow: none;">L</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-ley-de-generaci-n-distribuida">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Ley de generación distribuida</h4>
                     <p>Legislación nacional que promueve el uso de las energías renovables y da permiso a la instalación de elementos que generen energía eléctrica a través de energía solar en instalaciones aptas.</p>
                     <div class="related-terms">
@@ -1933,9 +1971,9 @@
         </div>
 
         <div class="term-group" id="letter-M">
-            <h3>M</h3>
+            <h3 style="text-shadow: none;">M</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-matriz-energ-tica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Matriz energética</h4>
                     <p>Conjunto de fuentes de energía utilizadas en una región.</p>
                     <div class="related-terms">
@@ -1947,9 +1985,9 @@
         </div>
 
         <div class="term-group" id="letter-N">
-            <h3>N</h3>
+            <h3 style="text-shadow: none;">N</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-normas-de-seguridad-laboral">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Normas de seguridad laboral</h4>
                     <p>Conjunto de reglas que garantizan la seguridad de los trabajadores durante el desarrollo de sus actividades profesionales.</p>
                     <div class="related-terms">
@@ -1961,9 +1999,9 @@
         </div>
 
         <div class="term-group" id="letter-O">
-            <h3>O</h3>
+            <h3 style="text-shadow: none;">O</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-off-shore">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Off shore</h4>
                     <p>Referido a construcciones en el mar, como por ejemplo, turbinas eólicas off shore. Contrario a on shore, referido a construcciones en tierra.</p>
                     <div class="related-terms">
@@ -1971,7 +2009,7 @@
                         <a href="#">Turbina</a><a href="#">On shore</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-on-shore">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> On shore</h4>
                     <p>Referido a construcciones en tierra.</p>
                     <div class="related-terms">
@@ -1979,7 +2017,7 @@
                         <a href="#">Off shore</a><a href="#">Plan de mantenimiento</a><a href="#">Transferencia de calor</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-onda">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Onda</h4>
                     <p>Propagación de una perturbación de alguna propiedad del espacio, implicando un transporte de energía sin transporte de materia.</p>
                     <div class="related-terms">
@@ -1991,9 +2029,9 @@
         </div>
 
         <div class="term-group" id="letter-P">
-            <h3>P</h3>
+            <h3 style="text-shadow: none;">P</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-periodo">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Periodo</h4>
                     <p>Tiempo que tarda una onda en completar un ciclo completo. Es el inverso de la frecuencia.</p>
                     <div class="related-terms">
@@ -2001,7 +2039,7 @@
                         <a href="#">Frecuencia</a><a href="#">Onda</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-plan-de-mantenimiento">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Plan de mantenimiento</h4>
                     <p>Documento que tiene plasmado los trabajos de mantenimiento de un equipo.</p>
                     <div class="related-terms">
@@ -2009,7 +2047,7 @@
                         <a href="#">Vértice</a><a href="#">Pérdida de calor</a><a href="#">Reacción química endotérmica</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-pol-tica-energ-tica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Política energética</h4>
                     <p>Conjunto de decisiones y acciones para gestionar y regular el uso de la energía.</p>
                     <div class="related-terms">
@@ -2017,7 +2055,7 @@
                         <a href="#">Energía hidráulica</a><a href="#">Energía fotovoltaica</a><a href="#">Periodo</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-potencia-activa">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Potencia activa</h4>
                     <p>Cantidad de potencia que se convierte en trabajo útil en un sistema eléctrico.</p>
                     <div class="related-terms">
@@ -2025,7 +2063,7 @@
                         <a href="#">Conexión on grid</a><a href="#">Frecuencia</a><a href="#">Sistemas híbridos</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-potencia-nominal">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Potencia nominal</h4>
                     <p>Energía almacenada en un sistema en función de su posición.</p>
                     <div class="related-terms">
@@ -2033,7 +2071,7 @@
                         <a href="#">Viento nominal</a><a href="#">Energía renovable</a><a href="#">Red de media tensión</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-protecci-n-ip">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Protección IP</h4>
                     <p>Resguardo que puede poseer un aparato ante el polvo o la humedad. El número indica cuánta protección tiene. Por ejemplo, si dice IP 55, protege del polvo y de una cantidad muy pequeña de agua.</p>
                     <div class="related-terms">
@@ -2041,7 +2079,7 @@
                         <a href="#">Balance energético</a><a href="#">Ejes cartesianos</a><a href="#">Corrientes parásitas</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-p-rdida-de-calor">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Pérdida de calor</h4>
                     <p>Disminución de la energía térmica de un sistema hacia su entorno, generalmente debido a diferencias de temperatura y falta de aislamiento adecuado.</p>
                     <div class="related-terms">
@@ -2053,9 +2091,9 @@
         </div>
 
         <div class="term-group" id="letter-R">
-            <h3>R</h3>
+            <h3 style="text-shadow: none;">R</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-radiaci-n-solar">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Radiación solar</h4>
                     <p>Energía emitida por el sol en forma de luz y calor, que puede ser aprovechada para generar electricidad o calor en sistemas solares.</p>
                     <div class="related-terms">
@@ -2063,7 +2101,7 @@
                         <a href="#">Concentrador solar</a><a href="#">MPP</a><a href="#">Carta solar</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-reacci-n-qu-mica-endot-rmica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Reacción química endotérmica</h4>
                     <p>Requiere energía calórica para que tenga lugar, mientras que la exotérmica libera energía en forma de calor.</p>
                     <div class="related-terms">
@@ -2071,7 +2109,7 @@
                         <a href="#">Conexión on grid</a><a href="#">Ciclo profundo</a><a href="#">Conexión off grid</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-reacci-n-qu-mica-exot-rmica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Reacción química exotérmica</h4>
                     <p>Libera energía en forma de calor.</p>
                     <div class="related-terms">
@@ -2079,7 +2117,7 @@
                         <a href="#">Ciclo profundo</a><a href="#">Capacidad de carga</a><a href="#">Croquis</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-red-de-media-tensi-n">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Red de media tensión</h4>
                     <p>Cables que circulan de pueblo a pueblo por los cuales se transporta la energía eléctrica de entre 13Kv y 33Kv.</p>
                     <div class="related-terms">
@@ -2087,7 +2125,7 @@
                         <a href="#">Tratamiento térmico</a><a href="#">On shore</a><a href="#">Ergonomía</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-red-el-ctrica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Red eléctrica</h4>
                     <p>Sistema de distribución de energía eléctrica desde las centrales a los usuarios.</p>
                     <div class="related-terms">
@@ -2095,7 +2133,7 @@
                         <a href="#">Trifásica</a><a href="#">On shore</a><a href="#">Generación distribuida</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-red-inteligente">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Red inteligente</h4>
                     <p>Sistema eléctrico que utiliza tecnología digital para mejorar la gestión de la energía.</p>
                     <div class="related-terms">
@@ -2103,7 +2141,7 @@
                         <a href="#">Protección IP</a><a href="#">Anclaje</a><a href="#">Corriente nominal</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-remanente">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Remanente</h4>
                     <p>Lo que queda o sobra luego de un proceso. Por ejemplo, líquido remanente, magnetismo remanente.</p>
                     <div class="related-terms">
@@ -2115,9 +2153,9 @@
         </div>
 
         <div class="term-group" id="letter-S">
-            <h3>S</h3>
+            <h3 style="text-shadow: none;">S</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-sistemas-h-bridos">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Sistemas híbridos</h4>
                     <p>Sistemas energéticos que combinan diferentes fuentes de energía, como la solar y la eólica, para mejorar la estabilidad y la fiabilidad del suministro.</p>
                     <div class="related-terms">
@@ -2125,7 +2163,7 @@
                         <a href="#">Efecto fotovoltaico</a><a href="#">Onda</a><a href="#">Potencia nominal</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-sistemas-t-rmicos-solares">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Sistemas térmicos solares</h4>
                     <p>Sistemas que capturan la energía solar en forma de calor, generalmente mediante colectores solares, para ser utilizada en calefacción, agua caliente sanitaria o procesos industriales.</p>
                     <div class="related-terms">
@@ -2133,7 +2171,7 @@
                         <a href="#">Hidrólisis</a><a href="#">Esfuerzo de flexión</a><a href="#">Corriente nominal</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-solsticio">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Solsticio</h4>
                     <p>Cada uno de los dos momento anuales en que el sol se halla en uno de los dos trópicos, lo cual sucede del 21 al 22 de junio para el de Cáncer, y del 21 al 22 de diciembre para el de Capricornio, y en los que la diferencia entre la duración del día y de la noche es mayor. El solsticio de invierno es el día más corto del año y la noche más larga, mientras que el solsticio de verano es el día más largo del año y la noche más corta.</p>
                     <div class="related-terms">
@@ -2141,7 +2179,7 @@
                         <a href="#">Política energética</a><a href="#">Valle</a><a href="#">Electrólisis</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-sostenibilidad">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Sostenibilidad</h4>
                     <p>Capacidad de satisfacer las necesidades actuales sin comprometer los recursos futuros, es decir, mantener un equilibrio ecológico sin agotar recursos.</p>
                     <div class="related-terms">
@@ -2153,9 +2191,9 @@
         </div>
 
         <div class="term-group" id="letter-T">
-            <h3>T</h3>
+            <h3 style="text-shadow: none;">T</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-tecnolog-a-de-concentradores-solares">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Tecnología de concentradores solares</h4>
                     <p>Tecnología que utiliza espejos o lentes para concentrar la luz solar sobre una pequeña área, lo que permite generar altas temperaturas para la producción de electricidad o calor.</p>
                     <div class="related-terms">
@@ -2163,7 +2201,7 @@
                         <a href="#">Croquis</a><a href="#">Pérdida de calor</a><a href="#">Frecuencia</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-temperatura-de-trabajo--de-un-sistema-">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Temperatura de trabajo (de un sistema)</h4>
                     <p>Rango de temperatura en el cual un sistema o componente, como un panel fotovoltaico o un colector térmico, opera de manera óptima.</p>
                     <div class="related-terms">
@@ -2171,7 +2209,7 @@
                         <a href="#">Energía solar pasiva</a><a href="#">Off shore</a><a href="#">Energía eólica</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-termodin-mica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Termodinámica</h4>
                     <p>Rama de la Física que estudia las relaciones entre calor y otras formas de energía.</p>
                     <div class="related-terms">
@@ -2179,7 +2217,7 @@
                         <a href="#">K (Kelvin)</a><a href="#">Onda</a><a href="#">Efecto fotovoltaico</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-termosif-n">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Termosifón</h4>
                     <p>Método pasivo de transferencia térmica basado en la diferencia de densidad de un fluido. Al tener menos densidad el agua caliente que la fría, esta asciende y genera la circulación de agua, sin necesidad de bombas.</p>
                     <div class="related-terms">
@@ -2187,7 +2225,7 @@
                         <a href="#">Densidad</a><a href="#">Energía eólica</a><a href="#">Datasheet</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-tolerancia">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Tolerancia</h4>
                     <p>Margen de error permitido en un proceso o medida.</p>
                     <div class="related-terms">
@@ -2195,7 +2233,7 @@
                         <a href="#">Energía fotovoltaica</a><a href="#">Desempeño energético</a><a href="#">Política energética</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-transferencia-de-calor">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Transferencia de calor</h4>
                     <p>Movimiento de energía térmica de un sistema a otro debido a una diferencia de temperatura.</p>
                     <div class="related-terms">
@@ -2203,7 +2241,7 @@
                         <a href="#">Aislante</a><a href="#">Protección IP</a><a href="#">Huella de carbono</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-tratamiento-t-rmico">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Tratamiento térmico</h4>
                     <p>Conjunto de procesos industriales que permiten modificar la estructura molecular de ciertos materiales.</p>
                     <div class="related-terms">
@@ -2211,7 +2249,7 @@
                         <a href="#">Cementado</a><a href="#">Horno de recocido</a><a href="#">Nitrurado</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-trif-sica">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Trifásica</h4>
                     <p>Utilizado para denominar la cantidad de fases que tiene una red eléctrica. En este caso, hace referencia a que el sistema tiene tres fases y, normalmente, un neutro. Este tipo de corrientes se emplea principalmente en instalaciones industriales, maquinaria pesada y sistemas que requieren otra potencia.</p>
                     <div class="related-terms">
@@ -2223,9 +2261,9 @@
         </div>
 
         <div class="term-group" id="letter-V">
-            <h3>V</h3>
+            <h3 style="text-shadow: none;">V</h3>
             <div class="term-list">
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-valle">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Valle</h4>
                     <p>Punto mínimo espacia en la representación gráfica de una onda o función matemática en un sistema de ejes.</p>
                     <div class="related-terms">
@@ -2233,7 +2271,7 @@
                         <a href="#">Onda</a><a href="#">Electrólisis</a><a href="#">Solsticio</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-velocidad-de-corte">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Velocidad de corte</h4>
                     <p>En el ámbito de la energía eólica, se trata de la velocidad mínima del viento a la que una turbina comienza a generar electricidad, mientras que la velocidad de corte superior es la velocidad máxima del viento a la que una turbina sigue funcionando antes de apagarse para evitar daños.</p>
                     <div class="related-terms">
@@ -2241,7 +2279,7 @@
                         <a href="#">Turbina</a><a href="#">Energía eólica</a><a href="#">Velocidad de corte superior</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-velocidad-de-corte-superior">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Velocidad de corte superior</h4>
                     <p>Velocidad máxima del viento a la que una turbina sigue funcionando antes de apagarse para evitar daños.</p>
                     <div class="related-terms">
@@ -2249,7 +2287,7 @@
                         <a href="#">Turbina</a><a href="#">Velocidad de corte</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-viento-nominal">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Viento nominal</h4>
                     <p>Velocidad del viento a la que una turbina eólica genera su potencia nominal.</p>
                     <div class="related-terms">
@@ -2257,7 +2295,7 @@
                         <a href="#">Turbina</a><a href="#">Potencia nominal</a>
                     </div>
                 </div>
-                <div class="term-card fade-in-up">
+                <div class="term-card fade-in-up" id="term-v-rtice">
                     <h4><i class="fas fa-bookmark" style="color: #3498db"></i> Vértice</h4>
                     <p>Punto máximo (pico) de una onda o función representada en un sistema de ejes.</p>
                     <div class="related-terms">
@@ -2330,6 +2368,24 @@
             backToTop.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+
+            // Scroll to term if present in URL
+            if (window.location.hash) {
+                const targetId = decodeURIComponent(window.location.hash.substring(1));
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    setTimeout(() => {
+                        const headerOffset = 100;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }, 600);
+                }
+            }
 
             // Fade-in animations
             const observer = new IntersectionObserver((entries) => {
