@@ -16,7 +16,7 @@
             --dark: #2c3e50;
             --success: #2ecc71;
             --warning: #f39c12;
-            
+
             --bg-body: #f5f7fa;
             --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             --bg-card: #ffffff;
@@ -25,12 +25,12 @@
             --text-muted: #666666;
             --border-color: #e0e0e0;
             --border-hover: #3498db;
-            
+
             --header-bg: linear-gradient(135deg, var(--primary), #1a2530);
             --header-text: #ffffff;
             --footer-bg: var(--primary);
             --shadow-color: rgba(0, 0, 0, 0.1);
-            
+
             --border-radius: 8px;
             --box-shadow: 0 4px 15px var(--shadow-color);
             --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -43,7 +43,7 @@
             --accent: #ef4444;
             --light: #0f172a;
             --dark: #f8fafc;
-            
+
             --bg-body: #0f172a;
             --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             --bg-card: #1e293b;
@@ -52,7 +52,7 @@
             --text-muted: #94a3b8;
             --border-color: #334155;
             --border-hover: #60a5fa;
-            
+
             --header-bg: linear-gradient(135deg, #020617, #0f172a);
             --footer-bg: #020617;
             --shadow-color: rgba(0, 0, 0, 0.5);
@@ -64,7 +64,7 @@
             --accent: #b45309;
             --light: #fefce8;
             --dark: #422006;
-            
+
             --bg-body: #fefce8;
             --bg-gradient: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
             --bg-card: #fffbeb;
@@ -73,7 +73,7 @@
             --text-muted: #78350f;
             --border-color: #fde68a;
             --border-hover: #f59e0b;
-            
+
             --header-bg: linear-gradient(135deg, #78350f, #92400e);
             --footer-bg: #422006;
             --shadow-color: rgba(120, 53, 15, 0.1);
@@ -792,7 +792,7 @@
             z-index: 1001;
             display: none;
         }
-    
+
         /* Botón Volver Arriba */
         #back-to-top {
             position: fixed;
@@ -809,7 +809,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             z-index: 1005;
             transition: var(--transition);
             opacity: 0.9;
@@ -832,60 +832,73 @@
             opacity: 1;
             transform: translateY(0);
         }
-    
+
         /* Extreme Mobile Optimizations & Robustness */
         @media (max-width: 600px) {
             body {
-                touch-action: manipulation; /* Prevents double-tap zoom delay */
+                touch-action: manipulation;
+                /* Prevents double-tap zoom delay */
             }
+
             /* Prevent iOS input auto-zoom by forcing 16px */
-            input[type="text"], input[type="search"] {
+            input[type="text"],
+            input[type="search"] {
                 font-size: 16px !important;
             }
+
             /* Increase touch targets */
             .search-container button {
                 padding: 12px 20px;
                 min-height: 44px;
             }
+
             #clear-search {
                 padding: 10px;
                 min-width: 44px;
                 min-height: 44px;
                 right: 120px;
             }
+
             .alphabet-nav a {
                 min-width: 44px;
                 min-height: 44px;
                 line-height: 44px;
             }
+
             .footer-links a {
                 min-height: 44px;
             }
+
             /* Robustness: Prevent text overflow */
-            .term-card p, .category-description p {
+            .term-card p,
+            .category-description p {
                 word-wrap: break-word;
                 overflow-wrap: break-word;
                 hyphens: auto;
             }
+
             /* Modal tweaks for small screens */
-            .modal-content, .contact-modal .modal-content {
+            .modal-content,
+            .contact-modal .modal-content {
                 width: 95%;
                 padding: 20px 15px;
                 margin: 10px;
                 max-height: 90vh;
                 overflow-y: auto;
             }
+
             .contact-email {
                 flex-direction: column;
                 gap: 15px;
                 word-break: break-all;
             }
+
             .copy-btn {
                 width: 100%;
                 min-height: 44px;
             }
         }
-    
+
         /* Theming Core Styles */
         body {
             background-color: var(--bg-body);
@@ -899,7 +912,10 @@
             color: var(--header-text);
         }
 
-        .search-section, .categories-section, .terms-section, .category-header {
+        .search-section,
+        .categories-section,
+        .terms-section,
+        .category-header {
             background-color: var(--bg-card);
             border-color: var(--border-color);
             box-shadow: var(--box-shadow);
@@ -918,8 +934,13 @@
             transform: translateY(-5px) scale(1.02);
         }
 
-        .category-card h3 { color: var(--text-main); }
-        .category-card p { color: var(--text-muted); }
+        .category-card h3 {
+            color: var(--text-main);
+        }
+
+        .category-card p {
+            color: var(--text-muted);
+        }
 
         .term-card {
             background: var(--bg-card);
@@ -932,9 +953,17 @@
             border-left-color: var(--border-hover);
         }
 
-        .term-card h3 { color: var(--secondary); }
-        .term-card p { color: var(--text-main); }
-        .related-terms strong { color: var(--text-muted); }
+        .term-card h3 {
+            color: var(--secondary);
+        }
+
+        .term-card p {
+            color: var(--text-main);
+        }
+
+        .related-terms strong {
+            color: var(--text-muted);
+        }
 
         .search-container input {
             background-color: var(--bg-card);
@@ -947,12 +976,25 @@
             border-color: var(--border-color);
         }
 
-        .search-result-item { border-bottom-color: var(--border-color); }
-        .search-result-item:hover { background-color: var(--bg-card-hover); }
-        .search-result-item h3 { color: var(--secondary); }
-        .search-result-item p { color: var(--text-muted); }
+        .search-result-item {
+            border-bottom-color: var(--border-color);
+        }
 
-        footer { background-color: var(--footer-bg); }
+        .search-result-item:hover {
+            background-color: var(--bg-card-hover);
+        }
+
+        .search-result-item h3 {
+            color: var(--secondary);
+        }
+
+        .search-result-item p {
+            color: var(--text-muted);
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+        }
 
         /* Theme Switcher UI */
         .theme-switcher {
@@ -965,8 +1007,8 @@
         }
 
         .theme-btn {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             color: white;
             width: 40px;
             height: 40px;
@@ -981,7 +1023,7 @@
         }
 
         .theme-btn:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.3);
             transform: scale(1.1);
         }
 
@@ -997,44 +1039,63 @@
             line-height: 1.8;
             font-size: 1.05rem;
         }
-        
+
         [data-theme="reading"] header .logo h1 {
-            font-family: 'Segoe UI', sans-serif; /* Keep logo modern */
+            font-family: 'Segoe UI', sans-serif;
+            /* Keep logo modern */
         }
 
-    
+
         /* Input & Select Theming Fixes */
-        input, select, textarea {
+        input,
+        select,
+        textarea {
             background-color: var(--bg-card) !important;
             color: var(--text-main) !important;
             border: 1px solid var(--border-color) !important;
         }
-        
-        input::placeholder, textarea::placeholder {
+
+        input::placeholder,
+        textarea::placeholder {
             color: var(--text-muted) !important;
         }
-        
+
         select option {
             background-color: var(--bg-card);
             color: var(--text-main);
         }
-    
+
         /* Phase 6: Deep QA & Contrast Fixes */
-        .tagline, .breadcrumb, .breadcrumb a, .alphabet-nav a, .category-description p, .footer-links a, 
-        .contact-modal p, .contact-modal h2, .contact-email a, .copy-btn {
+        .breadcrumb,
+        .breadcrumb a,
+        .alphabet-nav a,
+        .category-description p,
+        .contact-modal p,
+        .contact-modal h2,
+        .contact-email a,
+        .copy-btn {
             color: var(--text-main) !important;
             transition: var(--transition);
         }
 
-        .breadcrumb a:hover, .footer-links a:hover, .alphabet-nav a:hover, .contact-email a:hover {
+        /* Tagline lives inside header (always dark bg), so keep it white */
+        .tagline {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .breadcrumb a:hover,
+        .footer-links a:hover,
+        .alphabet-nav a:hover,
+        .contact-email a:hover {
             color: var(--secondary) !important;
         }
-        
+
         /* Fix the Search Clear Button contrasting background in dark mode */
         #clear-search {
             background-color: transparent !important;
             color: var(--text-muted) !important;
         }
+
         #clear-search:hover {
             color: var(--accent) !important;
         }
@@ -1047,10 +1108,10 @@
 
         /* Enhance Breathing Room (Paddings/Margins) */
         .term-card {
-            padding: 25px !important; 
+            padding: 25px !important;
             margin-bottom: 25px !important;
         }
-        
+
         .category-card {
             padding: 30px !important;
         }
@@ -1059,34 +1120,48 @@
             gap: 10px !important;
             margin-bottom: 30px !important;
         }
-    
+
         /* Critical Text Contrast Fixes for Cards in Dark Mode */
-        .category-card h3, .term-card h4, .search-result-item h3 {
-            color: var(--primary) !important; /* Will adapt correctly if var is mapped, BUT Wait! --primary is dark in dark mode! */
+        .category-card h3,
+        .term-card h4,
+        .search-result-item h3 {
+            color: var(--primary) !important;
+            /* Will adapt correctly if var is mapped, BUT Wait! --primary is dark in dark mode! */
         }
-        
+
         /* Better yet, just force var(--text-main) for titles and var(--text-muted) for text */
-        .category-card h3, .term-card h4, .search-result-item h3, .term-group h3 {
+        .category-card h3,
+        .term-card h4,
+        .search-result-item h3,
+        .term-group h3 {
             color: var(--text-main) !important;
         }
-        .category-card p, .term-card p, .search-result-item p {
+
+        .category-card p,
+        .term-card p,
+        .search-result-item p {
             color: var(--text-muted) !important;
         }
+
         .term-group h3 {
             background-color: var(--primary) !important;
-            color: var(--header-text) !important; /* White in dark mode */
+            color: var(--header-text) !important;
+            /* White in dark mode */
         }
+
         .term-category {
             background-color: var(--secondary) !important;
             color: white !important;
         }
+
         .search-result-item:hover {
             background-color: var(--bg-card-hover) !important;
         }
+
         #search-results {
             background-color: var(--bg-card) !important;
         }
-    
+
         /* ===== COMPREHENSIVE THEME FIX (Final Pass) ===== */
 
         /* Stats Section */
@@ -1094,13 +1169,16 @@
             background: var(--bg-card) !important;
             border-color: var(--border-color) !important;
         }
+
         .stat-card {
             background: var(--bg-card-hover) !important;
             border-color: var(--border-color) !important;
         }
+
         .stat-card .number {
             color: var(--text-main) !important;
         }
+
         .stat-card .label {
             color: var(--text-muted) !important;
         }
@@ -1109,14 +1187,17 @@
         footer {
             background: var(--footer-bg, var(--primary)) !important;
         }
+
         .footer-links a {
-            color: rgba(255,255,255,0.85) !important;
+            color: rgba(255, 255, 255, 0.85) !important;
         }
+
         .footer-links a:hover {
             color: var(--secondary) !important;
         }
+
         .copyright {
-            color: rgba(255,255,255,0.6) !important;
+            color: rgba(255, 255, 255, 0.6) !important;
         }
 
         /* Sections with white backgrounds */
@@ -1139,6 +1220,7 @@
             background: var(--bg-card-hover) !important;
             border-color: var(--border-color) !important;
         }
+
         .category-card h3,
         .term-card h4 {
             color: var(--text-main) !important;
@@ -1148,9 +1230,11 @@
         .related-terms {
             border-top-color: var(--border-color) !important;
         }
+
         .related-terms span {
             color: var(--text-muted) !important;
         }
+
         .related-terms a {
             background: var(--bg-card) !important;
             border-color: var(--border-color) !important;
@@ -1172,16 +1256,20 @@
         .modal-content {
             background-color: var(--bg-card) !important;
         }
+
         .close-modal {
             color: var(--text-muted) !important;
         }
+
         .contact-email {
             background: var(--bg-card-hover) !important;
             border-color: var(--border-color) !important;
         }
+
         .contact-email span {
             color: var(--text-main) !important;
         }
+
         .contact-note {
             background: var(--bg-card-hover) !important;
         }
@@ -1191,12 +1279,15 @@
             background: var(--bg-card) !important;
             border-color: var(--border-color) !important;
         }
+
         .search-result-item {
             border-bottom-color: var(--border-color) !important;
         }
+
         .search-result-item:hover {
             background-color: var(--bg-card-hover) !important;
         }
+
         .search-result-item .category {
             background: var(--secondary) !important;
             color: white !important;
@@ -1223,15 +1314,16 @@
     <!-- Header -->
     <header>
 
-    <!-- Theme Switcher -->
-    <div class="theme-switcher">
-        <button class="theme-btn" data-set-theme="light" title="Modo Claro"><i class="fas fa-sun"></i></button>
-        <button class="theme-btn" data-set-theme="dark" title="Modo Oscuro"><i class="fas fa-moon"></i></button>
-        <button class="theme-btn" data-set-theme="reading" title="Modo Lectura"><i class="fas fa-book"></i></button>
-    </div>
+        <!-- Theme Switcher -->
+        <div class="theme-switcher">
+            <button class="theme-btn" data-set-theme="light" title="Modo Claro"><i class="fas fa-sun"></i></button>
+            <button class="theme-btn" data-set-theme="dark" title="Modo Oscuro"><i class="fas fa-moon"></i></button>
+            <button class="theme-btn" data-set-theme="reading" title="Modo Lectura"><i class="fas fa-book"></i></button>
+        </div>
 
         <div class="container header-content">
-            <a href="https://glosarioescolar.github.io/Glosario/" class="logo" style="text-decoration: none; color: inherit; cursor: pointer;">
+            <a href="https://glosarioescolar.github.io/Glosario/" class="logo"
+                style="text-decoration: none; color: inherit; cursor: pointer;">
                 <i class="fas fa-book-open"></i>
                 <h1>Glosario Técnico</h1>
             </a>
@@ -1244,8 +1336,11 @@
     <div class="container">
         <div class="search-section">
             <div class="search-container">
-                <input type="text" id="search-input" placeholder="Buscar término técnico..." style="padding-right: 40px; width: 100%; box-sizing: border-box;">
-                <button id="clear-search" style="position: absolute; right: 130px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 1.2rem; color: #999; cursor: pointer; display: none; padding: 10px; z-index: 5;"><i class="fas fa-times"></i></button>
+                <input type="text" id="search-input" placeholder="Buscar término técnico..."
+                    style="padding-right: 40px; width: 100%; box-sizing: border-box;">
+                <button id="clear-search"
+                    style="position: absolute; right: 130px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 1.2rem; color: #999; cursor: pointer; display: none; padding: 10px; z-index: 5;"><i
+                        class="fas fa-times"></i></button>
                 <button id="search-button"><i class="fas fa-search"></i> Buscar</button>
                 <div id="search-results"></div>
             </div>
@@ -1389,21 +1484,21 @@
         // Theme Logic
         const currentTheme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', currentTheme);
-        
+
         document.addEventListener('DOMContentLoaded', () => {
             const themeBtns = document.querySelectorAll('.theme-btn');
-            
+
             // Set active class initially
             themeBtns.forEach(btn => {
-                if(btn.getAttribute('data-set-theme') === currentTheme) {
+                if (btn.getAttribute('data-set-theme') === currentTheme) {
                     btn.classList.add('active');
                 }
-                
+
                 btn.addEventListener('click', () => {
                     const newTheme = btn.getAttribute('data-set-theme');
                     document.documentElement.setAttribute('data-theme', newTheme);
                     localStorage.setItem('theme', newTheme);
-                    
+
                     themeBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                 });
@@ -1791,17 +1886,17 @@
             // Lógica del botón de limpiar búsqueda
             const searchInputEl = document.getElementById('search-input');
             const clearSearchBtn = document.getElementById('clear-search');
-            
+
             if (searchInputEl && clearSearchBtn) {
-                searchInputEl.addEventListener('input', function() {
+                searchInputEl.addEventListener('input', function () {
                     clearSearchBtn.style.display = this.value.length > 0 ? 'block' : 'none';
                 });
-                
-                clearSearchBtn.addEventListener('click', function() {
+
+                clearSearchBtn.addEventListener('click', function () {
                     searchInputEl.value = '';
                     clearSearchBtn.style.display = 'none';
                     searchInputEl.focus();
-                    
+
                     // Disparar evento input para que otros scripts actualicen resultados
                     const event = new Event('input', { bubbles: true });
                     searchInputEl.dispatchEvent(event);
