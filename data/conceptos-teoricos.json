@@ -4,9 +4,9 @@
     "definition": "Esto es el Norte (dirección).",
     "letter": "A",
     "related": [
-      "Radiación solar",
-      "Cenit",
-      "Carta solar"
+      "Política energética",
+      "Pérdida de calor",
+      "Energía fotovoltaica"
     ]
   },
   {
@@ -14,57 +14,79 @@
     "definition": "Ángulo de orientación ideal para un panel solar.",
     "letter": "A",
     "related": [
-      "Acimut 0°",
-      "Radiación solar",
-      "Cenit",
-      "Carta solar"
+      "Panel solar",
+      "Afelio",
+      "Normas de seguridad laboral"
     ]
   },
   {
     "term": "Afelio",
     "definition": "Fecha en la que la Tierra está más alejada del sol. En cambio, el perihelio es la fecha en la que la Tierra está más cerca del sol.",
     "letter": "A",
-    "related": []
+    "related": [
+      "Espectro visible",
+      "Calor recuperado",
+      "Flujo turbulento"
+    ]
   },
   {
     "term": "Almacenamiento energético",
     "definition": "Tecnología que permite acumular energía para su posterior uso, tales como baterías o sistemas de bombeo.",
     "letter": "A",
-    "related": []
+    "related": [
+      "Batería",
+      "Corriente nominal",
+      "Solsticio"
+    ]
   },
   {
     "term": "Anclaje",
     "definition": "Sistema de fijación que se utiliza para sujetar objetos.",
     "letter": "A",
-    "related": []
+    "related": [
+      "Generación distribuida",
+      "Conexión on grid",
+      "Electrólisis"
+    ]
   },
   {
     "term": "Balance energético",
     "definition": "Balance de flujos energéticos de entrada y salida en una central o área geográfica.",
     "letter": "B",
-    "related": []
+    "related": [
+      "Conexión on grid",
+      "Efecto fotovoltaico",
+      "Espectro visible"
+    ]
   },
   {
     "term": "Calor recuperado",
     "definition": "Energía térmica que se recupera y reutiliza durante un proceso.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Corrientes parásitas",
+      "Matriz energética",
+      "Red eléctrica"
+    ]
   },
   {
     "term": "Capacidad de carga",
     "definition": "Máxima cantidad de energía que puede producir un sistema de generación de energía renovable bajo condiciones óptimas.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Energía renovable",
+      "Fotón",
+      "Anclaje"
+    ]
   },
   {
     "term": "Captación solar",
     "definition": "Proceso mediante el cual los sistemas solares recogen la energía proveniente del sol para su conversión en energía útil, ya sea térmica o eléctrica.",
     "letter": "C",
     "related": [
-      "Acimut 0°",
-      "Radiación solar",
-      "Cenit",
-      "Carta solar"
+      "Ley de generación distribuida",
+      "Sistemas híbridos",
+      "Afelio"
     ]
   },
   {
@@ -72,325 +94,486 @@
     "definition": "Estudio de la proyección de la radiación solar en un punto determinado.",
     "letter": "C",
     "related": [
-      "Acimut 0°",
       "Radiación solar",
-      "Cenit"
+      "Potencia nominal",
+      "Efecto fotovoltaico"
     ]
   },
   {
     "term": "Cavitación",
     "definition": "Fenómeno en donde la presión en un fluido cae por debajo de su punto de vapor, lo que provoca burbujas que colapsan violentamente.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Croquis",
+      "Descarbonización",
+      "Matriz energética"
+    ]
   },
   {
     "term": "Cenit",
     "definition": "Intersección de la vertical de un punto geográfico con la esfera celeste; por encima de un observador ubicado en ese punto.",
     "letter": "C",
     "related": [
-      "Acimut 0°",
-      "Radiación solar",
-      "Carta solar"
+      "Frecuencia",
+      "Croquis",
+      "Tolerancia"
     ]
   },
   {
     "term": "Ciclo de vida",
     "definition": "Análisis de todos los impactos ambientales de un producto desde su creación hasta su eliminación.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Huella de carbono",
+      "Tolerancia",
+      "Termodinámica"
+    ]
   },
   {
     "term": "Ciclo profundo",
     "definition": "Característica de ciertas baterías que permiten soportar cientos de descargas completas.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Batería",
+      "Termodinámica",
+      "Critical load"
+    ]
   },
   {
     "term": "Circulación forzada",
     "definition": "Ocurre cuando se agrega una bomba a un sistema de circulación de un fluido.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Cavitación",
+      "Generación distribuida",
+      "Ciclo de vida"
+    ]
   },
   {
     "term": "Conexión off grid",
     "definition": "Tipo de conexión en los sistemas solares fotovoltaicos que emplean baterías, también se puede decir que el sistema está aislado de la red de distribución eléctrica.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Batería",
+      "Temperatura de trabajo (de un sistema)",
+      "Tecnología de concentradores solares"
+    ]
   },
   {
     "term": "Conexión on grid",
     "definition": "Tipo de conexión de un sistema solar fotovoltaico conectado a la red de distribución, es decir, el usuario puede generar energía eléctrica para abastecer sus aparatos eléctricos y suministrar energía de sobra a la red.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Velocidad de corte superior",
+      "Acimut 0°",
+      "Reacción química exotérmica"
+    ]
   },
   {
     "term": "Constante solar",
     "definition": "Cantidad de energía solar que llega a la tierra en vacío.",
     "letter": "C",
     "related": [
-      "Acimut 0°",
-      "Radiación solar",
-      "Cenit",
-      "Carta solar"
+      "Energía mareomotriz",
+      "Matriz energética",
+      "Trifásica"
     ]
   },
   {
     "term": "Corriente",
     "definition": "Flujo eléctrico que pasa por un conductor.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Aislante",
+      "Amperio",
+      "Amperímetro"
+    ]
   },
   {
     "term": "Corriente nominal",
     "definition": "Corriente inicial que necesita un sistema mecánico para arrancar.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Corriente",
+      "Protección IP",
+      "Almacenamiento energético"
+    ]
   },
   {
     "term": "Corrientes parásitas",
     "definition": "Corrientes eléctricas inducidas en materiales conductores debido a un cambio en el campo magnético circundante, que causa pérdida de energía en forma de calor.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Corriente",
+      "Esfuerzo de flexión",
+      "Red de media tensión"
+    ]
   },
   {
     "term": "Critical load",
     "definition": "Carga eléctrica esencial que debe mantenerse en sistemas de respaldo.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Esfuerzo de tracción",
+      "Energía hidráulica",
+      "Temperatura de trabajo (de un sistema)"
+    ]
   },
   {
     "term": "Croquis",
     "definition": "Es un dibujo o esquema realizado de forma rápida y sin denotar tantos detalles.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Espectro visible",
+      "Calor recuperado",
+      "Critical load"
+    ]
   },
   {
     "term": "Curva de potencia de un aerogenerador",
     "definition": "Gráfico que muestra la relación entre la velocidad del viento y la potencia generada por la turbina.",
     "letter": "C",
-    "related": []
+    "related": [
+      "Turbina",
+      "Tratamiento térmico",
+      "Viento nominal"
+    ]
   },
   {
     "term": "Datasheet",
     "definition": "Documento técnico con especificaciones clave de un componente o equipo.",
     "letter": "D",
-    "related": []
+    "related": [
+      "Eficiencia aerodinámica",
+      "Pérdida de calor",
+      "Tratamiento térmico"
+    ]
   },
   {
     "term": "Descarbonización",
     "definition": "Proceso que reduce las emisiones de carbono en la producción de energía. Complementariamente, la captura de carbono es la tecnología para atrapar y almacenar dióxido de carbono emitido por fuentes industriales.",
     "letter": "D",
-    "related": []
+    "related": [
+      "Circulación forzada",
+      "Red eléctrica",
+      "Potencia nominal"
+    ]
   },
   {
     "term": "Desempeño energético",
     "definition": "Medida de la capacidad de un sistema solar para generar energía en función de las condiciones climáticas, la orientación de los paneles y otros factores.",
     "letter": "D",
-    "related": []
+    "related": [
+      "Espectro visible",
+      "Onda",
+      "Solsticio"
+    ]
   },
   {
     "term": "Efecto fotovoltaico",
     "definition": "Fenómeno físico que ocurre cuando la luz solar incide sobre materiales semiconductores, generando una corriente eléctrica debido a la liberación de electrones.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Célula fotovoltaica",
+      "FV",
+      "Panel solar"
+    ]
   },
   {
     "term": "Eficiencia aerodinámica",
     "definition": "Medida de cuánta energía del viento es capturada por las palas de la turbina.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Turbina",
+      "Viento nominal",
+      "Energía eólica"
+    ]
   },
   {
     "term": "Eficiencia energética",
     "definition": "Es la medida de la energía útil que se obtiene de un sistema respecto de la cantidad total de energía que llega.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Matriz energética",
+      "Tolerancia",
+      "Normas de seguridad laboral"
+    ]
   },
   {
     "term": "Ejes cartesianos",
     "definition": "Sistema de referencia ortogonal usado para ubicar puntos en un plano o en el espacio. Fundamental para representar gráficas de funciones, ondas y otros fenómenos.",
     "letter": "E",
     "related": [
-      "Vértice",
-      "Valle",
-      "Periodo",
-      "Frecuencia"
+      "Onda",
+      "Temperatura de trabajo (de un sistema)",
+      "Off shore"
     ]
   },
   {
     "term": "Electrólisis",
     "definition": "Procedimiento utilizado para separar elementos de un compuesto químico utilizando corriente eléctrica.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Hidrógeno verde",
+      "Corriente"
+    ]
   },
   {
     "term": "Energía cinética",
     "definition": "Pertenece a un cuerpo en movimiento.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Aerogenerador",
+      "Corriente",
+      "Energía renovable"
+    ]
   },
   {
     "term": "Energía eólica",
     "definition": "Obtenida a partir del viento.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Velocidad de corte",
+      "Sistemas térmicos solares",
+      "Vértice"
+    ]
   },
   {
     "term": "Energía fotovoltaica",
     "definition": "Generación de electricidad mediante paneles que convierten la luz solar en energía.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Termosifón",
+      "Política energética",
+      "Energía limpia"
+    ]
   },
   {
     "term": "Energía geotérmica",
     "definition": "Obtenida a partir del aprovechamiento del calor interno de la Tierra.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Datasheet",
+      "Croquis",
+      "Ley de generación distribuida"
+    ]
   },
   {
     "term": "Energía hidráulica",
     "definition": "Generada a partir del movimiento del agua.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Turbina",
+      "Esfuerzo de flexión",
+      "Frecuencia"
+    ]
   },
   {
     "term": "Energía limpia",
     "definition": "Fuentes de energía que no producen contaminación.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Esfuerzo de tracción",
+      "Eficiencia aerodinámica",
+      "Red de media tensión"
+    ]
   },
   {
     "term": "Energía mareomotriz",
     "definition": "Producida a partir de las mareas y corrientes marinas.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Corriente",
+      "Ciclo profundo",
+      "Tratamiento térmico"
+    ]
   },
   {
     "term": "Energía renovable",
     "definition": "Aquella que se obtiene de fuentes naturales y se puede reponer naturalmente.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Hidrógeno verde",
+      "Capacidad de carga"
+    ]
   },
   {
     "term": "Energía solar pasiva",
     "definition": "Es el aprovechamiento de la energía solar sin el uso de dispositivos mecánicos o electrónicos, aprovechando las características arquitectónicas y el diseño de los edificios, como la orientación, el aislamiento, y el uso de materiales que almacenan y liberan calor de manera natural, como paredes y ventanas.",
     "letter": "E",
     "related": [
-      "Acimut 0°",
-      "Radiación solar",
-      "Cenit",
-      "Carta solar"
+      "Normas de seguridad laboral",
+      "Energía cinética",
+      "Tecnología de concentradores solares"
     ]
   },
   {
     "term": "Ergonomía",
     "definition": "Ciencia que se ocupa de adaptar el trabajo y las herramientas a las capacidades y limitaciones del trabajador para reducir el riesgo de lesiones.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Acimut 0°",
+      "Conexión on grid",
+      "Reacción química exotérmica"
+    ]
   },
   {
     "term": "Esfuerzo de flexión",
     "definition": "Resulta de aplicar fuerzas perpendicularmente al eje principal de un elemento que tienden a doblarlo.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Acimut óptimo",
+      "Tratamiento térmico",
+      "Off shore"
+    ]
   },
   {
     "term": "Esfuerzo de tracción",
     "definition": "Aquel que experimenta un elemento cuando se lo somete a una tensión o estiramiento producido por fuerzas de dirección opuesta.",
     "letter": "E",
-    "related": []
+    "related": [
+      "IRAM",
+      "Trifásica",
+      "Ley de generación distribuida"
+    ]
   },
   {
     "term": "Espectro visible",
     "definition": "Parte de la radiación electromagnética perceptible por el ojo humano, entre 400 y 700 nm de longitud de onda.",
     "letter": "E",
-    "related": []
+    "related": [
+      "Onda",
+      "Política energética",
+      "Corriente nominal"
+    ]
   },
   {
     "term": "Flujo turbulento",
     "definition": "Movimiento del aire que no es laminar y puede reducir la eficiencia de una turbina. Por el contrario, el flujo laminar es un tipo de movimiento de un fluido en el que las partículas se desplazan de forma suave, ordenada y paralela, formando capas que se no mezclan entre sí.",
     "letter": "F",
-    "related": []
+    "related": [
+      "Turbina",
+      "Potencia nominal",
+      "Eficiencia aerodinámica"
+    ]
   },
   {
     "term": "Fotón",
     "definition": "Partícula elemental que transporta la energía de la luz. Es la unidad básica de la radiación electromagnética, cuya absorción en las células solares genera electricidad.",
     "letter": "F",
-    "related": []
+    "related": [
+      "Solsticio",
+      "Energía fotovoltaica",
+      "Cenit"
+    ]
   },
   {
     "term": "Frecuencia",
     "definition": "Número de repeticiones de un fenómeno periódico (como una onda) por unidad de tiempo. En el Sistema Internacional se mide en Hercios (Hz).",
     "letter": "F",
     "related": [
-      "Periodo",
-      "Ejes cartesianos",
-      "Onda"
+      "Amplificador",
+      "Onda",
+      "Periodo"
     ]
   },
   {
     "term": "Generación distribuida",
     "definition": "Proceso en el cual se generan energías renovables, como la solar, de manera local y distribuida, es decir, a pequeña escala, cerca del lugar de consumo, reduciendo pérdidas en la transmisión de energía.",
     "letter": "G",
-    "related": []
+    "related": [
+      "Frecuencia",
+      "Energía geotérmica",
+      "Sistemas térmicos solares"
+    ]
   },
   {
     "term": "Hidrólisis",
     "definition": "Proceso químico en el que una molécula de agua se rompe para separar un compuesto en dos o más moléculas.",
     "letter": "H",
-    "related": []
+    "related": [
+      "Captación solar",
+      "Matriz energética",
+      "Efecto fotovoltaico"
+    ]
   },
   {
     "term": "Hoja técnica",
     "definition": "Cuadrante que se encuentra en maquinarias, aditivos o elementos y muestra sus principales características.",
     "letter": "H",
-    "related": []
+    "related": [
+      "Energía eólica",
+      "Energía geotérmica",
+      "Esfuerzo de flexión"
+    ]
   },
   {
     "term": "Huella de carbono",
     "definition": "Medida del impacto ambiental de una actividad en términos de CO2 emitido.",
     "letter": "H",
-    "related": []
+    "related": [
+      "Ley de generación distribuida",
+      "Energía renovable",
+      "Reacción química endotérmica"
+    ]
   },
   {
     "term": "Ley de generación distribuida",
     "definition": "Legislación nacional que promueve el uso de las energías renovables y da permiso a la instalación de elementos que generen energía eléctrica a través de energía solar en instalaciones aptas.",
     "letter": "L",
-    "related": []
+    "related": [
+      "Generación distribuida",
+      "Espectro visible",
+      "Vértice"
+    ]
   },
   {
     "term": "Matriz energética",
     "definition": "Conjunto de fuentes de energía utilizadas en una región.",
     "letter": "M",
-    "related": []
+    "related": [
+      "Temperatura de trabajo (de un sistema)",
+      "Ciclo profundo",
+      "Croquis"
+    ]
   },
   {
     "term": "Normas de seguridad laboral",
     "definition": "Conjunto de reglas que garantizan la seguridad de los trabajadores durante el desarrollo de sus actividades profesionales.",
     "letter": "N",
-    "related": []
+    "related": [
+      "Vértice",
+      "Tecnología de concentradores solares",
+      "Circulación forzada"
+    ]
   },
   {
     "term": "Off shore",
     "definition": "Referido a construcciones en el mar, como por ejemplo, turbinas eólicas off shore. Contrario a on shore, referido a construcciones en tierra.",
     "letter": "O",
-    "related": []
+    "related": [
+      "Turbina",
+      "On shore"
+    ]
   },
   {
     "term": "On shore",
     "definition": "Referido a construcciones en tierra.",
     "letter": "O",
-    "related": []
+    "related": [
+      "Off shore",
+      "Plan de mantenimiento",
+      "Transferencia de calor"
+    ]
   },
   {
     "term": "Onda",
     "definition": "Propagación de una perturbación de alguna propiedad del espacio, implicando un transporte de energía sin transporte de materia.",
     "letter": "O",
     "related": [
-      "Frecuencia",
-      "Periodo",
-      "Vértice",
-      "Valle"
+      "Ejes cartesianos",
+      "Espectro visible",
+      "Frecuencia"
     ]
   },
   {
@@ -399,7 +582,6 @@
     "letter": "P",
     "related": [
       "Frecuencia",
-      "Ejes cartesianos",
       "Onda"
     ]
   },
@@ -407,45 +589,69 @@
     "term": "Plan de mantenimiento",
     "definition": "Documento que tiene plasmado los trabajos de mantenimiento de un equipo.",
     "letter": "P",
-    "related": []
+    "related": [
+      "Vértice",
+      "Pérdida de calor",
+      "Reacción química endotérmica"
+    ]
   },
   {
     "term": "Política energética",
     "definition": "Conjunto de decisiones y acciones para gestionar y regular el uso de la energía.",
     "letter": "P",
-    "related": []
+    "related": [
+      "Energía hidráulica",
+      "Energía fotovoltaica",
+      "Periodo"
+    ]
   },
   {
     "term": "Potencia activa",
     "definition": "Cantidad de potencia que se convierte en trabajo útil en un sistema eléctrico.",
     "letter": "P",
-    "related": []
+    "related": [
+      "Conexión on grid",
+      "Frecuencia",
+      "Sistemas híbridos"
+    ]
   },
   {
     "term": "Potencia nominal",
     "definition": "Energía almacenada en un sistema en función de su posición.",
     "letter": "P",
-    "related": []
+    "related": [
+      "Viento nominal",
+      "Energía renovable",
+      "Red de media tensión"
+    ]
   },
   {
     "term": "Protección IP",
     "definition": "Resguardo que puede poseer un aparato ante el polvo o la humedad. El número indica cuánta protección tiene. Por ejemplo, si dice IP 55, protege del polvo y de una cantidad muy pequeña de agua.",
     "letter": "P",
-    "related": []
+    "related": [
+      "Balance energético",
+      "Ejes cartesianos",
+      "Corrientes parásitas"
+    ]
   },
   {
     "term": "Pérdida de calor",
     "definition": "Disminución de la energía térmica de un sistema hacia su entorno, generalmente debido a diferencias de temperatura y falta de aislamiento adecuado.",
     "letter": "P",
-    "related": []
+    "related": [
+      "Torno",
+      "Anclaje",
+      "Hidrólisis"
+    ]
   },
   {
     "term": "Radiación solar",
     "definition": "Energía emitida por el sol en forma de luz y calor, que puede ser aprovechada para generar electricidad o calor en sistemas solares.",
     "letter": "R",
     "related": [
-      "Acimut 0°",
-      "Cenit",
+      "Concentrador solar",
+      "MPP",
       "Carta solar"
     ]
   },
@@ -453,156 +659,227 @@
     "term": "Reacción química endotérmica",
     "definition": "Requiere energía calórica para que tenga lugar, mientras que la exotérmica libera energía en forma de calor.",
     "letter": "R",
-    "related": []
+    "related": [
+      "Conexión on grid",
+      "Ciclo profundo",
+      "Conexión off grid"
+    ]
   },
   {
     "term": "Reacción química exotérmica",
     "definition": "Libera energía en forma de calor.",
     "letter": "R",
-    "related": []
+    "related": [
+      "Ciclo profundo",
+      "Capacidad de carga",
+      "Croquis"
+    ]
   },
   {
     "term": "Red de media tensión",
     "definition": "Cables que circulan de pueblo a pueblo por los cuales se transporta la energía eléctrica de entre 13Kv y 33Kv.",
     "letter": "R",
-    "related": []
+    "related": [
+      "Tratamiento térmico",
+      "On shore",
+      "Ergonomía"
+    ]
   },
   {
     "term": "Red eléctrica",
     "definition": "Sistema de distribución de energía eléctrica desde las centrales a los usuarios.",
     "letter": "R",
-    "related": []
+    "related": [
+      "Trifásica",
+      "On shore",
+      "Generación distribuida"
+    ]
   },
   {
     "term": "Red inteligente",
     "definition": "Sistema eléctrico que utiliza tecnología digital para mejorar la gestión de la energía.",
     "letter": "R",
-    "related": []
+    "related": [
+      "Protección IP",
+      "Anclaje",
+      "Corriente nominal"
+    ]
   },
   {
     "term": "Remanente",
     "definition": "Lo que queda o sobra luego de un proceso. Por ejemplo, líquido remanente, magnetismo remanente.",
     "letter": "R",
-    "related": []
+    "related": [
+      "Almacenamiento energético",
+      "Energía limpia",
+      "Efecto fotovoltaico"
+    ]
   },
   {
     "term": "Sistemas híbridos",
     "definition": "Sistemas energéticos que combinan diferentes fuentes de energía, como la solar y la eólica, para mejorar la estabilidad y la fiabilidad del suministro.",
     "letter": "S",
-    "related": []
+    "related": [
+      "Efecto fotovoltaico",
+      "Onda",
+      "Potencia nominal"
+    ]
   },
   {
     "term": "Sistemas térmicos solares",
     "definition": "Sistemas que capturan la energía solar en forma de calor, generalmente mediante colectores solares, para ser utilizada en calefacción, agua caliente sanitaria o procesos industriales.",
     "letter": "S",
     "related": [
-      "Acimut 0°",
-      "Radiación solar",
-      "Cenit",
-      "Carta solar"
+      "Hidrólisis",
+      "Esfuerzo de flexión",
+      "Corriente nominal"
     ]
   },
   {
     "term": "Solsticio",
     "definition": "Cada uno de los dos momento anuales en que el sol se halla en uno de los dos trópicos, lo cual sucede del 21 al 22 de junio para el de Cáncer, y del 21 al 22 de diciembre para el de Capricornio, y en los que la diferencia entre la duración del día y de la noche es mayor. El solsticio de invierno es el día más corto del año y la noche más larga, mientras que el solsticio de verano es el día más largo del año y la noche más corta.",
     "letter": "S",
-    "related": []
+    "related": [
+      "Política energética",
+      "Valle",
+      "Electrólisis"
+    ]
   },
   {
     "term": "Sostenibilidad",
     "definition": "Capacidad de satisfacer las necesidades actuales sin comprometer los recursos futuros, es decir, mantener un equilibrio ecológico sin agotar recursos.",
     "letter": "S",
-    "related": []
+    "related": [
+      "Termosifón",
+      "Energía limpia",
+      "Termodinámica"
+    ]
   },
   {
     "term": "Tecnología de concentradores solares",
     "definition": "Tecnología que utiliza espejos o lentes para concentrar la luz solar sobre una pequeña área, lo que permite generar altas temperaturas para la producción de electricidad o calor.",
     "letter": "T",
     "related": [
-      "Acimut 0°",
-      "Radiación solar",
-      "Cenit",
-      "Carta solar"
+      "Croquis",
+      "Pérdida de calor",
+      "Frecuencia"
     ]
   },
   {
     "term": "Temperatura de trabajo (de un sistema)",
     "definition": "Rango de temperatura en el cual un sistema o componente, como un panel fotovoltaico o un colector térmico, opera de manera óptima.",
     "letter": "T",
-    "related": []
+    "related": [
+      "Energía solar pasiva",
+      "Off shore",
+      "Energía eólica"
+    ]
   },
   {
     "term": "Termodinámica",
     "definition": "Rama de la Física que estudia las relaciones entre calor y otras formas de energía.",
     "letter": "T",
-    "related": []
+    "related": [
+      "K (Kelvin)",
+      "Onda",
+      "Efecto fotovoltaico"
+    ]
   },
   {
     "term": "Termosifón",
     "definition": "Método pasivo de transferencia térmica basado en la diferencia de densidad de un fluido. Al tener menos densidad el agua caliente que la fría, esta asciende y genera la circulación de agua, sin necesidad de bombas.",
     "letter": "T",
-    "related": []
+    "related": [
+      "Densidad",
+      "Energía eólica",
+      "Datasheet"
+    ]
   },
   {
     "term": "Tolerancia",
     "definition": "Margen de error permitido en un proceso o medida.",
     "letter": "T",
-    "related": []
+    "related": [
+      "Energía fotovoltaica",
+      "Desempeño energético",
+      "Política energética"
+    ]
   },
   {
     "term": "Transferencia de calor",
     "definition": "Movimiento de energía térmica de un sistema a otro debido a una diferencia de temperatura.",
     "letter": "T",
-    "related": []
+    "related": [
+      "Aislante",
+      "Protección IP",
+      "Huella de carbono"
+    ]
   },
   {
     "term": "Tratamiento térmico",
     "definition": "Conjunto de procesos industriales que permiten modificar la estructura molecular de ciertos materiales.",
     "letter": "T",
-    "related": []
+    "related": [
+      "Cementado",
+      "Horno de recocido",
+      "Nitrurado"
+    ]
   },
   {
     "term": "Trifásica",
     "definition": "Utilizado para denominar la cantidad de fases que tiene una red eléctrica. En este caso, hace referencia a que el sistema tiene tres fases y, normalmente, un neutro. Este tipo de corrientes se emplea principalmente en instalaciones industriales, maquinaria pesada y sistemas que requieren otra potencia.",
     "letter": "T",
-    "related": []
+    "related": [
+      "Corriente",
+      "Red eléctrica"
+    ]
   },
   {
     "term": "Valle",
     "definition": "Punto mínimo espacia en la representación gráfica de una onda o función matemática en un sistema de ejes.",
     "letter": "V",
     "related": [
-      "Ejes cartesianos",
-      "Vértice",
-      "Onda"
+      "Onda",
+      "Electrólisis",
+      "Solsticio"
     ]
   },
   {
     "term": "Velocidad de corte",
     "definition": "En el ámbito de la energía eólica, se trata de la velocidad mínima del viento a la que una turbina comienza a generar electricidad, mientras que la velocidad de corte superior es la velocidad máxima del viento a la que una turbina sigue funcionando antes de apagarse para evitar daños.",
     "letter": "V",
-    "related": []
+    "related": [
+      "Turbina",
+      "Energía eólica",
+      "Velocidad de corte superior"
+    ]
   },
   {
     "term": "Velocidad de corte superior",
     "definition": "Velocidad máxima del viento a la que una turbina sigue funcionando antes de apagarse para evitar daños.",
     "letter": "V",
-    "related": []
+    "related": [
+      "Turbina",
+      "Velocidad de corte"
+    ]
   },
   {
     "term": "Viento nominal",
     "definition": "Velocidad del viento a la que una turbina eólica genera su potencia nominal.",
     "letter": "V",
-    "related": []
+    "related": [
+      "Turbina",
+      "Potencia nominal"
+    ]
   },
   {
     "term": "Vértice",
     "definition": "Punto máximo (pico) de una onda o función representada en un sistema de ejes.",
     "letter": "V",
     "related": [
-      "Ejes cartesianos",
-      "Valle",
-      "Onda"
+      "Onda",
+      "Fotón",
+      "Potencia nominal"
     ]
   }
 ]

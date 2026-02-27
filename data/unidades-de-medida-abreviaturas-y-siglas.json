@@ -1,254 +1,418 @@
 [
   {
+    "term": "AEA",
+    "definition": "Asociación Electrotécnica Argentina: organización no gubernamental que se dedica a crear normas relacionadas con la electrotecnia, dictar cursos y capacitaciones y realizar publicaciones vinculadas con el tema a público especializado (electricistas, empresas, etc.).",
+    "letter": "A",
+    "related": [
+      "CPT",
+      "Factor de potencia o coseno de phi",
+      "UTS"
+    ]
+  },
+  {
     "term": "Albedo",
     "definition": "Medida de la reflectividad de una superficie. Indica la proporción existente entre la energía luminosa que incide en una superficie y la que se refleja. Es importante en el estudio de la energía solar y su aprovechamiento.",
     "letter": "A",
-    "related": ["Concepto de Medida"]
+    "related": [
+      "RPM",
+      "BEP",
+      "CAD"
+    ]
   },
   {
     "term": "Amperio",
     "definition": "Unidad de medida de la intensidad de la corriente eléctrica.",
     "letter": "A",
-    "related": ["Unidad de Medida"]
-  },
-  {
-    "term": "BEP",
-    "definition": "Barril equivalente de petróleo: unidad de medida para comparar energías de diferentes fuentes.",
-    "letter": "B",
-    "related": ["Unidad de Medida", "Abreviatura"]
-  },
-  {
-    "term": "Entalpía",
-    "definition": "Medida de la cantidad total de energía conocida en un sistema.",
-    "letter": "E",
-    "related": ["Concepto de Medida"]
-  },
-  {
-    "term": "Entropía",
-    "definition": "Medida del desorden o aleatoriedad en un sistema termodinámico.",
-    "letter": "E",
-    "related": ["Concepto de Medida"]
-  },
-  {
-    "term": "Escala brinell",
-    "definition": "Sistema de medición de la dureza de los materiales.",
-    "letter": "E",
-    "related": ["Escala de Medida"]
-  },
-  {
-    "term": "Factor de capacidad",
-    "definition": "Relación entre la energía real generada por una turbina y la cantidad de energía que podría generar si operara a su capacidad máxima.",
-    "letter": "F",
-    "related": ["Concepto de Medida"]
-  },
-  {
-    "term": "Factor de potencia o coseno de phi",
-    "definition": "Es el coseno del ángulo de desfasaje entre voltaje y corriente en un circuito de corriente alterna monofásico o trifásico.",
-    "letter": "F",
-    "related": ["Concepto de Medida"]
-  },
-  {
-    "term": "Joules",
-    "definition": "Unidad de medición energética definida como el trabajo necesario o para producir un Watt de potencia por segundo.",
-    "letter": "J",
-    "related": ["Unidad de Medida"]
-  },
-  {
-    "term": "HSP",
-    "definition": "Hora solar pico: cantidad de horas pico que tenemos de sol en determinadas épocas del año. Por ejemplo, en invierno este calor es de 4.73 Kw m².",
-    "letter": "H",
-    "related": ["Unidad de Medida", "Abreviatura"]
-  },
-  {
-    "term": "K (Kelvin)",
-    "definition": "Unidad de medida de temperatura en la escala termodinámica, donde el cero absoluto (la temperatura más baja posible) es 0 K.",
-    "letter": "K",
-    "related": ["Unidad de Medida"]
-  },
-  {
-    "term": "kWh",
-    "definition": "Kilovatio-hora: unidad de medida de energía que equivale a la cantidad de energía consumida o generada por un dispositivo con una potencia de un kilovatio durante una hora. Es comúnmente utilizada para medir la producción de energía en sistemas solares.",
-    "letter": "K",
-    "related": ["Unidad de Medida", "Abreviatura"]
-  },
-  {
-    "term": "Nano",
-    "definition": "Es la 10⁻⁹ parte de algo. Con la unidad correspondiente, forma un submúltiplo de esa unidad.",
-    "letter": "N",
-    "related": ["Prefijo"]
-  },
-  {
-    "term": "pH",
-    "definition": "Potencial de hidrógeno: medida de la acidez o alcalinidad de una sustancia.",
-    "letter": "P",
-    "related": ["Concepto de Medida"]
-  },
-  {
-    "term": "Pulgada",
-    "definition": "Unidad de medida que siempre suele tenerse en cuenta a la hora de pedir las piezas, por ejemplo, tuerca de media pulgada.",
-    "letter": "P",
-    "related": ["Unidad de Medida"]
-  },
-  {
-    "term": "RPM",
-    "definition": "Revoluciones por minuto: medida de velocidad de un motor.",
-    "letter": "R",
-    "related": ["Unidad de Medida", "Abreviatura"]
-  },
-  {
-    "term": "UTS",
-    "definition": "Resistencia máxima a la tracción: máxima fuerza que un material puede resistir antes de romperse cuando se estira. Este término se usa principalmente en la ingeniería de materiales y se aplica a metales, plásticos y otros materiales sujetos a tensiones.",
-    "letter": "U",
-    "related": ["Abreviatura"]
-  },
-  {
-    "term": "Torque",
-    "definition": "Medida de la fuerza que produce la rotación en un objeto, fundamental en aerogeneradores y turbinas.",
-    "letter": "T",
-    "related": ["Concepto de Medida"]
-  },
-  {
-    "term": "Trafo.",
-    "definition": "Abreviatura de transformador.",
-    "letter": "T",
-    "related": ["Abreviatura"]
-  },
-  {
-    "term": "Watt",
-    "definition": "Unidad de potencia del sistema internacional.",
-    "letter": "W",
-    "related": ["Unidad de Medida"]
-  },
-  {
-    "term": "AEA",
-    "definition": "Asociación Electrotécnica Argentina: organización no gubernamental que se dedica a crear normas relacionadas con la electrotecnia, dictar cursos y capacitaciones y realizar publicaciones vinculadas con el tema a público especializado (electricistas, empresas, etc.).",
-    "letter": "A",
-    "related": ["Sigla"]
+    "related": [
+      "Corriente",
+      "NLGI",
+      "COP"
+    ]
   },
   {
     "term": "API",
     "definition": "Interfaz de Programación de Aplicaciones: conjunto de protocolos y reglas que les permite a las diferentes aplicaciones de software comunicarse entre sí.",
     "letter": "A",
-    "related": ["Sigla"]
+    "related": [
+      "Factor de potencia o coseno de phi",
+      "K (Kelvin)",
+      "UTS"
+    ]
   },
   {
     "term": "ASTM",
     "definition": "Sociedad Estadounidense para Pruebas y Materiales: organismo que establece normas para ensayos de materiales y productos. Aunque su origen es en Estados Unidos, ASTM establece estándares que son utilizados globalmente en distintas industrias.",
     "letter": "A",
-    "related": ["Sigla"]
+    "related": [
+      "Nano",
+      "Amperio",
+      "kWh"
+    ]
+  },
+  {
+    "term": "BEP",
+    "definition": "Barril equivalente de petróleo: unidad de medida para comparar energías de diferentes fuentes.",
+    "letter": "B",
+    "related": [
+      "PLC",
+      "MPP",
+      "ASTM"
+    ]
   },
   {
     "term": "CA",
     "definition": "Corriente alterna: tipo de corriente eléctrica cuyo flujo de electrones cambia de dirección periódicamente. Es la forma de energía utilizada en la mayoría de los electrodomésticos e instalaciones eléctricas.",
     "letter": "C",
-    "related": ["Sigla"]
+    "related": [
+      "Corriente",
+      "Electrodo"
+    ]
   },
   {
     "term": "CAD",
     "definition": "Diseño Asistido por Computadora: se refiere al uso de software para crear y modificar diseños, planos y modelos técnicos.",
     "letter": "C",
-    "related": ["Sigla"]
+    "related": [
+      "Nano",
+      "RPM",
+      "OEM"
+    ]
   },
   {
     "term": "CCHP",
     "definition": "Cogeneración de calor y potencia: sistema que produce simultáneamente calefacción y electricidad.",
     "letter": "C",
-    "related": ["Sigla"]
+    "related": [
+      "PLC",
+      "kWh",
+      "Escala brinell"
+    ]
   },
   {
     "term": "COP",
     "definition": "Coeficiente de rendimiento de un sistema solar térmico: es un indicador que mide la eficiencia de un sistema que convierte energía solar en calor. El COP se calcula dividiendo la cantidad de energía térmica útil generada entre la energía eléctrica consumida por el sistema.",
     "letter": "C",
-    "related": ["Sigla"]
-  },
-  {
-    "term": "CSP",
-    "definition": "Energía solar de concentración: tecnología que utiliza espejos o lentes para concentrar la luz solar en un punto focal, generando calor para producir electricidad.",
-    "letter": "C",
-    "related": ["Sigla"]
+    "related": [
+      "Torque",
+      "LED",
+      "ASTM"
+    ]
   },
   {
     "term": "CPT",
     "definition": "Temperatura de la placa del colector: es un parámetro importante en los sistemas solares térmicos para evaluar su rendimiento.",
     "letter": "C",
-    "related": ["Sigla"]
+    "related": [
+      "PLC",
+      "CCHP",
+      "ISC"
+    ]
+  },
+  {
+    "term": "CSP",
+    "definition": "Energía solar de concentración: tecnología que utiliza espejos o lentes para concentrar la luz solar en un punto focal, generando calor para producir electricidad.",
+    "letter": "C",
+    "related": [
+      "EPP",
+      "CAD",
+      "RPM"
+    ]
+  },
+  {
+    "term": "Entalpía",
+    "definition": "Medida de la cantidad total de energía conocida en un sistema.",
+    "letter": "E",
+    "related": [
+      "LED",
+      "OEM",
+      "Factor de potencia o coseno de phi"
+    ]
+  },
+  {
+    "term": "Entropía",
+    "definition": "Medida del desorden o aleatoriedad en un sistema termodinámico.",
+    "letter": "E",
+    "related": [
+      "OEM",
+      "UTS",
+      "NLGI"
+    ]
   },
   {
     "term": "EPP",
     "definition": "Elementos de protección personal: aquellos con los que debe contar cada trabajador a la hora de ingresar a su puesto laboral.",
     "letter": "E",
-    "related": ["Sigla"]
+    "related": [
+      "PLC",
+      "Albedo",
+      "CAD"
+    ]
+  },
+  {
+    "term": "Escala brinell",
+    "definition": "Sistema de medición de la dureza de los materiales.",
+    "letter": "E",
+    "related": [
+      "API",
+      "Trafo.",
+      "kWh"
+    ]
+  },
+  {
+    "term": "Factor de capacidad",
+    "definition": "Relación entre la energía real generada por una turbina y la cantidad de energía que podría generar si operara a su capacidad máxima.",
+    "letter": "F",
+    "related": [
+      "Turbina",
+      "LED",
+      "Entalpía"
+    ]
+  },
+  {
+    "term": "Factor de potencia o coseno de phi",
+    "definition": "Es el coseno del ángulo de desfasaje entre voltaje y corriente en un circuito de corriente alterna monofásico o trifásico.",
+    "letter": "F",
+    "related": [
+      "Corriente",
+      "Albedo",
+      "LED"
+    ]
   },
   {
     "term": "FV",
     "definition": "Fotovoltaico: tecnología solar que convierte la luz del sol directamente en electricidad mediante el efecto fotovoltaico.",
     "letter": "F",
-    "related": ["Sigla"]
+    "related": [
+      "Efecto fotovoltaico",
+      "CSP",
+      "Torque"
+    ]
+  },
+  {
+    "term": "HSP",
+    "definition": "Hora solar pico: cantidad de horas pico que tenemos de sol en determinadas épocas del año. Por ejemplo, en invierno este calor es de 4.73 Kw m².",
+    "letter": "H",
+    "related": [
+      "NLGI",
+      "ASTM",
+      "USB"
+    ]
   },
   {
     "term": "IRAM",
     "definition": "Instituto Argentino de Normalización y Certificación: es una asociación civil privada sin fines de lucro que desarrolla normas, capacita y brinda servicios de evaluación y certificación, relacionadas con la calidad, la seguridad y el cuidado del ambiente.",
     "letter": "I",
-    "related": ["Sigla"]
+    "related": [
+      "Esfuerzo de tracción",
+      "FV",
+      "Nano"
+    ]
   },
   {
     "term": "ISC",
     "definition": "Corriente de cortocircuito: pico máximo de corriente que se aplica a un circuito por un plazo de tiempo corto, cuando sus bornes están conectados directamente sin resistencia alguna.",
     "letter": "I",
-    "related": ["Sigla"]
+    "related": [
+      "Corriente",
+      "Resistencia"
+    ]
   },
   {
     "term": "ISO",
     "definition": "Organización Internacional para la Normalización: organismo que establece normas internacionales para productos, servicios y sistemas. Las normativas ISO cubren una amplia gama de industrias, desde la gestión de calidad hasta la seguridad de la información.",
     "letter": "I",
-    "related": ["Sigla"]
+    "related": [
+      "CCHP",
+      "Entalpía",
+      "RPM"
+    ]
+  },
+  {
+    "term": "Joules",
+    "definition": "Unidad de medición energética definida como el trabajo necesario o para producir un Watt de potencia por segundo.",
+    "letter": "J",
+    "related": [
+      "Watt",
+      "Factor de potencia o coseno de phi",
+      "Pulgada"
+    ]
+  },
+  {
+    "term": "K (Kelvin)",
+    "definition": "Unidad de medida de temperatura en la escala termodinámica, donde el cero absoluto (la temperatura más baja posible) es 0 K.",
+    "letter": "K",
+    "related": [
+      "Termodinámica",
+      "ISO",
+      "PFV"
+    ]
+  },
+  {
+    "term": "kWh",
+    "definition": "Kilovatio-hora: unidad de medida de energía que equivale a la cantidad de energía consumida o generada por un dispositivo con una potencia de un kilovatio durante una hora. Es comúnmente utilizada para medir la producción de energía en sistemas solares.",
+    "letter": "K",
+    "related": [
+      "USB",
+      "ISC",
+      "Entalpía"
+    ]
   },
   {
     "term": "LED",
     "definition": "Diodo emisor de luz: diodo constituido por un material semiconductor que emite luz cuando se aplica una corriente eléctrica a través de él.",
     "letter": "L",
-    "related": ["Sigla"]
+    "related": [
+      "Corriente",
+      "MPP",
+      "PFV"
+    ]
   },
   {
     "term": "MPP",
     "definition": "Punto de máxima potencia: punto de máxima producción de energía de una máquina. En el caso de los paneles solares, se trata del momento del día en el que más se aprovecha la radiación solar.",
     "letter": "M",
-    "related": ["Sigla"]
+    "related": [
+      "Radiación solar",
+      "PFV",
+      "PLC"
+    ]
+  },
+  {
+    "term": "Nano",
+    "definition": "Es la 10⁻⁹ parte de algo. Con la unidad correspondiente, forma un submúltiplo de esa unidad.",
+    "letter": "N",
+    "related": [
+      "Trafo.",
+      "USB",
+      "Entalpía"
+    ]
   },
   {
     "term": "NLGI",
     "definition": "Instituto Nacional de Grasas Lubricantes: el grado NLGI es una medida que indica la dureza o viscosidad de un lubricante.",
     "letter": "N",
-    "related": ["Sigla"]
+    "related": [
+      "Lubricante",
+      "Viscosidad"
+    ]
   },
   {
     "term": "OEM",
     "definition": "Fabricante de equipo original: empresa que manufactura productos que luego son comprados por otra y vendidos al por menor bajo la marca de la empresa que lo compró.",
     "letter": "O",
-    "related": ["Sigla"]
+    "related": [
+      "Entropía",
+      "NLGI",
+      "PFV"
+    ]
   },
   {
     "term": "PFV",
     "definition": "Panel fotovoltaico: dispositivo que capta energía solar y la transforma directamente en electricidad.",
     "letter": "P",
-    "related": ["Sigla"]
+    "related": [
+      "Torque",
+      "CA",
+      "ISC"
+    ]
+  },
+  {
+    "term": "pH",
+    "definition": "Potencial de hidrógeno: medida de la acidez o alcalinidad de una sustancia.",
+    "letter": "P",
+    "related": [
+      "EPP",
+      "PFV",
+      "Pulgada"
+    ]
   },
   {
     "term": "PLC",
     "definition": "Controlador Lógico Programable: sistema electrónico con memoria programable. Se utiliza en sistemas industriales para automatizar procesos mecánicos.",
     "letter": "P",
-    "related": ["Sigla"]
+    "related": [
+      "Torque",
+      "CA",
+      "Trafo."
+    ]
+  },
+  {
+    "term": "Pulgada",
+    "definition": "Unidad de medida que siempre suele tenerse en cuenta a la hora de pedir las piezas, por ejemplo, tuerca de media pulgada.",
+    "letter": "P",
+    "related": [
+      "CPT",
+      "ASTM",
+      "Entalpía"
+    ]
+  },
+  {
+    "term": "RPM",
+    "definition": "Revoluciones por minuto: medida de velocidad de un motor.",
+    "letter": "R",
+    "related": [
+      "Motor",
+      "Amperio",
+      "Trafo."
+    ]
+  },
+  {
+    "term": "Torque",
+    "definition": "Medida de la fuerza que produce la rotación en un objeto, fundamental en aerogeneradores y turbinas.",
+    "letter": "T",
+    "related": [
+      "Aerogenerador",
+      "Turbina"
+    ]
+  },
+  {
+    "term": "Trafo.",
+    "definition": "Abreviatura de transformador.",
+    "letter": "T",
+    "related": [
+      "Transformador",
+      "BEP",
+      "Torque"
+    ]
   },
   {
     "term": "USB",
     "definition": "Universal Serial Bus: conector que transmite datos y energía entre dispositivos.",
     "letter": "U",
-    "related": ["Sigla"]
+    "related": [
+      "LED",
+      "Factor de capacidad",
+      "FV"
+    ]
+  },
+  {
+    "term": "UTS",
+    "definition": "Resistencia máxima a la tracción: máxima fuerza que un material puede resistir antes de romperse cuando se estira. Este término se usa principalmente en la ingeniería de materiales y se aplica a metales, plásticos y otros materiales sujetos a tensiones.",
+    "letter": "U",
+    "related": [
+      "Resistencia",
+      "FV",
+      "CA"
+    ]
   },
   {
     "term": "VOC",
     "definition": "Voltaje de circuito abierto: tensión máxima de un circuito cuando no está bajo carga.",
     "letter": "V",
-    "related": ["Sigla"]
+    "related": [
+      "EPP",
+      "CSP",
+      "Albedo"
+    ]
+  },
+  {
+    "term": "Watt",
+    "definition": "Unidad de potencia del sistema internacional.",
+    "letter": "W",
+    "related": [
+      "Joules",
+      "COP",
+      "CA"
+    ]
   }
 ]
