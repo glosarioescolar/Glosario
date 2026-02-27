@@ -1086,7 +1086,132 @@
         #search-results {
             background-color: var(--bg-card) !important;
         }
+    
+        /* ===== COMPREHENSIVE THEME FIX (Final Pass) ===== */
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+        .stat-card {
+            background: var(--bg-card-hover) !important;
+            border-color: var(--border-color) !important;
+        }
+        .stat-card .number {
+            color: var(--text-main) !important;
+        }
+        .stat-card .label {
+            color: var(--text-muted) !important;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg, var(--primary)) !important;
+        }
+        .footer-links a {
+            color: rgba(255,255,255,0.85) !important;
+        }
+        .footer-links a:hover {
+            color: var(--secondary) !important;
+        }
+        .copyright {
+            color: rgba(255,255,255,0.6) !important;
+        }
+
+        /* Sections with white backgrounds */
+        .search-section,
+        .categories-section,
+        .terms-section {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* Section headings that use --primary (dark blue, invisible in dark mode) */
+        .categories-section h2,
+        .terms-section h2 {
+            color: var(--text-main) !important;
+        }
+
+        /* Category & Term Cards */
+        .category-card,
+        .term-card {
+            background: var(--bg-card-hover) !important;
+            border-color: var(--border-color) !important;
+        }
+        .category-card h3,
+        .term-card h4 {
+            color: var(--text-main) !important;
+        }
+
+        /* Related Terms */
+        .related-terms {
+            border-top-color: var(--border-color) !important;
+        }
+        .related-terms span {
+            color: var(--text-muted) !important;
+        }
+        .related-terms a {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* Term Count Badge */
+        .term-count {
+            background: var(--bg-card-hover) !important;
+            color: var(--text-main) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumb span {
+            color: var(--text-muted) !important;
+        }
+
+        /* Contact Modal */
+        .modal-content {
+            background-color: var(--bg-card) !important;
+        }
+        .close-modal {
+            color: var(--text-muted) !important;
+        }
+        .contact-email {
+            background: var(--bg-card-hover) !important;
+            border-color: var(--border-color) !important;
+        }
+        .contact-email span {
+            color: var(--text-main) !important;
+        }
+        .contact-note {
+            background: var(--bg-card-hover) !important;
+        }
+
+        /* Search Results Dropdown */
+        #search-results {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color) !important;
+        }
+        .search-result-item {
+            border-bottom-color: var(--border-color) !important;
+        }
+        .search-result-item:hover {
+            background-color: var(--bg-card-hover) !important;
+        }
+        .search-result-item .category {
+            background: var(--secondary) !important;
+            color: white !important;
+        }
+
+        /* Search input */
+        .search-container input {
+            background: var(--bg-card) !important;
+            color: var(--text-main) !important;
+            border-color: var(--border-color) !important;
+        }
+
+        /* ===== END COMPREHENSIVE THEME FIX ===== */
     </style>
+
 
 
 
