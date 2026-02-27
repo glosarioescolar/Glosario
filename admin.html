@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Contenido - Glosario Técnico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Light Theme (Default) */
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+
+            --bg-body: #f5f7fa;
+            --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --bg-card: #ffffff;
+            --bg-card-hover: #f8f9fa;
+            --bg-table-stripe: #f9fbff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
+            --border-hover: #3498db;
+
+            --header-bg: linear-gradient(135deg, var(--primary), #1a2530);
+            --header-text: #ffffff;
+            --footer-bg: var(--primary);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+
+            --border-radius: 8px;
+            --box-shadow: 0 4px 15px var(--shadow-color);
+            --box-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #1e293b;
+            --secondary: #3b82f6;
+            --accent: #ef4444;
+            --light: #0f172a;
+            --dark: #f8fafc;
+
+            --bg-body: #0f172a;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --bg-table-stripe: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --border-hover: #60a5fa;
+
+            --header-bg: linear-gradient(135deg, #020617, #0f172a);
+            --footer-bg: #020617;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="reading"] {
+            --primary: #5c4b37;
+            --secondary: #d97706;
+            --accent: #b45309;
+            --light: #fefce8;
+            --dark: #422006;
+
+            --bg-body: #fefce8;
+            --bg-gradient: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+            --bg-card: #fffbeb;
+            --bg-card-hover: #fef3c7;
+            --bg-table-stripe: #fffbeb;
+            --text-main: #422006;
+            --text-muted: #78350f;
+            --border-color: #fde68a;
+            --border-hover: #f59e0b;
+
+            --header-bg: linear-gradient(135deg, #78350f, #92400e);
+            --footer-bg: #422006;
+            --shadow-color: rgba(120, 53, 15, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            transition: background-color 0.5s ease, color 0.5s ease;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: var(--header-bg);
+            color: var(--header-text);
+            padding: 20px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-left h1 {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-left p {
+            opacity: 0.9;
+            margin-top: 5px;
+            font-size: 1.1rem;
+        }
+
+        .nav-home {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .nav-home:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .step-panel {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 25px;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .step-panel h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step-panel p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        select,
+        input,
+        textarea {
+            background-color: var(--bg-card) !important;
+            color: var(--text-main) !important;
+            border: 2px solid var(--border-color) !important;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        select:focus,
+        input:focus,
+        textarea:focus {
+            border-color: var(--secondary) !important;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        select option {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+        }
+
+        .btn-success {
+            background: var(--success);
+        }
+
+        .btn-danger {
+            background: var(--accent);
+        }
+
+        .btn:hover:not(:disabled) {
+            opacity: 0.9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            align-items: stretch;
+            /* Stretch to same height */
+        }
+
+        @media (max-width: 768px) {
+            .controls-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #category-select {
+            flex: 1;
+            /* Take up as much room as needed safely */
+            min-width: 250px;
+        }
+
+        .table-container {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            /* For border radius */
+            margin-bottom: 20px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            max-height: 500px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 20px 25px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        th {
+            background: var(--light);
+            color: var(--dark);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: var(--bg-table-stripe);
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-icon {
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: white;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-icon.edit {
+            background: var(--warning);
+        }
+
+        .btn-icon.delete {
+            background: var(--accent);
+        }
+
+        .btn-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-cancel {
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        .helper-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            display: block;
+        }
+
+        .term-related-tag {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        #download-instructions {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(46, 204, 113, 0.1);
+            border-radius: var(--border-radius);
+            border: 2px solid var(--success);
+        }
+
+        #download-instructions h3 {
+            color: var(--success);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        #download-instructions ol {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+
+        #download-instructions li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        /* Theme Switcher UI (Desktop Admin) */
+        .theme-switcher {
+            display: flex;
+            gap: 10px;
+        }
+
+        .theme-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .theme-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        .theme-btn.active {
+            background: var(--secondary);
+            border-color: var(--secondary);
+            box-shadow: 0 0 15px var(--secondary);
+        }
+
+        /* Reading Mode specific overrides */
+        [data-theme="reading"] body {
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+        }
+
+        [data-theme="reading"] header .logo h1 {
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Phase 6: Admin QA */
+        .step-panel h2,
+        .step-panel p {
+            color: var(--text-main);
+        }
+
+        .step-panel h2 i {
+            color: var(--secondary);
+        }
+
+        /* Make sure table text inherits the main text variable */
+        table,
+        th,
+        td,
+        .form-group label {
+            color: var(--text-main);
+        }
+
+        /* Give more breathing room to table rows and modal fields */
+        td {
+            padding: 20px 25px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 18px;
+            margin-top: 5px;
+        }
+
+        /* Ensure table empty state text is mutable */
+        #terms-tbody td {
+            color: var(--text-main) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-left logo">
+                <h1><i class="fas fa-edit"></i> Gestor de Contenido</h1>
+                <p>Agrega, edita y administra los términos del Glosario Técnico de forma sencilla.</p>
+            </div>
+
+            <div style="display:flex; flex-direction:column; align-items:flex-end; gap: 15px;">
+                <div class="theme-switcher">
+                    <button class="theme-btn" data-set-theme="light" title="Modo Claro"><i
+                            class="fas fa-sun"></i></button>
+                    <button class="theme-btn" data-set-theme="dark" title="Modo Oscuro"><i
+                            class="fas fa-moon"></i></button>
+                    <button class="theme-btn" data-set-theme="reading" title="Modo Lectura"><i
+                            class="fas fa-book"></i></button>
+                </div>
+                <a href="index.html" class="nav-home"><i class="fas fa-arrow-left"></i> Volver a la Web</a>
+            </div>
+        </header>
+
+        <!-- Paso 1 -->
+        <div class="step-panel">
+            <h2><span class="fa-stack"><i class="fas fa-circle fa-stack-2x"></i><i
+                        class="fas fa-1 fa-stack-1x fa-inverse"></i></span> Elige la Categoría a Editar</h2>
+            <p>Selecciona en qué materia o categoría quieres trabajar hoy. Esto cargará todos los términos existentes en
+                esa área.</p>
+
+            <div class="controls-grid">
+                <select id="category-select" style="cursor: pointer;">
+                    <option value="" selected disabled>📂 Haz clic aquí para desplegar las opciones...</option>
+                    <option value="data/conceptos-teoricos.json">Conceptos Teóricos</option>
+                    <option value="data/herramientas-y-maquinaria.json">Herramientas y Maquinaria</option>
+                    <option value="data/materiales-y-propiedades.json">Materiales y Propiedades</option>
+                    <option value="data/procedimientos-tecnicos.json">Procedimientos Técnicos</option>
+                    <option value="data/unidades-de-medida-abreviaturas-y-siglas.json">Unidades de Medida, Abreviaturas
+                        y Siglas</option>
+                </select>
+                <div style="display: flex; align-items: center; justify-content: flex-end; height: 100%;">
+                    <span id="term-count-badge"
+                        style="font-size: 1.2rem; font-weight: bold; color: var(--secondary); background: var(--bg-card); border: 1px solid var(--border-color); padding: 15px 20px; border-radius: 50px; display: none;"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="step-panel" id="step-2-panel" style="opacity: 0.5; pointer-events: none; transition: 0.3s;">
+            <h2><span class="fa-stack"><i class="fas fa-circle fa-stack-2x"></i><i
+                        class="fas fa-2 fa-stack-1x fa-inverse"></i></span> Crea o Modifica los Términos</h2>
+            <p>Revisa la lista inferior. Puedes crear un término nuevo desde cero, o usar los íconos amarillos y rojos
+                para modificar/eliminar uno existente.</p>
+
+            <button class="btn btn-primary" id="btn-add" style="margin-bottom: 25px; width: 100%;"><i
+                    class="fas fa-plus-circle fa-lg"></i> Redactar un Nuevo Término para esta Categoría</button>
+
+            <div class="table-container">
+                <div class="table-wrapper">
+                    <table id="terms-table">
+                        <thead>
+                            <tr>
+                                <th width="20%">Nombre del Término</th>
+                                <th width="45%">Explicación / Definición</th>
+                                <th width="20%">Palabras Clave (Relacionados)</th>
+                                <th width="15%" style="text-align:center;">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="terms-tbody">
+                            <tr>
+                                <td colspan="4" style="text-align:center; padding: 40px; font-size: 1.2rem;">
+                                    <i class="fas fa-folder-open fa-3x"
+                                        style="margin-bottom:15px; opacity:0.3;"></i><br>
+                                    Esperando a que selecciones una categoría arriba...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="step-panel" id="step-3-panel" style="opacity: 0.5; pointer-events: none; transition: 0.3s;">
+            <h2><span class="fa-stack"><i class="fas fa-circle fa-stack-2x"></i><i
+                        class="fas fa-3 fa-stack-1x fa-inverse"></i></span> Finalizar y Guardar Cambios</h2>
+            <p>Una vez redactado tu contenido, descarga la actualización lista para colocarla en la nube.</p>
+
+            <button class="btn btn-success" id="btn-download" style="width: 100%; font-size: 1.3rem; padding: 20px;"><i
+                    class="fas fa-cloud-download-alt fa-lg"></i> Guardar y Descargar Actualización</button>
+
+            <div id="download-instructions">
+                <h3><i class="fas fa-check-circle"></i> ¡Magnífico! Archivo listo.</h3>
+                <p>El sistema armó todo el código automáticamente y descargó un archivo a tu computadora. Para que tu
+                    web muestre estos cambios para el público, solo debes enseñarle el archivo a la nube.</p>
+                <ol>
+                    <li>Abre tu cuenta de <strong>GitHub</strong> y entra al proyecto <code>Glosario</code>.</li>
+                    <li>Navega hasta la carpeta llamada <strong><code>data</code></strong>.</li>
+                    <li>Dale clic al botón blanco "<strong>Add file</strong>" arriba a la derecha, y elige
+                        "<strong>Upload files</strong>".</li>
+                    <li>Arrastra el archivo que acabas de descargar ahí mismo.</li>
+                    <li>Dale clic al botón verde "<strong>Commit changes</strong>" y espera unos minutos. ¡Listo!</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Form (Window Popup) -->
+    <div class="modal" id="term-modal">
+        <div class="modal-content">
+            <h2 id="modal-title" style="color:var(--primary); margin-bottom: 5px; font-size: 1.8rem;">Formulario de
+                Redacción</h2>
+            <p style="color:var(--text-muted); margin-bottom: 25px;">Completa los campos a continuación de manera
+                natural.</p>
+
+            <div class="form-group">
+                <label>🔹 Nombre del Término:</label>
+                <input type="text" id="input-term" placeholder="Escribe aquí. Por ejemplo: Energía Cinética">
+            </div>
+
+            <div class="form-group">
+                <label>🔹 Definición / Explicación:</label>
+                <textarea id="input-def" placeholder="Redacta la definición de forma clara y concisa..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>🔹 Menciones / Temas Relacionados (Opcional):</label>
+                <span class="helper-text" style="color:var(--warning); font-weight:bold; margin-bottom:10px;"><i
+                        class="fas fa-info-circle"></i> ¿Hay otros términos similares? Escríbelos separados por
+                    comas.</span>
+                <input type="text" id="input-related" placeholder="Ejemplo: Energía, Movimiento, Velocidad">
+            </div>
+
+            <!-- Hidden inputs used by the script logic mapping -->
+            <input type="hidden" id="input-letter">
+            <input type="hidden" id="input-index">
+
+            <div class="modal-actions">
+                <button class="btn btn-cancel" id="btn-cancel"><i class="fas fa-times"></i> Descartes
+                    (Cancelar)</button>
+                <button class="btn btn-primary" id="btn-save"><i class="fas fa-check"></i> Terminar Redacción</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theming Engine Logic (Shared across suite)
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtns = document.querySelectorAll('.theme-btn');
+            themeBtns.forEach(btn => {
+                if (btn.getAttribute('data-set-theme') === currentTheme) btn.classList.add('active');
+
+                btn.addEventListener('click', () => {
+                    const newTheme = btn.getAttribute('data-set-theme');
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                    themeBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+        });
+
+        // CMS Logic
+        const categorySelect = document.getElementById('category-select');
+        const termsTbody = document.getElementById('terms-tbody');
+        const btnAdd = document.getElementById('btn-add');
+        const btnDownload = document.getElementById('btn-download');
+        const termCountBadge = document.getElementById('term-count-badge');
+        const instArea = document.getElementById('download-instructions');
+        const step2 = document.getElementById('step-2-panel');
+        const step3 = document.getElementById('step-3-panel');
+
+        // Modal
+        const modal = document.getElementById('term-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const inputTerm = document.getElementById('input-term');
+        const inputLetter = document.getElementById('input-letter');
+        const inputDef = document.getElementById('input-def');
+        const inputRelated = document.getElementById('input-related');
+        const inputIndex = document.getElementById('input-index');
+        const btnCancel = document.getElementById('btn-cancel');
+        const btnSave = document.getElementById('btn-save');
+
+        let currentTerms = [];
+        let currentFileName = "";
+
+        categorySelect.addEventListener('change', async (e) => {
+            const url = e.target.value;
+            instArea.style.display = 'none';
+
+            if (!url) return;
+
+            try {
+                currentFileName = url.split('/').pop();
+                const res = await fetch(url);
+                if (!res.ok) throw new Error("File not found");
+                currentTerms = await res.json();
+
+                sortTerms();
+                renderTable();
+
+                // Unlock next steps
+                step2.style.opacity = '1'; step2.style.pointerEvents = 'auto';
+                step3.style.opacity = '1'; step3.style.pointerEvents = 'auto';
+                termCountBadge.style.display = 'inline-block';
+            } catch (error) {
+                console.error(error);
+                termsTbody.innerHTML = `<tr><td colspan="4" style="color:var(--accent); text-align:center; padding:20px;">Error al leer el archivo.</td></tr>`;
+            }
+        });
+
+        function sortTerms() { currentTerms.sort((a, b) => a.term.localeCompare(b.term, 'es')); }
+
+        function renderTable() {
+            termCountBadge.textContent = `${currentTerms.length} términos cargados en memoria`;
+            if (currentTerms.length === 0) {
+                termsTbody.innerHTML = `<tr><td colspan="4" style="text-align:center; padding:30px;">Esta categoría está vacía. ¡Anímate a agregar el primero!</td></tr>`;
+                return;
+            }
+
+            let html = '';
+            currentTerms.forEach((t, i) => {
+                let relatedHtml = (t.related && t.related.length > 0)
+                    ? t.related.map(r => `<span class="term-related-tag">${r}</span>`).join('')
+                    : '<span style="color:var(--text-muted);">Sin extras</span>';
+
+                let defPreview = t.definition.length > 150 ? t.definition.substring(0, 150) + '...' : t.definition;
+
+                html += `
+                <tr>
+                    <td style="font-weight:bold; color:var(--secondary); font-size:1.1rem; vertical-align: middle;">${t.term}</td>
+                    <td style="vertical-align: middle; line-height: 1.5;">${defPreview}</td>
+                    <td style="vertical-align: middle;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center;">
+                            ${relatedHtml}
+                        </div>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <div class="actions">
+                            <button class="btn-icon edit" onclick="editTerm(${i})" title="Modificar"><i class="fas fa-pencil-alt fa-lg"></i></button>
+                            <button class="btn-icon delete" onclick="deleteTerm(${i})" title="Borrar"><i class="fas fa-trash-alt fa-lg"></i></button>
+                        </div>
+                    </td>
+                </tr>`;
+            });
+            termsTbody.innerHTML = html;
+        }
+
+        // Add
+        btnAdd.addEventListener('click', () => {
+            modalTitle.textContent = "💻 Redactar un Nuevo Término";
+            inputTerm.value = ""; inputLetter.value = ""; inputDef.value = ""; inputRelated.value = ""; inputIndex.value = -1;
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden"; // Prevent background scroll
+        });
+
+        // Edit
+        window.editTerm = (index) => {
+            const t = currentTerms[index];
+            modalTitle.textContent = "✏️ Editar Redacción";
+            inputTerm.value = t.term;
+            inputLetter.value = t.letter;
+            inputDef.value = t.definition;
+            inputRelated.value = t.related ? t.related.join(', ') : '';
+            inputIndex.value = index;
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        };
+
+        // Delete
+        window.deleteTerm = (index) => {
+            if (confirm(`⚠ ¿Estás seguro/a de que quieres borrar para siempre la definición de "${currentTerms[index].term}"?`)) {
+                currentTerms.splice(index, 1);
+                sortTerms();
+                renderTable();
+            }
+        };
+
+        btnCancel.addEventListener('click', () => { modal.style.display = "none"; document.body.style.overflow = "auto"; });
+
+        // Auto uppercase logic for the hidden letter field
+        inputTerm.addEventListener('input', () => {
+            if (inputTerm.value.trim() !== '') {
+                const cleanStr = inputTerm.value.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                inputLetter.value = cleanStr.charAt(0).toUpperCase();
+            }
+        });
+
+        // Save Form
+        btnSave.addEventListener('click', () => {
+            const term = inputTerm.value.trim();
+            const letter = inputLetter.value.trim().toUpperCase() || term.charAt(0).toUpperCase();
+            const def = inputDef.value.trim();
+            const relatedStr = inputRelated.value.trim();
+            const idx = parseInt(inputIndex.value);
+
+            if (!term || !def) {
+                alert("Por favor, asegúrate de escribir tanto el nombre del término como su explicación.");
+                return;
+            }
+
+            const relatedArray = relatedStr ? relatedStr.split(',').map(s => s.trim()).filter(s => s) : [];
+
+            const newObj = { term: term, definition: def, letter: letter, related: relatedArray };
+
+            if (idx === -1) currentTerms.push(newObj);
+            else currentTerms[idx] = newObj;
+
+            sortTerms();
+            renderTable();
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        });
+
+        // Download Array as JSON
+        btnDownload.addEventListener('click', () => {
+            if (currentTerms.length === 0) return;
+            const dataStr = JSON.stringify(currentTerms, null, 2);
+            const blob = new Blob([dataStr], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = currentFileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            instArea.style.display = 'block';
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
+
+    </script>
+</body>
+
+</html>
