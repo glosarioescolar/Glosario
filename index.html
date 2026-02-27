@@ -93,10 +93,29 @@
         }
 
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            background-color: var(--bg-body);
+            color: var(--text-main);
             line-height: 1.6;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: var(--bg-gradient);
+            transition: var(--transition);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-body);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
         }
 
         .container {
@@ -849,113 +868,6 @@
             transform: translateY(0);
         }
 
-        /* Extreme Mobile Optimizations & Robustness */
-        @media (max-width: 600px) {
-            body {
-                touch-action: manipulation;
-                /* Prevents double-tap zoom delay */
-            }
-
-            /* Prevent iOS input auto-zoom by forcing 16px */
-            input[type="text"],
-            input[type="search"] {
-                font-size: 16px !important;
-            }
-
-            /* Increase touch targets */
-            .search-container button {
-                padding: 12px 20px;
-                min-height: 44px;
-            }
-
-            #clear-search {
-                padding: 10px;
-                min-width: 44px;
-                min-height: 44px;
-                right: 120px;
-            }
-
-            .alphabet-nav a {
-                min-width: 44px;
-                min-height: 44px;
-                line-height: 44px;
-            }
-
-            .footer-links a {
-                min-height: 44px;
-            }
-
-            /* Robustness: Prevent text overflow */
-            .term-card p,
-            .category-description p {
-                word-wrap: break-word;
-                overflow-wrap: break-word;
-                hyphens: auto;
-            }
-
-            /* Modal tweaks for small screens */
-            .modal-content,
-            .contact-modal .modal-content {
-                width: 95%;
-                padding: 20px 15px;
-                margin: 10px;
-                max-height: 90vh;
-                overflow-y: auto;
-            }
-
-            .contact-email {
-                flex-direction: column;
-                gap: 15px;
-                word-break: break-all;
-            }
-
-            .copy-btn {
-                width: 100%;
-                min-height: 44px;
-            }
-        }
-
-        /* Theming Core Styles */
-        body {
-            background-color: var(--bg-body);
-            background: var(--bg-gradient);
-            color: var(--text-main);
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-
-        header {
-            background: var(--header-bg);
-            color: var(--header-text);
-        }
-
-        .search-section,
-        .categories-section,
-        .terms-section,
-        .category-header {
-            background-color: var(--bg-card);
-            border-color: var(--border-color);
-            box-shadow: var(--box-shadow);
-        }
-
-        .category-card {
-            background: var(--bg-card);
-            border-color: var(--border-color);
-            box-shadow: var(--box-shadow);
-            align-items: center !important;
-            text-align: center !important;
-        }
-
-        .category-card:hover {
-            background: var(--bg-card-hover);
-            border-color: var(--border-hover);
-            box-shadow: var(--box-shadow-hover);
-            transform: translateY(-5px) scale(1.02);
-        }
-
-        .category-card h3 {
-            color: var(--text-main);
-        }
-
         .category-card p {
             color: var(--text-muted);
         }
@@ -1188,6 +1100,10 @@
             border-color: var(--border-color) !important;
         }
 
+        .stats-section h2 {
+            color: var(--text-main) !important;
+        }
+
         .stat-card {
             background: var(--bg-card-hover) !important;
             border-color: var(--border-color) !important;
@@ -1321,6 +1237,119 @@
         }
 
         /* ===== END COMPREHENSIVE THEME FIX ===== */
+
+        /* Extreme Mobile Optimizations & Robustness (BOTTOM OF CSS TO ENSURE PRIORITY) */
+        @media (max-width: 600px) {
+            body {
+                touch-action: manipulation;
+            }
+
+            /* Overlap fix: Move theme buttons on small screens */
+            .theme-switcher {
+                position: relative !important;
+                top: 0 !important;
+                right: 0 !important;
+                margin: 0 auto 20px auto !important;
+                justify-content: center !important;
+                gap: 15px !important;
+                display: flex !important;
+            }
+
+            .logo h1 {
+                font-size: 2.0rem !important;
+            }
+
+            .tagline {
+                font-size: 1.0rem !important;
+                margin-top: 10px !important;
+            }
+
+            /* Better mobile search bar */
+            .search-section {
+                padding: 20px 15px !important;
+                margin-top: -30px !important;
+                border-radius: 15px !important;
+            }
+
+            .search-container {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 12px !important;
+            }
+
+            .search-container input {
+                padding-right: 40px !important;
+                /* Keep space for clear btn */
+                border-radius: 12px !important;
+                font-size: 16px !important;
+                height: 50px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .search-container button#search-button {
+                position: static !important;
+                width: 100% !important;
+                border-radius: 12px !important;
+                transform: none !important;
+                padding: 12px !important;
+                height: 50px !important;
+                font-size: 1.1rem !important;
+            }
+
+            #clear-search {
+                right: 15px !important;
+                top: 25px !important;
+                padding: 5px !important;
+                min-width: 30px !important;
+                min-height: 30px !important;
+                display: none;
+                /* Controlled by JS */
+            }
+
+            #search-results {
+                max-height: 350px !important;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+                width: 100% !important;
+                left: 0 !important;
+                overflow-y: auto !important;
+            }
+
+            .alphabet-nav a {
+                min-width: 44px !important;
+                min-height: 44px !important;
+                display: flex !important;
+            }
+
+            .footer-links a {
+                min-height: 44px !important;
+                display: inline-block !important;
+                padding: 5px 0 !important;
+            }
+
+            /* Robustness: Prevent text overflow */
+            .term-card p,
+            .category-description p {
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+            }
+
+            /* Modal tweaks for small screens */
+            .modal-content {
+                width: 95% !important;
+                padding: 20px 15px !important;
+            }
+
+            .contact-email {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+
+            .copy-btn {
+                width: 100% !important;
+                margin-top: 5px !important;
+            }
+        }
     </style>
 
 
@@ -1758,21 +1787,16 @@
 
                 if (results.length > 0) {
                     let html = '';
-                    results.slice(0, 10).forEach(term => {
+                    results.forEach(term => {
+                        const termId = `term-${term.term.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
                         html += `
-                        <div class="search-result-item" data-term="${term.term}" data-category="${term.categoryPage}">
+                        <div class="search-result-item" data-term-id="${termId}" data-category-url="${term.categoryPage}">
                             <h3>${term.term}</h3>
                             <p>${term.definition.substring(0, 100)}...</p>
-                            <span class="category">${term.category}</span>
+                            <span class="category" style="background: ${term.categoryColor}">${term.category}</span>
                         </div>
                         `;
                     });
-
-                    if (results.length > 10) {
-                        html += `<div class="search-result-item" style="text-align: center; font-style: italic;">
-                            ${results.length - 10} resultados más...
-                        </div>`;
-                    }
 
                     searchResults.innerHTML = html;
                     searchResults.style.display = 'block';
@@ -1780,9 +1804,9 @@
                     // Agregar evento a los resultados
                     document.querySelectorAll('.search-result-item').forEach(item => {
                         item.addEventListener('click', function () {
-                            const term = this.getAttribute('data-term');
-                            const categoryPage = this.getAttribute('data-category');
-                            window.location.href = `${categoryPage}?highlight=${encodeURIComponent(term)}`;
+                            const termId = this.getAttribute('data-term-id');
+                            const categoryUrl = this.getAttribute('data-category-url');
+                            window.location.href = `${categoryUrl}#${termId}`;
                         });
                     });
                 } else {
