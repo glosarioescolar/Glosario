@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estación Meteorológica — 10/03/2026</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f1117;
+            --bg-secondary: #1a1d2e;
+            --bg-card: #1e2235;
+            --bg-card-hover: #252a40;
+            --text-primary: #e8eaf6;
+            --text-secondary: #9ea3c2;
+            --accent-1: #6c63ff;
+            --accent-2: #00d9ff;
+            --accent-3: #ff6b9d;
+            --accent-4: #ffd93d;
+            --accent-5: #6bff8e;
+            --accent-6: #ff8a65;
+            --border: rgba(108, 99, 255, 0.15);
+            --glow: rgba(108, 99, 255, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--bg-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+        .loading-overlay.hidden { opacity: 0; pointer-events: none; }
+
+        .spinner {
+            width: 60px; height: 60px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent-1);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .loading-text {
+            margin-top: 20px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            letter-spacing: 0.03em;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 28px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, var(--glow) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-2), var(--accent-1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+        header p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 6px;
+            position: relative;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            padding: 24px 40px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px 22px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+        .stat-card .label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .stat-card .value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+        .stat-card .unit {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .dashboard {
+            padding: 10px 40px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+        .chart-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+        }
+        .chart-card.full-width {
+            grid-column: 1 / -1;
+        }
+        .chart-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .chart-card h3 .icon {
+            width: 32px; height: 32px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 320px;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard { grid-template-columns: 1fr; padding: 10px 16px 30px; }
+            .stats-bar { padding: 16px; }
+            header { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+        <div class="loading-text">Cargando datos de la estación…</div>
+    </div>
+
+    <header>
+        <h1>🌦️ Estación Meteorológica</h1>
+        <p>Datos del registro — 10 de Marzo de 2026</p>
+    </header>
+
+    <div class="stats-bar" id="statsBar"></div>
+
+    <div class="dashboard" id="dashboard">
+        <div class="chart-card full-width">
+            <h3><span class="icon" style="background:rgba(108,99,255,0.15);color:var(--accent-1)">🌡️</span> Temperaturas de Módulos (Akytec)</h3>
+            <div class="chart-container"><canvas id="chartTemp"></canvas></div>
+        </div>
+        <div class="chart-card">
+            <h3><span class="icon" style="background:rgba(0,217,255,0.15);color:var(--accent-2)">☀️</span> Irradiancia</h3>
+            <div class="chart-container"><canvas id="chartIrr"></canvas></div>
+        </div>
+        <div class="chart-card">
+            <h3><span class="icon" style="background:rgba(255,107,157,0.15);color:var(--accent-3)">🌡️</span> Temperatura Ambiente y Punto de Rocío</h3>
+            <div class="chart-container"><canvas id="chartAmbient"></canvas></div>
+        </div>
+        <div class="chart-card">
+            <h3><span class="icon" style="background:rgba(255,217,61,0.15);color:var(--accent-4)">💨</span> Velocidad del Viento</h3>
+            <div class="chart-container"><canvas id="chartWind"></canvas></div>
+        </div>
+        <div class="chart-card">
+            <h3><span class="icon" style="background:rgba(107,255,142,0.15);color:var(--accent-5)">💧</span> Humedad Relativa</h3>
+            <div class="chart-container"><canvas id="chartHum"></canvas></div>
+        </div>
+        <div class="chart-card full-width">
+            <h3><span class="icon" style="background:rgba(255,138,101,0.15);color:var(--accent-6)">🔬</span> Presión Atmosférica</h3>
+            <div class="chart-container"><canvas id="chartPressure"></canvas></div>
+        </div>
+    </div>
+
+    <script>
+    // Chart.js global defaults
+    Chart.defaults.color = '#9ea3c2';
+    Chart.defaults.borderColor = 'rgba(108,99,255,0.08)';
+    Chart.defaults.font.family = 'Inter';
+
+    const FILE = 'elog20260310.csv';
+
+    async function loadCSV() {
+        const resp = await fetch(FILE);
+        const text = await resp.text();
+        const lines = text.trim().split('\n');
+        const headers = lines[0].split(',').map(h => h.trim());
+
+        const colIdx = {};
+        headers.forEach((h, i) => colIdx[h] = i);
+
+        // Resample: take every 60th row (~1 point per minute)
+        const STEP = 60;
+        const data = [];
+        for (let i = 1; i < lines.length; i += STEP) {
+            const cols = lines[i].split(',');
+            if (cols.length < headers.length) continue;
+            const timeParts = cols[0].trim();
+            // Parse "10/03/2026 HH:MM:SS"
+            const [datePart, tp] = timeParts.split(' ');
+            const [day, month, year] = datePart.split('/');
+            const dt = new Date(`${year}-${month}-${day}T${tp}`);
+            if (isNaN(dt)) continue;
+            const row = { time: dt };
+            for (let j = 1; j < headers.length; j++) {
+                const v = cols[j] ? cols[j].trim() : '';
+                row[headers[j]] = v === '' ? null : parseFloat(v);
+            }
+            data.push(row);
+        }
+        return { data, headers };
+    }
+
+    function col(data, key) {
+        return data.map(d => ({ x: d.time, y: d[key] })).filter(d => d.y !== null && !isNaN(d.y));
+    }
+
+    function avg(data, key) {
+        const vals = data.map(d => d[key]).filter(v => v !== null && !isNaN(v));
+        return vals.length ? (vals.reduce((a,b) => a+b, 0) / vals.length) : 0;
+    }
+    function max(data, key) {
+        const vals = data.map(d => d[key]).filter(v => v !== null && !isNaN(v));
+        return vals.length ? Math.max(...vals) : 0;
+    }
+    function min(data, key) {
+        const vals = data.map(d => d[key]).filter(v => v !== null && !isNaN(v));
+        return vals.length ? Math.min(...vals) : 0;
+    }
+
+    function makeChart(canvasId, datasets, yLabel, yMin, yMax) {
+        const ctx = document.getElementById(canvasId).getContext('2d');
+        return new Chart(ctx, {
+            type: 'line',
+            data: { datasets },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: {
+                        labels: { usePointStyle: true, pointStyle: 'circle', padding: 16, font: { size: 11 } }
+                    },
+                    tooltip: {
+                        backgroundColor: '#1e2235',
+                        titleColor: '#e8eaf6',
+                        bodyColor: '#9ea3c2',
+                        borderColor: 'rgba(108,99,255,0.3)',
+                        borderWidth: 1,
+                        cornerRadius: 10,
+                        padding: 12
+                    }
+                },
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: { unit: 'hour', displayFormats: { hour: 'HH:mm' } },
+                        title: { display: true, text: 'Hora', font: { size: 11 } },
+                        grid: { color: 'rgba(108,99,255,0.06)' }
+                    },
+                    y: {
+                        title: { display: true, text: yLabel, font: { size: 11 } },
+                        min: yMin,
+                        max: yMax,
+                        grid: { color: 'rgba(108,99,255,0.06)' }
+                    }
+                },
+                elements: {
+                    point: { radius: 0, hoverRadius: 4 },
+                    line: { tension: 0.3, borderWidth: 2 }
+                }
+            }
+        });
+    }
+
+    function addStat(label, value, unit, color) {
+        const bar = document.getElementById('statsBar');
+        const card = document.createElement('div');
+        card.className = 'stat-card';
+        card.innerHTML = `
+            <div class="label">${label}</div>
+            <div class="value" style="color:${color}">${value}<span class="unit"> ${unit}</span></div>
+        `;
+        bar.appendChild(card);
+    }
+
+    (async () => {
+        const { data } = await loadCSV();
+
+        const K = {
+            TA: 'Akytec > Temp_A', TB: 'Akytec > Temp_B',
+            TC: 'Akytec > Temp_C', TD: 'Akytec > Temp_D',
+            CC: 'GII_CleanCell > GII_CleanCell', DC: 'GII_DirtyCell > GII_DirtyCell',
+            GH: 'Piranómetro H > GII_Horizontal', GP: 'Piranómetro POA > GII_POA',
+            WD: 'MaxiMet > WindDirection', WS: 'MaxiMet > WindSpeed',
+            PA: 'MaxiMet > Presión Atmosferica', HR: 'MaxiMet > Humedad relativa',
+            TA2: 'MaxiMet > Temperatura Ambiente', PR: 'MaxiMet > Punto de Rocío',
+        };
+
+        // Stats
+        addStat('Temp. Ambiente Máx', max(data, K.TA2).toFixed(1), '°C', '#ff6b9d');
+        addStat('Temp. Ambiente Mín', min(data, K.TA2).toFixed(1), '°C', '#00d9ff');
+        addStat('Irradiancia Máx (H)', max(data, K.GH).toFixed(0), 'W/m²', '#ffd93d');
+        addStat('Vel. Viento Máx', max(data, K.WS).toFixed(2), 'm/s', '#6bff8e');
+        addStat('Humedad Prom.', avg(data, K.HR).toFixed(1), '%', '#6c63ff');
+        addStat('Presión Prom.', avg(data, K.PA).toFixed(1), 'hPa', '#ff8a65');
+
+        // Temperatures chart
+        makeChart('chartTemp', [
+            { label: 'Temp A', data: col(data, K.TA), borderColor: '#6c63ff', backgroundColor: 'rgba(108,99,255,0.08)' },
+            { label: 'Temp B', data: col(data, K.TB), borderColor: '#00d9ff', backgroundColor: 'rgba(0,217,255,0.08)' },
+            { label: 'Temp C', data: col(data, K.TC), borderColor: '#ff6b9d', backgroundColor: 'rgba(255,107,157,0.08)' },
+            { label: 'Temp D', data: col(data, K.TD), borderColor: '#ffd93d', backgroundColor: 'rgba(255,217,61,0.08)' },
+        ], 'Temperatura (°C)');
+
+        // Irradiance chart
+        makeChart('chartIrr', [
+            { label: 'GII Horizontal', data: col(data, K.GH), borderColor: '#ffd93d', backgroundColor: 'rgba(255,217,61,0.08)', fill: true },
+            { label: 'Celda Limpia', data: col(data, K.CC), borderColor: '#6bff8e', backgroundColor: 'rgba(107,255,142,0.08)' },
+            { label: 'Celda Sucia', data: col(data, K.DC), borderColor: '#ff8a65', backgroundColor: 'rgba(255,138,101,0.08)' },
+        ], 'Irradiancia (W/m²)');
+
+        // Ambient temp & dew point
+        makeChart('chartAmbient', [
+            { label: 'Temp. Ambiente', data: col(data, K.TA2), borderColor: '#ff6b9d', backgroundColor: 'rgba(255,107,157,0.1)', fill: true },
+            { label: 'Punto de Rocío', data: col(data, K.PR), borderColor: '#00d9ff', backgroundColor: 'rgba(0,217,255,0.1)', fill: true },
+        ], 'Temperatura (°C)');
+
+        // Wind speed
+        makeChart('chartWind', [
+            { label: 'Vel. Viento', data: col(data, K.WS), borderColor: '#ffd93d', backgroundColor: 'rgba(255,217,61,0.12)', fill: true },
+        ], 'Velocidad (m/s)');
+
+        // Humidity
+        makeChart('chartHum', [
+            { label: 'Humedad Relativa', data: col(data, K.HR), borderColor: '#6c63ff', backgroundColor: 'rgba(108,99,255,0.15)', fill: true },
+        ], 'Humedad (%)', 0, 100);
+
+        // Pressure
+        makeChart('chartPressure', [
+            { label: 'Presión Atmosférica', data: col(data, K.PA), borderColor: '#ff8a65', backgroundColor: 'rgba(255,138,101,0.12)', fill: true },
+        ], 'Presión (hPa)');
+
+        // Hide loading
+        document.getElementById('loadingOverlay').classList.add('hidden');
+    })();
+    </script>
+</body>
+</html>
